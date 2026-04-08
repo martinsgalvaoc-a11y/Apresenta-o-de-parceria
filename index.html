@@ -1286,10 +1286,18 @@ hr.divider {
 
 <script>
 const reveals = document.querySelectorAll('.reveal');
+<script>
+// Esse é o código que faz as seções "aparecerem" ao rolar
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-}, { threshold: 0.12 });
-reveals.forEach(r => observer.observe(r));
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('on');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>
