@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proposta de Parceria | Homefine & ZIAR DECOR</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300&family=Montserrat+Alternates:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,800&family=Montserrat+Alternates:wght@900&display=swap" rel="stylesheet">
 
 <style>
+/* ─── VARIÁVEIS ─── */
 :root {
   --red:    #8c0410;
   --black:  #262626;
@@ -15,6 +16,10 @@
   --light:  #f4f3f0;
   --border: #e0dfdc;
   --dark:   #1a1a1a;
+
+  /* tipografia */
+  --f-alt:   'Montserrat Alternates', sans-serif;
+  --f-main:  'Montserrat', sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,8 +28,8 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--white);
   color: var(--black);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-family: var(--f-main);
+  font-weight: 400;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -37,28 +42,38 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 48px;
+  padding: 14px 48px;
   background: rgba(255,250,250,0.96);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
 
-.nav-logo {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: 15px;
-  letter-spacing: 0.06em;
-  color: var(--black);
-  text-decoration: none;
+.nav-logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
-.nav-logo span { color: var(--red); }
+
+.nav-logos img {
+  height: 32px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-logos .nav-sep {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
 
 .nav-links {
   display: flex;
-  gap: 36px;
+  gap: 32px;
   list-style: none;
 }
 .nav-links a {
+  font-family: var(--f-main);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -76,18 +91,21 @@ nav {
   padding: 0 48px;
 }
 
+/* Tags de seção — Montserrat Alternates Black */
 .sec-tag {
   display: block;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.3em;
+  font-family: var(--f-alt);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--gray);
   margin-bottom: 14px;
 }
 
+/* Títulos h2 — Montserrat Alternates Black */
 h2.sec-title {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: var(--f-alt);
   font-weight: 900;
   font-size: clamp(36px, 5.5vw, 68px);
   line-height: 1.0;
@@ -96,8 +114,9 @@ h2.sec-title {
 }
 
 .sec-lead {
+  font-family: var(--f-main);
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.75;
   color: #444;
   max-width: 540px;
@@ -138,15 +157,16 @@ hr.div {
 }
 .logo-block { display: flex; flex-direction: column; gap: 3px; }
 .logo-name {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: var(--f-alt);
   font-weight: 900;
   font-size: 17px;
   letter-spacing: 0.06em;
   color: var(--black);
 }
 .logo-sub {
+  font-family: var(--f-main);
   font-size: 8px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gray);
@@ -154,8 +174,9 @@ hr.div {
 .logo-sep { width: 1px; height: 36px; background: var(--border); }
 
 .capa-tag {
-  font-size: 9px;
-  font-weight: 700;
+  font-family: var(--f-alt);
+  font-weight: 900;
+  font-size: 11px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--gray);
@@ -165,7 +186,7 @@ hr.div {
 }
 
 .capa-title {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: var(--f-alt);
   font-weight: 900;
   font-size: clamp(64px, 11vw, 120px);
   line-height: 0.92;
@@ -176,8 +197,9 @@ hr.div {
 }
 
 .capa-sub {
+  font-family: var(--f-main);
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
   color: #555;
   max-width: 460px;
@@ -187,6 +209,7 @@ hr.div {
 
 .capa-disclaimer {
   margin-top: 64px;
+  font-family: var(--f-main);
   font-size: 9px;
   font-weight: 400;
   color: #bbb;
@@ -196,7 +219,7 @@ hr.div {
   animation: fu 0.8s ease 0.8s forwards;
 }
 
-/* ─── NOVO MOMENTO ─── */
+/* ─── 01 NOVO MOMENTO ─── */
 #momento { padding: 100px 0; background: var(--white); }
 
 .momento-img {
@@ -207,10 +230,10 @@ hr.div {
   display: block;
 }
 
-/* ─── DOR ─── */
+/* ─── 02 DOR ─── */
 #dor { background: var(--black); padding: 100px 0; }
-#dor .sec-tag  { color: #555; }
-#dor h2.sec-title { color: var(--white); }
+#dor .sec-tag        { color: #555; }
+#dor h2.sec-title    { color: var(--white); }
 
 .dor-list { list-style: none; margin: 48px 0; }
 .dor-item {
@@ -219,13 +242,15 @@ hr.div {
   gap: 24px;
   padding: 26px 0;
   border-bottom: 1px solid #2e2e2e;
+  font-family: var(--f-main);
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 400;
   color: #ccc;
   line-height: 1.5;
 }
 .dor-item:first-child { border-top: 1px solid #2e2e2e; }
 .dor-n {
+  font-family: var(--f-main);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -233,16 +258,16 @@ hr.div {
   margin-top: 5px;
   flex-shrink: 0;
 }
-
 .dor-resolve {
+  font-family: var(--f-main);
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 800;
   font-style: italic;
   color: var(--white);
   margin-top: 40px;
 }
 
-/* ─── QUEM SOMOS ─── */
+/* ─── 03 QUEM SOMOS ─── */
 #somos { padding: 100px 0; background: var(--white); }
 
 .marcas {
@@ -257,12 +282,13 @@ hr.div {
 }
 .marca:last-child { border-right: none; }
 .marca-name {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: var(--f-alt);
   font-weight: 900;
   font-size: 28px;
   margin-bottom: 6px;
 }
 .marca-tag {
+  font-family: var(--f-main);
   font-size: 8px;
   font-weight: 600;
   letter-spacing: 0.22em;
@@ -270,7 +296,13 @@ hr.div {
   color: var(--gray);
   margin-bottom: 14px;
 }
-.marca-body { font-size: 13px; font-weight: 300; color: #555; line-height: 1.75; }
+.marca-body {
+  font-family: var(--f-main);
+  font-size: 13px;
+  font-weight: 400;
+  color: #555;
+  line-height: 1.75;
+}
 
 .somos-bar {
   background: var(--red);
@@ -282,20 +314,22 @@ hr.div {
   flex-wrap: wrap;
 }
 .somos-bar-item {
+  font-family: var(--f-main);
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.8);
 }
 .somos-bar-hl {
+  font-family: var(--f-main);
   font-size: 18px;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 800;
   color: var(--white);
 }
 
-/* ─── ENTREGAMOS ─── */
+/* ─── 04 O QUE ENTREGAMOS ─── */
 #entrega { padding: 100px 0; background: var(--light); }
 
 .entrega-grid {
@@ -312,10 +346,11 @@ hr.div {
 }
 .e-card:nth-child(2n) { border-right: none; }
 .e-card:nth-child(3),
-.e-card:nth-child(4) { border-bottom: none; }
+.e-card:nth-child(4)  { border-bottom: none; }
 
 .e-icon { font-size: 26px; display: block; margin-bottom: 18px; }
 .e-tag {
+  font-family: var(--f-main);
   font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.24em;
@@ -324,13 +359,22 @@ hr.div {
   margin-bottom: 6px;
 }
 .e-name {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: var(--f-alt);
   font-weight: 900;
   font-size: 22px;
   margin-bottom: 10px;
 }
-.e-body { font-size: 12px; font-weight: 300; color: #666; line-height: 1.75; margin-bottom: 12px; }
+.e-body {
+  font-family: var(--f-main);
+  font-size: 12px;
+  font-weight: 400;
+  color: #666;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+/* Seção 04 — texto após "|" (acento) em Montserrat Italic */
 .e-accent {
+  font-family: var(--f-main);
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
@@ -350,20 +394,22 @@ hr.div {
   gap: 12px;
 }
 .entrega-foot-a {
+  font-family: var(--f-main);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--white);
 }
 .entrega-foot-b {
+  font-family: var(--f-main);
   font-size: 14px;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   color: #888;
 }
 
-/* ─── PROMESSA ─── */
+/* ─── 05 NOSSA PROMESSA ─── */
 #promessa { padding: 100px 0; background: var(--white); }
 
 .p-grid {
@@ -382,10 +428,32 @@ hr.div {
 .p-card:nth-child(3),
 .p-card:nth-child(4)  { border-bottom: none; }
 
-.p-num  { font-size: 8px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
-.p-name { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 24px; margin-bottom: 10px; }
-.p-body { font-size: 12px; font-weight: 300; color: #666; line-height: 1.75; margin-bottom: 12px; }
+.p-num {
+  font-family: var(--f-main);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 6px;
+}
+.p-name {
+  font-family: var(--f-alt);
+  font-weight: 900;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.p-body {
+  font-family: var(--f-main);
+  font-size: 12px;
+  font-weight: 400;
+  color: #666;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+/* Seção 05 — texto após "|" (acento) em Montserrat Italic */
 .p-accent {
+  font-family: var(--f-main);
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
@@ -395,10 +463,10 @@ hr.div {
   line-height: 1.6;
 }
 
-/* ─── PORTFÓLIO ─── */
+/* ─── 06 PORTFÓLIO ─── */
 #portfolio { padding: 100px 0; background: var(--black); }
-#portfolio .sec-tag   { color: #555; }
-#portfolio h2.sec-title { color: var(--white); }
+#portfolio .sec-tag      { color: #555; }
+#portfolio h2.sec-title  { color: var(--white); }
 
 .p-grid-fotos {
   display: grid;
@@ -426,6 +494,7 @@ hr.div {
   bottom: 0; left: 0; right: 0;
   padding: 14px 16px;
   background: linear-gradient(transparent, rgba(0,0,0,0.65));
+  font-family: var(--f-main);
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -434,28 +503,25 @@ hr.div {
 }
 
 /* ─── VÍDEOS ─── */
-#videos { padding: 100px 0; background: #1a1a1a; }
-#videos .sec-tag    { color: #555; }
-#videos h2.sec-title { color: var(--white); }
+#videos { padding: 100px 0; background: var(--dark); }
+#videos .sec-tag      { color: #555; }
+#videos h2.sec-title  { color: var(--white); }
 
 .v-lead {
+  font-family: var(--f-main);
   font-size: 15px;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   color: #666;
   margin-bottom: 56px;
 }
-
 .v-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   justify-items: center;
 }
-.v-wrap {
-  width: 100%;
-  max-width: 300px;
-}
+.v-wrap { width: 100%; max-width: 300px; }
 .v-player {
   border-radius: 18px;
   overflow: hidden;
@@ -464,14 +530,10 @@ hr.div {
   width: 100%;
   aspect-ratio: 9/16;
 }
-.v-player iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
+.v-player iframe { width: 100%; height: 100%; border: none; display: block; }
 .v-label {
   margin-top: 14px;
+  font-family: var(--f-main);
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -480,58 +542,22 @@ hr.div {
   text-align: center;
 }
 
-/* ─── SHOWROOM ─── */
+/* ─── 07 SHOWROOM + CONVITE ─── */
 #showroom { padding: 100px 0; background: var(--black); }
-#showroom .sec-tag { color: #555; }
-#showroom h2.sec-title { color: var(--white); }
+#showroom .sec-tag      { color: #555; }
+#showroom h2.sec-title  { color: var(--white); }
 
 .sh-text {
-    font-size: 15px;
-    font-weight: 300;
-    color: #aaa;
-    line-height: 1.8;
-    max-width: 520px;
-    margin-bottom: 8px;
-    font-family: 'Montserrat', sans-serif !important; /* Fonte Montserrat Bold */
+  font-family: var(--f-main);
+  font-size: 15px;
+  font-weight: 400;
+  color: #aaa;
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: 8px;
 }
-
-/* NOVO LAYOUT: 2 em cima, 1 embaixo */
-.div-sh-renders {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-}
-
-.row-sh-top {
-    display: flex;
-    gap: 15px;
-}
-
-.row-sh-top .div-sh-render {
-    flex: 1;
-}
-
-.row-sh-bottom {
-    width: 100%;
-}
-
-.row-sh-bottom .div-sh-render {
-    width: 100%;
-    aspect-ratio: 2 / 1; /* Deixa a cozinha larga */
-}
-
-.div-sh-render img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-/* Ajuste das fontes globais que você pediu */
-h2, .sec-title { font-family: 'Montserrat Alternates', sans-serif !important; }
-h1, h3, .assinatura { font-family: 'Montserrat', sans-serif !important; font-weight: 800; }
 .sh-sub {
+  font-family: var(--f-main);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.24em;
@@ -540,17 +566,24 @@ h1, h3, .assinatura { font-family: 'Montserrat', sans-serif !important; font-wei
   margin-bottom: 40px;
 }
 
-.sh-renders {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* Layout renders: 2 em cima, 1 embaixo */
+.sh-renders-wrap {
+  display: flex;
+  flex-direction: column;
   gap: 4px;
   margin-bottom: 56px;
 }
+.sh-renders-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
 .sh-render {
-  aspect-ratio: 4/3;
   overflow: hidden;
   background: #222;
+  aspect-ratio: 4/3;
 }
+.sh-render.wide { aspect-ratio: 2/1; }
 .sh-render img {
   width: 100%;
   height: 100%;
@@ -560,37 +593,37 @@ h1, h3, .assinatura { font-family: 'Montserrat', sans-serif !important; font-wei
   transition: filter 0.4s;
 }
 .sh-render:hover img { filter: brightness(1); }
-.sh-render.placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #444;
-}
 
+/* Bloco convite — centralizado */
 .sh-convite {
   border: 1px solid #2a2a2a;
-  padding: 40px;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 .sh-cv-title {
-  font-size: 24px;
+  font-family: var(--f-main);
+  font-size: 22px;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--white);
   line-height: 1.4;
   margin-bottom: 14px;
+  max-width: 520px;
 }
 .sh-cv-body {
+  font-family: var(--f-main);
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   color: #888;
   line-height: 1.8;
   margin-bottom: 28px;
+  max-width: 480px;
 }
 .sh-cv-date {
+  font-family: var(--f-main);
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.22em;
@@ -602,7 +635,7 @@ h1, h3, .assinatura { font-family: 'Montserrat', sans-serif !important; font-wei
   display: inline-block;
   border: 1px solid #555;
   color: var(--white);
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--f-main);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -617,14 +650,22 @@ h1, h3, .assinatura { font-family: 'Montserrat', sans-serif !important; font-wei
   border-color: var(--white);
 }
 
-/* ─── COMO FUNCIONA ─── */
-#funciona { padding: 100px 0; background: var(--white); }
+/* ─── 08 COMO FUNCIONA ─── */
+#funciona { padding: 100px 0 0; background: var(--white); }
 
+/* Tarja preta ao redor da timeline */
+.tl-band {
+  background: var(--black);
+  padding: 48px 0;
+  margin: 48px 0 0;
+}
+.tl-band .wrap { padding: 0 48px; }
+
+/* Timeline horizontal — 3 colunas */
 .tl {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0;
-  margin: 56px 0 64px;
   position: relative;
 }
 .tl::before {
@@ -634,7 +675,7 @@ h1, h3, .assinatura { font-family: 'Montserrat', sans-serif !important; font-wei
   left: calc(16.66% + 10px);
   right: calc(16.66% + 10px);
   height: 1px;
-  background: var(--black);
+  background: #555;
 }
 .tl-s { padding-right: 28px; position: relative; }
 .tl-s:last-child { padding-right: 0; }
@@ -642,35 +683,74 @@ h1, h3, .assinatura { font-family: 'Montserrat', sans-serif !important; font-wei
 .tl-dot {
   width: 34px;
   height: 34px;
-  border: 1px solid var(--black);
+  border: 1px solid #888;
   border-radius: 50%;
-  background: var(--white);
+  background: var(--black);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 13px;
+  color: var(--white);
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
 }
-.tl-tag  { font-size: 8px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
-.tl-name { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 20px; margin-bottom: 10px; line-height: 1.1; }
-.tl-body { font-size: 11px; font-weight: 300; color: #666; line-height: 1.75; margin-bottom: 10px; }
-.tl-acc  { font-size: 11px; font-style: italic; color: var(--black); border-left: 2px solid var(--black); padding-left: 8px; line-height: 1.6; }
+.tl-tag {
+  font-family: var(--f-main);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 6px;
+}
+.tl-name {
+  font-family: var(--f-alt);
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 10px;
+  line-height: 1.1;
+  color: var(--white);
+}
+.tl-body {
+  font-family: var(--f-main);
+  font-size: 11px;
+  font-weight: 400;
+  color: #888;
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+.tl-acc {
+  font-family: var(--f-main);
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 400;
+  color: #ccc;
+  border-left: 2px solid #555;
+  padding-left: 8px;
+  line-height: 1.6;
+}
 
 .fn-close {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: var(--f-alt);
   font-weight: 900;
   font-size: clamp(22px, 3.5vw, 36px);
   color: var(--black);
   line-height: 1.15;
-  margin-bottom: 64px;
+  margin: 56px 0 64px;
 }
 
 /* ─── COMISSIONAMENTO ─── */
 .comiss { border-top: 1px solid var(--border); padding-top: 56px; }
-.comiss-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gray); margin-bottom: 32px; }
-
+.comiss-tag {
+  font-family: var(--f-alt);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 32px;
+}
 .comiss-body {
   display: flex;
   align-items: flex-start;
@@ -680,113 +760,62 @@ h1, h3, .assinatura { font-family: 'Montserrat', sans-serif !important; font-wei
   flex-wrap: wrap;
 }
 .comiss-pct {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: var(--f-alt);
   font-weight: 900;
   font-size: clamp(72px, 13vw, 130px);
   line-height: 0.85;
   color: var(--red);
 }
 .comiss-info { flex: 1; min-width: 200px; padding-top: 12px; }
-.comiss-desc { font-size: 13px; font-weight: 300; color: #555; line-height: 1.7; margin-bottom: 6px; }
-.comiss-cats { font-size: 8px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray); margin-bottom: 28px; }
+.comiss-desc {
+  font-family: var(--f-main);
+  font-size: 13px;
+  font-weight: 400;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 6px;
+}
+.comiss-cats {
+  font-family: var(--f-main);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 28px;
+}
 .comiss-rows { display: flex; flex-direction: column; gap: 12px; }
 .comiss-row { display: flex; gap: 16px; align-items: baseline; }
-.comiss-lbl { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); min-width: 80px; }
-.comiss-val { font-size: 13px; font-weight: 500; color: var(--black); }
-
+.comiss-lbl {
+  font-family: var(--f-main);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray);
+  min-width: 80px;
+}
+.comiss-val {
+  font-family: var(--f-main);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--black);
+}
 .comiss-close {
+  font-family: var(--f-main);
   font-size: 15px;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--black);
   border-top: 1px solid var(--border);
   padding-top: 24px;
 }
-  /* CENTRALIZAR BLOCO DE INAUGURAÇÃO */
-.sh-convite {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    width: 100%;
-}
 
-.sh-cv-title, .sh-cv-body {
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-.btn-avisar {
-    display: inline-block;
-    margin-top: 20px;
-    width: fit-content;
-}
-/* CENTRALIZAR BLOCO DE INAUGURAÇÃO */
-.sh-convite {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    width: 100%;
-}
-
-.sh-cv-title, .sh-cv-body {
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-.btn-avisar {
-    display: inline-block;
-    margin-top: 20px;
-    width: fit-content;
-}  
-/* --- AJUSTE DE FONTES E PROPORÇÃO --- */
-/* Títulos de seção (01, 02...) e nomes grandes no CTA */
-h2, .sec-title, .cta-name { 
-    font-family: 'Montserrat Alternates', sans-serif !important; 
-}
-
-/* Seu nome (Camila Renata), "Olá", subtítulos e textos */
-h1, h3, .sh-text, .assinatura, .sh-cv-title, .sh-cv-body { 
-    font-family: 'Montserrat', sans-serif !important; 
-    font-weight: 800 !important; 
-}
-
-/* Organização das fotos: 2 em cima, 1 embaixo */
-.div-sh-renders { display: flex; flex-direction: column; gap: 15px; width: 100%; }
-.row-sh-top { display: flex; gap: 15px; width: 100%; }
-.row-sh-top .div-sh-render { flex: 1; }
-.row-sh-bottom { width: 100%; }
-.row-sh-bottom .div-sh-render img { aspect-ratio: 16 / 9; object-fit: cover; }
-.div-sh-render img { width: 100%; display: block; border-radius: 4px; }
-  /* --- CORREÇÃO DE FONTES E LAYOUT --- */
-
-/* 1. Fontes: Alternates só nos títulos, Bold no resto */
-h2, .sec-title, .cta-name { 
-    font-family: 'Montserrat Alternates', sans-serif !important; 
-}
-
-h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc { 
-    font-family: 'Montserrat', sans-serif !important; 
-    font-weight: 800 !important; 
-}
-
-/* 2. Layout Showroom: 2 em cima, 1 embaixo */
-.div-sh-renders { display: flex; flex-direction: column; gap: 15px; width: 100%; }
-.row-sh-top { display: flex; gap: 15px; width: 100%; }
-.row-sh-top .div-sh-render { flex: 1; }
-.row-sh-bottom { width: 100%; }
-.row-sh-bottom .div-sh-render { width: 100%; aspect-ratio: 2 / 1; }
-.div-sh-render img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
 /* ─── CTA ─── */
 #cta { padding: 120px 48px 100px; max-width: 940px; margin: 0 auto; }
 
 .cta-name {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: var(--f-alt);
   font-weight: 900;
   font-size: clamp(52px, 9vw, 96px);
   line-height: 0.92;
@@ -794,14 +823,14 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
   margin-bottom: 28px;
 }
 .cta-text {
+  font-family: var(--f-main);
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 400;
   color: #444;
   line-height: 1.75;
   max-width: 480px;
   margin-bottom: 64px;
 }
-
 .cta-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -810,6 +839,7 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
 }
 .c-col { display: flex; flex-direction: column; }
 .c-name {
+  font-family: var(--f-main);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -818,8 +848,9 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
   margin-bottom: 4px;
 }
 .c-role {
+  font-family: var(--f-main);
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 800;
   color: var(--black);
   margin-bottom: 20px;
   line-height: 1.4;
@@ -832,12 +863,14 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
   border-bottom: 1px solid var(--border);
   text-decoration: none;
   color: var(--black);
+  font-family: var(--f-main);
   font-size: 12px;
   font-weight: 500;
   transition: padding-left 0.2s, color 0.2s;
 }
 .c-link:hover { padding-left: 8px; color: var(--red); }
 
+/* ─── FOOTER ─── */
 .cta-foot {
   display: flex;
   align-items: center;
@@ -845,17 +878,50 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
   padding-top: 36px;
   border-top: 1px solid var(--border);
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
 }
+
 .cta-brand {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: var(--f-alt);
   font-weight: 900;
-  font-size: 17px;
+  font-size: 15px;
   letter-spacing: 0.05em;
   color: var(--black);
 }
 .cta-brand span { color: var(--red); }
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-social a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--gray);
+  font-family: var(--f-main);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  transition: color 0.2s;
+}
+.footer-social a:hover { color: var(--black); }
+.footer-social svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+.footer-social .soc-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--border);
+}
+
 .cta-fine {
+  font-family: var(--f-main);
   font-size: 9px;
   font-weight: 400;
   color: #bbb;
@@ -878,11 +944,12 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
   #cta  { padding: 80px 20px; }
 
   .marcas, .entrega-grid, .p-grid,
-  .p-grid-fotos, .v-grid, .sh-renders,
-  .tl, .cta-cols { grid-template-columns: 1fr; }
+  .p-grid-fotos, .v-grid, .tl, .cta-cols { grid-template-columns: 1fr; }
 
+  .sh-renders-top { grid-template-columns: 1fr; }
   .tl::before { display: none; }
   .tl-s { padding-right: 0; padding-bottom: 40px; }
+  .tl-band .wrap { padding: 0 20px; }
 
   .marca { border-right: none; border-bottom: 1px solid var(--border); }
   .marca:last-child { border-bottom: none; }
@@ -893,10 +960,10 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
 
   .somos-bar { flex-direction: column; gap: 10px; }
   .entrega-foot { flex-direction: column; }
-
   .comiss-body { flex-direction: column; gap: 16px; }
   .v-wrap { max-width: 100%; }
-  .sh-renders { grid-template-columns: 1fr; }
+  .footer-social { flex-wrap: wrap; }
+  .cta-foot { flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
@@ -904,7 +971,11 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#capa">CAMILA<span>RENATA</span>.</a>
+  <div class="nav-logos">
+    <img src="images/logo-homefine.png" alt="Homefine">
+    <div class="nav-sep"></div>
+    <img src="images/logo-ziar.png" alt="ZIAR DECOR">
+  </div>
   <ul class="nav-links">
     <li><a href="#momento">Início</a></li>
     <li><a href="#entrega">Serviços</a></li>
@@ -941,8 +1012,7 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
     <h2 class="sec-title">Estamos em um<br>novo capítulo.</h2>
     <p class="sec-lead">Nova gestão. Novo showroom. Novo padrão de entrega.</p>
     <hr class="div">
-    <p style="font-size:14px;font-weight:300;color:#555;line-height:1.8;max-width:540px;">Esta apresentação chega até você porque queremos construir parcerias à altura do que estamos nos tornando.</p>
-    <!-- SUBSTITUA pelo caminho da foto da fachada -->
+    <p style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:400;color:#555;line-height:1.8;max-width:540px;">Esta apresentação chega até você porque queremos construir parcerias à altura do que estamos nos tornando.</p>
     <img class="momento-img" src="images/fachada.jpg" alt="Homefine & ZIAR DECOR" onerror="this.style.display='none'">
   </div>
 </section>
@@ -1074,7 +1144,6 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
     <span class="sec-tag">06 — Nosso Trabalho</span>
     <h2 class="sec-title">Projetos<br>Entregues.</h2>
     <div class="p-grid-fotos">
-      <!-- SUBSTITUA src pelas suas fotos reais. Nomes sugeridos abaixo. -->
       <div class="p-foto">
         <img src="images/portfolio1.jpg" alt="Projeto São Paulo" onerror="this.parentElement.style.background='#2a2a2a'">
         <div class="p-foto-cap">São Paulo · Cozinha sob medida</div>
@@ -1124,24 +1193,26 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
 
 <!-- 07 SHOWROOM + CONVITE -->
 <section id="showroom">
-  <div class="div-sh-renders">
-    <div class="row-sh-top">
-        <div class="div-sh-render">
-            <img src="foto1.jpeg" alt="Render Showroom 01">
+  <div class="wrap reveal">
+    <span class="sec-tag">07 — Showroom + Convite</span>
+    <h2 class="sec-title">Antes de abrir para o público,<br>queremos abrir para você.</h2>
+    <p class="sh-text">Estes são alguns dos ambientes sendo preparados para o nosso novo showroom — um espaço projetado para ser a extensão do seu atendimento.</p>
+    <p class="sh-sub">Ainda não abrimos. Mas já queremos que você veja.</p>
+
+    <div class="sh-renders-wrap">
+      <div class="sh-renders-top">
+        <div class="sh-render">
+          <img src="foto1.jpeg" alt="Render Showroom 01">
         </div>
-        <div class="div-sh-render">
-            <img src="foto2.jpeg" alt="Render Showroom 02">
+        <div class="sh-render">
+          <img src="foto_2.jpeg" alt="Render Showroom 02">
         </div>
+      </div>
+      <div class="sh-render wide">
+        <img src="foto_3.jpeg" alt="Render Showroom 03">
+      </div>
     </div>
-    
-    <div class="row-sh-bottom">
-        <div class="div-sh-render wide-render">
-            <img src="foto3.jpeg" alt="Render Showroom 03">
-        </div>
-    </div>
-</div>
-      
-    </div>
+
     <div class="sh-convite">
       <div class="sh-cv-title">Inauguração exclusiva para parceiros.</div>
       <div class="sh-cv-body">Um encontro íntimo — sem protocolo, sem pauta.<br>Para que você conheça o espaço antes de todo mundo.</div>
@@ -1156,29 +1227,33 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
   <div class="wrap reveal">
     <span class="sec-tag">08 — Como Funciona</span>
     <h2 class="sec-title">Simples para você.</h2>
-    <p style="font-size:9px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--gray);margin-bottom:0;">COMPLETO PARA O SEU CLIENTE</p>
+    <p style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--gray);margin-bottom:0;">COMPLETO PARA O SEU CLIENTE</p>
 
-    <div class="tl">
-      <div class="tl-s">
-        <div class="tl-dot">↑</div>
-        <div class="tl-tag">01 — Indicação</div>
-        <div class="tl-name">Você nos apresenta.</div>
-        <div class="tl-body">Briefing em 15 minutos. Escopo definido na hora.</div>
-        <div class="tl-acc">Sem formulário. Sem burocracia.</div>
-      </div>
-      <div class="tl-s">
-        <div class="tl-dot">⊙</div>
-        <div class="tl-tag">02 — Atendimento</div>
-        <div class="tl-name">Nós cuidamos de tudo.</div>
-        <div class="tl-body">Projeto, produção, entrega e instalação.</div>
-        <div class="tl-acc">De perto ou só nos marcos.</div>
-      </div>
-      <div class="tl-s">
-        <div class="tl-dot">✓</div>
-        <div class="tl-tag">03 — Resultado</div>
-        <div class="tl-name">Entrega no prazo.</div>
-        <div class="tl-body">Cliente satisfeito. Reputação fortalecida.</div>
-        <div class="tl-acc">Sua indicação vira referência.</div>
+    <div class="tl-band">
+      <div class="wrap">
+        <div class="tl">
+          <div class="tl-s">
+            <div class="tl-dot">↑</div>
+            <div class="tl-tag">01 — Você nos Apresenta</div>
+            <div class="tl-name">Indicação</div>
+            <div class="tl-body">Passamos o Briefing juntos. Definimos escopos e os próximos passos.</div>
+            <div class="tl-acc">Sem formulário<br>sem burocracia</div>
+          </div>
+          <div class="tl-s">
+            <div class="tl-dot">⊙</div>
+            <div class="tl-tag">02 — Nós Cuidamos de Tudo</div>
+            <div class="tl-name">Atendimento</div>
+            <div class="tl-body">Projeto, orçamento, produção e instalação.</div>
+            <div class="tl-acc">De perto ou<br>só nos marcos</div>
+          </div>
+          <div class="tl-s">
+            <div class="tl-dot">✓</div>
+            <div class="tl-tag">03 — Entrega no Prazo</div>
+            <div class="tl-name">Resultado</div>
+            <div class="tl-body">Cliente satisfeito. Sua reputação intacta, e fortalecida.</div>
+            <div class="tl-acc">Sua indicação<br>vira referência</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1221,7 +1296,7 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
         <a href="https://wa.me/5511964286008" class="c-link" target="_blank">
           <span>WhatsApp</span><span>→</span>
         </a>
-        <a href="mailto:administrativo@homefinemoveis.com" class="c-link">
+        <a href="/cdn-cgi/l/email-protection#87e6e3eaeee9eef4f3f5e6f3eef1e8c7efe8eae2e1eee9e2eae8f1e2eef4a9e4e8ea" class="c-link">
           <span>E-mail</span><span>→</span>
         </a>
       </div>
@@ -1231,7 +1306,7 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
         <a href="https://wa.me/5511985300649" class="c-link" target="_blank">
           <span>WhatsApp</span><span>→</span>
         </a>
-        <a href="mailto:administrativo@homefinemoveis.com" class="c-link">
+        <a href="/cdn-cgi/l/email-protection#e8898c858186819b9c9a899c819e87a88087858d8e81868d85879e8d819bc68b8785" class="c-link">
           <span>E-mail</span><span>→</span>
         </a>
       </div>
@@ -1239,19 +1314,23 @@ h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc {
 
     <div class="cta-foot">
       <div class="cta-brand">CAMILA<span>RENATA</span>.</div>
-      <div class="cta-fine">
-        @homefinebr · @ziardecor<br>
-        Documento de autoria de Camila Renata. Não divulgar.
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/homefinebr/?hl=pt-br" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @homefinebr
+        </a>
+        <div class="soc-sep"></div>
+        <a href="https://www.instagram.com/ziardecor/?hl=pt-br" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @ziardecor
+        </a>
       </div>
+
+      <div class="cta-fine">Documento de autoria de Camila Renata.<br>Não divulgar sem consentimento.</div>
     </div>
   </div>
 </section>
 
-<script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const obs = new IntersectionOb
