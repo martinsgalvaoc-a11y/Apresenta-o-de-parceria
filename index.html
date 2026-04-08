@@ -17,942 +17,173 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
-
 body {
-  background: var(--white);
-  color: var(--black);
-  font-family: 'Barlow', sans-serif;
-  font-weight: 300;
-  overflow-x: hidden;
+  background: var(--white); color: var(--black);
+  font-family: 'Barlow', sans-serif; font-weight: 300; overflow-x: hidden;
 }
 
-/* ── HEADER NAV ── */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 40px;
-  background: rgba(248,247,244,0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 40px; background: rgba(248,247,244,0.95);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);
 }
-
-.nav-brand {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: 18px;
-  letter-spacing: 0.05em;
-  color: var(--black);
-}
-
+.nav-brand { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 18px; letter-spacing: 0.05em; color: var(--black); }
 .nav-brand span { color: var(--red); }
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gray);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: var(--black); }
 
-/* ── SECTIONS ── */
 section { width: 100%; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
+#capa { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 40px 80px; max-width: 900px; margin: 0 auto; }
+.capa-logos { display: flex; gap: 48px; align-items: center; margin-bottom: 80px; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+.logo-text { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: 0.08em; }
+.logo-sub { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-top: 2px; }
+.logo-divider { width: 1px; height: 32px; background: var(--border); }
 
-/* ── CAPA ── */
-#capa {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 120px 40px 80px;
-  max-width: 900px;
-  margin: 0 auto;
-}
+.capa-greeting { font-size: 10px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards; }
+.capa-title { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: clamp(48px, 8vw, 80px); line-height: 0.9; color: var(--black); margin-bottom: 32px; opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards; }
+.capa-sub { font-family: 'Crimson Pro', serif; font-size: 22px; font-weight: 300; color: #555; line-height: 1.5; max-width: 480px; opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards; }
+.capa-disclaimer { margin-top: 60px; font-size: 10px; color: var(--gray); line-height: 1.6; max-width: 360px; opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards; }
 
-.capa-logos {
-  display: flex;
-  gap: 48px;
-  align-items: center;
-  margin-bottom: 80px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.2s forwards;
-}
+.section-pad { padding: 100px 40px; max-width: 900px; margin: 0 auto; }
+.section-tag { font-size: 9px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; display: block; }
+.section-title { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: clamp(36px, 6vw, 64px); line-height: 0.92; color: var(--black); margin-bottom: 40px; }
+.section-lead { font-family: 'Crimson Pro', serif; font-size: 20px; font-weight: 400; line-height: 1.6; color: #333; max-width: 560px; }
+hr.divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
 
-.logo-text {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: 22px;
-  letter-spacing: 0.08em;
-}
-
-.logo-sub {
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-top: 2px;
-}
-
-.logo-divider {
-  width: 1px;
-  height: 32px;
-  background: var(--border);
-}
-
-.capa-greeting {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 16px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.4s forwards;
-}
-
-.capa-title {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: clamp(72px, 12vw, 130px);
-  line-height: 0.9;
-  color: var(--black);
-  margin-bottom: 32px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.5s forwards;
-}
-
-.capa-sub {
-  font-family: 'Crimson Pro', serif;
-  font-size: 22px;
-  font-weight: 300;
-  color: #555;
-  line-height: 1.5;
-  max-width: 480px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.7s forwards;
-}
-
-.capa-disclaimer {
-  margin-top: 60px;
-  font-size: 10px;
-  color: var(--gray);
-  line-height: 1.6;
-  max-width: 360px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease 0.9s forwards;
-}
-
-/* ── SECTION COMMON ── */
-.section-pad {
-  padding: 100px 40px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.section-tag {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 16px;
-  display: block;
-}
-
-.section-title {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: clamp(52px, 8vw, 96px);
-  line-height: 0.92;
-  color: var(--black);
-  margin-bottom: 40px;
-}
-
-.section-lead {
-  font-family: 'Crimson Pro', serif;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #333;
-  max-width: 560px;
-}
-
-hr.divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 48px 0;
-}
-
-/* ── NOVO MOMENTO ── */
 #momento { background: var(--white); }
+.momento-img { width: 100%; height: 340px; object-fit: cover; margin-top: 48px; display: block; }
 
-.momento-img {
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-  margin-top: 48px;
-  display: block;
-}
-
-/* ── DOR DO PARCEIRO ── */
 #dor { background: var(--black); color: var(--white); }
 #dor .section-title { color: var(--white); }
 #dor .section-tag { color: #666; }
+.dor-list { list-style: none; margin: 48px 0; display: flex; flex-direction: column; gap: 0; }
+.dor-item { display: flex; align-items: flex-start; gap: 24px; padding: 28px 0; border-bottom: 1px solid #2a2a2a; font-size: 18px; font-weight: 300; color: #ccc; line-height: 1.4; }
+.dor-num { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; color: #444; margin-top: 4px; flex-shrink: 0; }
+.dor-resolucao { font-family: 'Crimson Pro', serif; font-size: 24px; font-style: italic; color: var(--white); margin-top: 48px; }
 
-.dor-list {
-  list-style: none;
-  margin: 48px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.dor-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 28px 0;
-  border-bottom: 1px solid #2a2a2a;
-  font-size: 18px;
-  font-weight: 300;
-  color: #ccc;
-  line-height: 1.4;
-}
-
-.dor-num {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: #444;
-  margin-top: 4px;
-  flex-shrink: 0;
-}
-
-.dor-resolucao {
-  font-family: 'Crimson Pro', serif;
-  font-size: 24px;
-  font-style: italic;
-  color: var(--white);
-  margin-top: 48px;
-}
-
-/* ── QUEM SOMOS ── */
 #somos { background: var(--white); }
-
-.marcas-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  margin: 48px 0;
-  border: 1px solid var(--border);
-}
-
-.marca-card {
-  padding: 40px;
-  border-right: 1px solid var(--border);
-}
-
+.marcas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 48px 0; border: 1px solid var(--border); }
+.marca-card { padding: 40px; border-right: 1px solid var(--border); }
 .marca-card:last-child { border-right: none; }
-
-.marca-name {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: 36px;
-  letter-spacing: 0.05em;
-  margin-bottom: 8px;
-}
-
-.marca-desc {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 16px;
-}
-
-.marca-body {
-  font-size: 14px;
-  font-weight: 300;
-  color: #555;
-  line-height: 1.7;
-}
-
-.somos-banner {
-  background: var(--red);
-  padding: 32px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-}
-
-.banner-item {
-  font-size: 12px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.7);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
+.marca-name { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.05em; margin-bottom: 8px; }
+.marca-desc { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+.marca-body { font-size: 14px; font-weight: 300; color: #555; line-height: 1.7; }
+.somos-banner { background: var(--red); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; gap: 40px; }
+.banner-item { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.7); letter-spacing: 0.1em; text-transform: uppercase; }
 .banner-arrow { color: rgba(255,255,255,0.4); }
+.banner-highlight { font-family: 'Crimson Pro', serif; font-size: 26px; font-style: italic; color: var(--white); }
 
-.banner-highlight {
-  font-family: 'Crimson Pro', serif;
-  font-size: 26px;
-  font-style: italic;
-  color: var(--white);
-}
-
-/* ── O QUE ENTREGAMOS ── */
 #entrega { background: var(--light); }
-
-.entrega-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 48px 0;
-  border: 1px solid #ddd;
-  background: var(--white);
-}
-
-.entrega-card {
-  padding: 36px;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  position: relative;
-}
-
+.entrega-grid { display: grid; grid-template-columns: 1fr 1fr; margin: 48px 0; border: 1px solid #ddd; background: var(--white); }
+.entrega-card { padding: 36px; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; position: relative; }
 .entrega-card:nth-child(2) { border-right: none; }
 .entrega-card:nth-child(3) { border-bottom: none; }
 .entrega-card:nth-child(4) { border-right: none; border-bottom: none; }
+.entrega-icon { font-size: 28px; margin-bottom: 20px; display: block; }
+.entrega-tag { font-size: 8px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+.entrega-name { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.05em; margin-bottom: 10px; }
+.entrega-body { font-size: 12px; font-weight: 300; color: #666; line-height: 1.7; margin-bottom: 12px; }
+.entrega-accent { font-family: 'Crimson Pro', serif; font-size: 13px; font-style: italic; color: var(--black); border-left: 2px solid var(--black); padding-left: 10px; line-height: 1.6; }
+.entrega-footer { background: var(--black); padding: 24px 36px; display: flex; justify-content: space-between; align-items: center; }
+.entrega-footer-text { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; color: var(--white); text-transform: uppercase; }
+.entrega-footer-sub { font-family: 'Crimson Pro', serif; font-size: 16px; font-style: italic; color: #aaa; }
 
-.entrega-icon {
-  font-size: 28px;
-  margin-bottom: 20px;
-  display: block;
-}
-
-.entrega-tag {
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 6px;
-}
-
-.entrega-name {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: 28px;
-  letter-spacing: 0.05em;
-  margin-bottom: 10px;
-}
-
-.entrega-body {
-  font-size: 12px;
-  font-weight: 300;
-  color: #666;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-
-.entrega-accent {
-  font-family: 'Crimson Pro', serif;
-  font-size: 13px;
-  font-style: italic;
-  color: var(--black);
-  border-left: 2px solid var(--black);
-  padding-left: 10px;
-  line-height: 1.6;
-}
-
-.entrega-footer {
-  background: var(--black);
-  padding: 24px 36px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.entrega-footer-text {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--white);
-  text-transform: uppercase;
-}
-
-.entrega-footer-sub {
-  font-family: 'Crimson Pro', serif;
-  font-size: 16px;
-  font-style: italic;
-  color: #aaa;
-}
-
-/* ── NOSSA PROMESSA ── */
 #promessa { background: var(--white); }
-
-.promessa-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  margin: 48px 0;
-  border: 1px solid var(--border);
-}
-
-.promessa-card {
-  padding: 36px;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
+.promessa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 48px 0; border: 1px solid var(--border); }
+.promessa-card { padding: 36px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .promessa-card:nth-child(2n) { border-right: none; }
 .promessa-card:nth-child(5) { border-bottom: none; grid-column: 1 / -1; border-right: none; }
+.promessa-num { font-size: 8px; font-weight: 700; letter-spacing: 0.25em; color: var(--gray); text-transform: uppercase; margin-bottom: 8px; }
+.promessa-name { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 26px; margin-bottom: 10px; }
+.promessa-body { font-size: 12px; font-weight: 300; color: #666; line-height: 1.7; margin-bottom: 12px; }
+.promessa-accent { font-family: 'Crimson Pro', serif; font-size: 13px; font-style: italic; color: var(--black); border-left: 2px solid var(--black); padding-left: 10px; line-height: 1.6; }
 
-.promessa-num {
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  color: var(--gray);
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.promessa-name {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-.promessa-body {
-  font-size: 12px;
-  font-weight: 300;
-  color: #666;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-
-.promessa-accent {
-  font-family: 'Crimson Pro', serif;
-  font-size: 13px;
-  font-style: italic;
-  color: var(--black);
-  border-left: 2px solid var(--black);
-  padding-left: 10px;
-  line-height: 1.6;
-}
-
-/* ── PORTFÓLIO ── */
 #portfolio { background: var(--black); padding: 100px 0; }
-
-.portfolio-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
+.portfolio-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; }
 #portfolio .section-title { color: var(--white); }
 #portfolio .section-tag { color: #555; }
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-  margin: 48px 0;
-}
-
-.portfolio-img-wrap {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 4/3;
-  background: #222;
-}
-
-.portfolio-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s ease;
-  filter: brightness(0.85);
-}
-
+.portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 48px 0; }
+.portfolio-img-wrap { position: relative; overflow: hidden; aspect-ratio: 4/3; background: #222; }
+.portfolio-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; filter: brightness(0.85); }
 .portfolio-img-wrap:hover img { transform: scale(1.04); filter: brightness(1); }
+.portfolio-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,0.7)); font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
 
-.portfolio-caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 16px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.7));
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.8);
-}
-
-/* ── VÍDEOS ── */
-#videos { background: var(--dark); padding: 100px 0; }
-
-.videos-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-#videos .section-title { color: var(--white); }
-#videos .section-tag { color: #555; }
-
-.videos-lead {
-  font-family: 'Crimson Pro', serif;
-  font-size: 18px;
-  font-style: italic;
-  color: #888;
-  margin-bottom: 56px;
-}
-
-.videos-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  justify-items: center;
-}
-
-.video-wrap {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.6);
-}
-
-.video-label {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #555;
-  text-align: center;
-  margin-top: 16px;
-}
-
-/* ── SHOWROOM ── */
 #showroom { background: var(--black); color: var(--white); padding: 100px 0; }
-
-.showroom-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
+.showroom-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; }
 #showroom .section-title { color: var(--white); }
 #showroom .section-tag { color: #555; }
+.showroom-text { font-size: 15px; font-weight: 300; color: #aaa; line-height: 1.8; max-width: 520px; margin-bottom: 16px; }
+.showroom-sub { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #555; margin-bottom: 32px; }
+.showroom-renders { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 48px 0 56px; }
+.render-wrap { aspect-ratio: 4/3; background: #2a2a2a; display: flex; align-items: center; justify-content: center; overflow: hidden;}
+.render-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.convite-box { border: 1px solid #2a2a2a; padding: 40px; margin-top: 8px; }
+.convite-title { font-family: 'Crimson Pro', serif; font-size: 28px; font-weight: 300; font-style: italic; color: var(--white); margin-bottom: 16px; line-height: 1.3; }
+.convite-body { font-size: 13px; font-weight: 300; color: #888; line-height: 1.8; margin-bottom: 32px; }
+.convite-date { font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #555; margin-bottom: 24px; }
+.btn-convite { display: inline-block; border: 1px solid #555; color: var(--white); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 14px 32px; text-decoration: none; transition: all 0.2s; }
+.btn-convite:hover { background: var(--white); color: var(--black); border-color: var(--white); }
 
-.showroom-text {
-  font-size: 15px;
-  font-weight: 300;
-  color: #aaa;
-  line-height: 1.8;
-  max-width: 520px;
-  margin-bottom: 16px;
-}
-
-.showroom-sub {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #555;
-  margin-bottom: 32px;
-}
-
-.showroom-renders {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-  margin: 48px 0 56px;
-}
-
-.render-wrap {
-  aspect-ratio: 4/3;
-  background: #2a2a2a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #444;
-}
-
-.convite-box {
-  border: 1px solid #2a2a2a;
-  padding: 40px;
-  margin-top: 8px;
-}
-
-.convite-title {
-  font-family: 'Crimson Pro', serif;
-  font-size: 28px;
-  font-weight: 300;
-  font-style: italic;
-  color: var(--white);
-  margin-bottom: 16px;
-  line-height: 1.3;
-}
-
-.convite-body {
-  font-size: 13px;
-  font-weight: 300;
-  color: #888;
-  line-height: 1.8;
-  margin-bottom: 32px;
-}
-
-.convite-date {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #555;
-  margin-bottom: 24px;
-}
-
-.btn-convite {
-  display: inline-block;
-  border: 1px solid #555;
-  color: var(--white);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 14px 32px;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.btn-convite:hover {
-  background: var(--white);
-  color: var(--black);
-  border-color: var(--white);
-}
-
-/* ── COMO FUNCIONA ── */
 #funciona { background: var(--white); }
-
-.timeline {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0;
-  margin: 56px 0;
-  position: relative;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: calc(16.66% + 16px);
-  right: calc(16.66% + 16px);
-  height: 1px;
-  background: var(--black);
-  z-index: 0;
-}
-
+.timeline { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin: 56px 0; position: relative; }
+.timeline::before { content: ''; position: absolute; top: 20px; left: calc(16.66% + 16px); right: calc(16.66% + 16px); height: 1px; background: var(--black); z-index: 0; }
 .tl-step { padding-right: 32px; position: relative; }
 .tl-step:last-child { padding-right: 0; }
+.tl-circle { width: 36px; height: 36px; border: 1px solid var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; background: var(--white); position: relative; z-index: 1; font-size: 14px; }
+.tl-tag { font-size: 8px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+.tl-title { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 26px; margin-bottom: 10px; line-height: 1; }
+.tl-body { font-size: 12px; font-weight: 300; color: #666; line-height: 1.7; margin-bottom: 12px; }
+.tl-accent { font-family: 'Crimson Pro', serif; font-size: 12px; font-style: italic; color: var(--black); border-left: 2px solid var(--black); padding-left: 8px; line-height: 1.6; }
+.funciona-closing { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: clamp(24px, 4vw, 40px); color: var(--black); margin-bottom: 64px; line-height: 1.1; }
 
-.tl-circle {
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--black);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  background: var(--white);
-  position: relative;
-  z-index: 1;
-  font-size: 14px;
-}
-
-.tl-tag {
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 8px;
-}
-
-.tl-title {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: 26px;
-  margin-bottom: 10px;
-  line-height: 1;
-}
-
-.tl-body {
-  font-size: 12px;
-  font-weight: 300;
-  color: #666;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-
-.tl-accent {
-  font-family: 'Crimson Pro', serif;
-  font-size: 12px;
-  font-style: italic;
-  color: var(--black);
-  border-left: 2px solid var(--black);
-  padding-left: 8px;
-  line-height: 1.6;
-}
-
-.funciona-closing {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: clamp(24px, 4vw, 40px);
-  color: var(--black);
-  margin-bottom: 64px;
-  line-height: 1.1;
-}
-
-/* ── COMISSIONAMENTO ── */
-.comiss-wrap {
-  border-top: 1px solid var(--border);
-  padding-top: 56px;
-}
-
-.comiss-tag {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 32px;
-}
-
-.comiss-main {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.comiss-number {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: clamp(80px, 14vw, 140px);
-  line-height: 0.85;
-  color: var(--red);
-}
-
-.comiss-right {
-  flex: 1;
-  padding-top: 16px;
-}
-
-.comiss-desc {
-  font-size: 14px;
-  font-weight: 300;
-  color: #555;
-  line-height: 1.7;
-  margin-bottom: 8px;
-}
-
-.comiss-cats {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  color: var(--black);
-  text-transform: uppercase;
-}
-
-.comiss-details {
-  display: flex;
-  justify-content: space-between;
-  padding: 32px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.comiss-nota {
-  font-family: 'Crimson Pro', serif;
-  font-size: 16px;
-  font-style: italic;
-  color: var(--black);
-  max-width: 280px;
-}
-
+.comiss-wrap { border-top: 1px solid var(--border); padding-top: 56px; }
+.comiss-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 32px; }
+.comiss-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; margin-bottom: 40px; }
+.comiss-number { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: clamp(60px, 10vw, 100px); line-height: 0.85; color: var(--red); }
+.comiss-right { flex: 1; padding-top: 16px; }
+.comiss-desc { font-size: 14px; font-weight: 300; color: #555; line-height: 1.7; margin-bottom: 8px; }
+.comiss-cats { font-size: 9px; font-weight: 600; letter-spacing: 0.25em; color: var(--black); text-transform: uppercase; }
+.comiss-details { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.comiss-nota { font-family: 'Crimson Pro', serif; font-size: 16px; font-style: italic; color: var(--black); max-width: 280px; }
 .comiss-nota strong { font-weight: 600; font-style: normal; }
-
 .comiss-list { list-style: none; }
+.comiss-list li { font-size: 12px; color: #666; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.comiss-list li::before { content: ''; width: 4px; height: 4px; background: var(--black); border-radius: 50%; }
 
-.comiss-list li {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.comiss-list li::before {
-  content: '';
-  width: 4px; height: 4px;
-  background: var(--black);
-  border-radius: 50%;
-}
-
-/* ── CTA / CONTATOS ── */
 #cta { background: var(--white); padding: 120px 0 60px; }
-
-.cta-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-.cta-title {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: clamp(64px, 10vw, 120px);
-  line-height: 0.9;
-  margin-bottom: 56px;
-}
-
-.cta-contacts {
-  display: grid;
-  grid-template-columns: 1fr 1px 1fr;
-  gap: 48px;
-  margin-bottom: 80px;
-}
-
+.cta-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+.cta-title { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: clamp(48px, 8vw, 80px); line-height: 0.9; margin-bottom: 56px; }
+.cta-contacts { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 48px; margin-bottom: 80px; }
 .contact-block { display: flex; flex-direction: column; }
-
-.contact-name {
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-
-.contact-role {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 32px;
-}
-
-.contact-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border);
-  text-decoration: none;
-  color: var(--black);
-  font-size: 13px;
-  font-weight: 400;
-  transition: padding-left 0.2s;
-}
-
-.contact-link:hover {
-  padding-left: 8px;
-  color: var(--red);
-}
-
-.contact-divider {
-  width: 1px;
-  background: var(--border);
-  align-self: stretch;
-}
-
-.cta-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 40px;
-  border-top: 1px solid var(--border);
-}
-
-.cta-brand {
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 900;
-  font-size: 20px;
-  letter-spacing: 0.05em;
-}
-
+.contact-name { font-size: 20px; font-weight: 500; margin-bottom: 4px; }
+.contact-role { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 32px; }
+.contact-link { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--black); font-size: 13px; font-weight: 400; transition: padding-left 0.2s; }
+.contact-link:hover { padding-left: 8px; color: var(--red); }
+.contact-divider { width: 1px; background: var(--border); align-self: stretch; }
+.cta-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 40px; border-top: 1px solid var(--border); }
+.cta-brand { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 20px; letter-spacing: 0.05em; }
 .cta-brand span { color: var(--red); }
+.cta-fine { font-size: 10px; color: var(--gray); text-align: right; line-height: 1.6; }
 
-.cta-fine {
-  font-size: 10px;
-  color: var(--gray);
-  text-align: right;
-  line-height: 1.6;
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── MOBILE ── */
 @media (max-width: 640px) {
   nav { padding: 14px 20px; }
   .nav-links { display: none; }
   .section-pad { padding: 72px 20px; }
   .container { padding: 0 20px; }
-  .marcas-grid, .entrega-grid, .promessa-grid, .portfolio-grid, .videos-grid, .showroom-renders, .timeline, .cta-contacts, .comiss-main { grid-template-columns: 1fr; }
+  .marcas-grid, .entrega-grid, .promessa-grid, .portfolio-grid, .showroom-renders, .timeline, .cta-contacts, .comiss-main { grid-template-columns: 1fr; }
   .timeline::before { display: none; }
   .somos-banner { flex-direction: column; gap: 16px; }
   .entrega-footer { flex-direction: column; gap: 8px; }
   .contact-divider { display: none; }
-  .videos-grid { gap: 32px; }
-  .video-wrap { max-width: 100%; }
   #capa { padding: 100px 20px 60px; }
   #cta { padding: 80px 20px; }
   .comiss-details { flex-direction: column; gap: 20px; }
@@ -978,14 +209,11 @@ hr.divider {
     <div class="logo-divider"></div>
     <div class="logo-text">ZIAR DECOR<div class="logo-sub">Convencionais & Decor</div></div>
   </div>
-  
   <div class="capa-greeting">Olá, Arquiteta!</div>
   <h1 class="capa-title">Proposta de<br>Parceria.</h1>
   <p class="capa-sub">Estes são os detalhes, etapas e compromissos do nosso formato de trabalho conjunto.</p>
-  
   <p class="capa-disclaimer">Documento confidencial preparado para parceiros selecionados. Não compartilhar ou reproduzir sem autorização prévia.</p>
 </section>
-
 <hr class="divider">
 
 <section id="momento">
@@ -993,7 +221,7 @@ hr.divider {
     <span class="section-tag">01 — Novo Momento</span>
     <h2 class="section-title">Estamos em um novo capítulo.</h2>
     <p class="section-lead">Nova gestão. Novo showroom. Novo padrão de entrega. Esta apresentação chega até você porque queremos construir parcerias à altura do que estamos nos tornando.</p>
-    <img class="momento-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80" alt="Showroom Homefine & ZIAR DECOR" onerror="this.style.display='none'">
+    <img class="momento-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80" alt="Showroom" onerror="this.style.display='none'">
   </div>
 </section>
 
@@ -1026,7 +254,6 @@ hr.divider {
         <div class="marca-body">Móveis convencionais, curadoria de peças e ambientação completa. Do sofá ao quadro na parede.</div>
       </div>
     </div>
-    
     <div class="somos-banner">
       <span class="banner-item">Duas Marcas <span class="banner-arrow">→</span></span>
       <span class="banner-item">Uma Operação <span class="banner-arrow">→</span></span>
@@ -1039,44 +266,35 @@ hr.divider {
   <div class="section-pad reveal">
     <span class="section-tag">04 — O que Entregamos</span>
     <h2 class="section-title">Quatro frentes.<br>Uma operação.</h2>
-    
     <div class="entrega-grid">
       <div class="entrega-card">
         <span class="entrega-icon">📐</span>
         <div class="entrega-tag">01 — Marcenaria</div>
         <div class="entrega-name">Sob Medida</div>
         <div class="entrega-body">Produção precisa, projeto respeitado, acabamento premium.</div>
-        <div class="entrega-accent">O projeto que você entrega ao seu cliente sai exatamente como foi concebido.</div>
+        <div class="entrega-accent">O projeto que você entrega sai exatamente como foi concebido.</div>
       </div>
-      
       <div class="entrega-card">
         <span class="entrega-icon">🛋️</span>
         <div class="entrega-tag">02 — Móveis</div>
         <div class="entrega-name">Convencionais</div>
-        <div class="entrega-body">Catálogo amplo, marcas selecionadas, showroom físico de alto padrão.</div>
-        <div class="entrega-accent">Leve seu cliente para ver, tocar e experimentar antes de decidir.</div>
+        <div class="entrega-body">Catálogo amplo, marcas selecionadas, showroom de alto padrão.</div>
+        <div class="entrega-accent">Leve seu cliente para ver e experimentar antes de decidir.</div>
       </div>
-      
       <div class="entrega-card">
         <span class="entrega-icon">🖼️</span>
         <div class="entrega-tag">03 — Decoração</div>
         <div class="entrega-name">Decor</div>
-        <div class="entrega-body">Curadoria de peças para fechar o ambiente com identidade e sofisticação.</div>
-        <div class="entrega-accent">Nada de ambiente pela metade. A entrega visual completa na montagem.</div>
+        <div class="entrega-body">Curadoria de peças para fechar o ambiente com identidade.</div>
+        <div class="entrega-accent">Nada de ambiente pela metade. Entrega visual completa.</div>
       </div>
-      
       <div class="entrega-card">
         <span class="entrega-icon">🏗️</span>
         <div class="entrega-tag">04 — Execução</div>
         <div class="entrega-name">Obras</div>
-        <div class="entrega-body">Execução supervisionada com parceiros técnicos altamente qualificados.</div>
-        <div class="entrega-accent">Um único responsável do começo ao fim da sua instalação.</div>
+        <div class="entrega-body">Execução supervisionada com parceiros qualificados.</div>
+        <div class="entrega-accent">Um único responsável do começo ao fim da instalação.</div>
       </div>
-    </div>
-    
-    <div class="entrega-footer">
-      <div class="entrega-footer-text">Não vendemos apenas móveis.</div>
-      <div class="entrega-footer-sub">Entregamos a execução fiel do seu projeto.</div>
     </div>
   </div>
 </section>
@@ -1084,42 +302,27 @@ hr.divider {
 <section id="promessa">
   <div class="section-pad reveal">
     <span class="section-tag">05 — Nossa Promessa</span>
-    <h2 class="section-title">Compromissos são fáceis de listar.<br>Difíceis de cumprir.</h2>
-    
+    <h2 class="section-title">Compromissos difíceis de cumprir.</h2>
     <div class="promessa-grid">
       <div class="promessa-card">
         <div class="promessa-num">01 — Prazo</div>
         <div class="promessa-name">É Prazo.</div>
-        <div class="promessa-body">Comunicamos antes, nunca depois. Se algo mudar, você sabe primeiro.</div>
-        <div class="promessa-accent">Nosso compromisso é com a sua tranquilidade e o cronograma do seu projeto.</div>
+        <div class="promessa-body">Comunicamos antes. Se algo mudar, você sabe primeiro.</div>
       </div>
-      
       <div class="promessa-card">
         <div class="promessa-num">02 — Seu Projeto</div>
         <div class="promessa-name">É Sagrado.</div>
-        <div class="promessa-body">Nenhuma sugestão ao seu cliente sem sua autorização. O projeto é seu.</div>
-        <div class="promessa-accent">Nós somos o braço direito que executa a sua visão com fidelidade.</div>
+        <div class="promessa-body">Nenhuma sugestão ao seu cliente sem sua autorização.</div>
       </div>
-      
       <div class="promessa-card">
-        <div class="promessa-num">03 — Orçamento em</div>
+        <div class="promessa-num">03 — Orçamento</div>
         <div class="promessa-name">Até 48h.</div>
-        <div class="promessa-body">Sua proposta não espera. Respondemos rápido para que você feche rápido.</div>
-        <div class="promessa-accent">O tempo do seu cliente é a nossa prioridade.</div>
+        <div class="promessa-body">Respondemos rápido para que você feche rápido.</div>
       </div>
-      
       <div class="promessa-card">
         <div class="promessa-num">04 — Um Contato</div>
         <div class="promessa-name">Dedicado.</div>
-        <div class="promessa-body">Você fala com uma pessoa. Sempre a mesma. Sem redirecionar, sem repetir.</div>
-        <div class="promessa-accent">Canal direto com quem resolve, garantindo continuidade e agilidade.</div>
-      </div>
-      
-      <div class="promessa-card">
-        <div class="promessa-num">05 — Garantia</div>
-        <div class="promessa-name">Documentada.</div>
-        <div class="promessa-body">Pós-obra com prazo definido e processo claro. Sem letra miúda.</div>
-        <div class="promessa-accent">Cuidamos do seu cliente com o mesmo zelo que você.</div>
+        <div class="promessa-body">Você fala com a mesma pessoa. Garantindo agilidade.</div>
       </div>
     </div>
   </div>
@@ -1129,54 +332,11 @@ hr.divider {
   <div class="portfolio-inner reveal">
     <span class="section-tag">06 — Nosso Trabalho</span>
     <h2 class="section-title">Projetos<br>Entregues.</h2>
-    
     <div class="portfolio-grid">
-      <div class="portfolio-img-wrap">
-        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Projeto 1">
-        <div class="portfolio-caption">São Paulo · Cozinha integrada</div>
-      </div>
-      <div class="portfolio-img-wrap">
-        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Projeto 2">
-        <div class="portfolio-caption">Campinas · Suíte master</div>
-      </div>
-      <div class="portfolio-img-wrap">
-        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80" alt="Projeto 3">
-        <div class="portfolio-caption">São Paulo · Living contemporâneo</div>
-      </div>
-      <div class="portfolio-img-wrap">
-        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80" alt="Projeto 4">
-        <div class="portfolio-caption">Alphaville · Varanda gourmet</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="videos">
-  <div class="videos-inner reveal">
-    <span class="section-tag">Em movimento</span>
-    <h2 class="section-title">O padrão de entrega<br>em detalhes.</h2>
-    <p class="videos-lead">Acompanhe a precisão da montagem e o resultado final nas obras recentes.</p>
-    
-    <div class="videos-grid">
-      <div class="video-item">
-        <div class="video-wrap">
-          <video width="100%" controls style="display:block;">
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            Seu navegador não suporta o vídeo.
-          </video>
-        </div>
-        <div class="video-label">Projeto Alphaville · Entrega Final</div>
-      </div>
-      
-      <div class="video-item">
-        <div class="video-wrap">
-          <video width="100%" controls style="display:block;">
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            Seu navegador não suporta o vídeo.
-          </video>
-        </div>
-        <div class="video-label">Atenção aos Detalhes · Montagem</div>
-      </div>
+      <div class="portfolio-img-wrap"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Projeto 1"></div>
+      <div class="portfolio-img-wrap"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Projeto 2"></div>
+      <div class="portfolio-img-wrap"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80" alt="Projeto 3"></div>
+      <div class="portfolio-img-wrap"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80" alt="Projeto 4"></div>
     </div>
   </div>
 </section>
@@ -1186,27 +346,17 @@ hr.divider {
     <span class="section-tag">07 — Showroom + Convite</span>
     <h2 class="section-title">Antes de abrir para o público, queremos abrir para você.</h2>
     <p class="showroom-text">Estes são alguns dos ambientes sendo preparados para o nosso novo showroom — um espaço projetado para ser a extensão do seu atendimento.</p>
-    <p class="showroom-sub">Ainda não abrimos. Mas já queremos que você veja.</p>
     
     <div class="showroom-renders">
-      <div class="render-wrap" style="padding: 0; overflow: hidden; border: none;">
-        <img src="foto1.jpg" alt="Showroom 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-      </div>
-      <div class="render-wrap" style="padding: 0; overflow: hidden; border: none;">
-        <img src="foto4.jpg" alt="Showroom 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-      </div>
-      <div class="render-wrap" style="padding: 0; overflow: hidden; border: none;">
-        <img src="foto5.jpg" alt="Showroom 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-      </div>
-      <div class="render-wrap" style="padding: 0; overflow: hidden; border: none;">
-        <img src="foto6.jpg" alt="Showroom 4" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-      </div>
+      <div class="render-wrap"><img src="foto1.jpg" alt="Showroom 1"></div>
+      <div class="render-wrap"><img src="foto4.jpg" alt="Showroom 2"></div>
+      <div class="render-wrap"><img src="foto5.jpg" alt="Showroom 3"></div>
+      <div class="render-wrap"><img src="foto6.jpg" alt="Showroom 4"></div>
     </div>
     
     <div class="convite-box">
-      <div class="convite-title">Inauguração exclusiva para parceiros.</div>
-      <div class="convite-body">Um encontro íntimo — sem protocolo, sem pauta.<br>Só para que você conheça o espaço antes de todo mundo.</div>
-      <div class="convite-date">Data: a confirmar — em breve você recebe o convite</div>
+      <div class="convite-title">Inauguração exclusiva.</div>
+      <div class="convite-body">Um encontro íntimo — sem protocolo.<br>Só para que você conheça o espaço antes de todo mundo.</div>
       <a href="https://wa.me/5511964286008" class="btn-convite" target="_blank">QUERO SER AVISADA →</a>
     </div>
   </div>
@@ -1216,58 +366,43 @@ hr.divider {
   <div class="section-pad reveal">
     <span class="section-tag">08 — Como Funciona</span>
     <h2 class="section-title">Simples para você.</h2>
-    <p class="section-lead" style="margin-bottom:0; font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; font-family:'Barlow',sans-serif; color:var(--gray);">COMPLETO PARA O SEU CLIENTE</p>
+    <p class="section-lead" style="margin-bottom:0; font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--gray);">COMPLETO PARA O SEU CLIENTE</p>
     
     <div class="timeline" style="margin-top:56px;">
       <div class="tl-step">
         <div class="tl-circle">↑</div>
         <div class="tl-tag">01 — Indicação</div>
         <div class="tl-title">Você nos<br>Apresenta.</div>
-        <div class="tl-body">Passamos o briefing juntos. Definimos escopos e os próximos passos.</div>
-        <div class="tl-accent">Sem formulário, sem burocracia desnecessária.</div>
+        <div class="tl-body">Passamos o briefing juntos.</div>
       </div>
-      
       <div class="tl-step">
         <div class="tl-circle">↑</div>
         <div class="tl-tag">02 — Execução</div>
         <div class="tl-title">Nós cuidamos<br>de tudo.</div>
-        <div class="tl-body">Projeto executivo, orçamento, produção, logística e instalação.</div>
-        <div class="tl-accent">Você acompanha de perto ou só nos marcos principais.</div>
+        <div class="tl-body">Projeto executivo, orçamento, produção.</div>
       </div>
-      
       <div class="tl-step">
         <div class="tl-circle">↑</div>
         <div class="tl-tag">03 — Resultado</div>
         <div class="tl-title">Entrega no<br>Prazo.</div>
-        <div class="tl-body">Cliente satisfeito. Sua reputação intacta e fortalecida pelo resultado final.</div>
-        <div class="tl-accent">Você indica uma vez. Vira parceiro para sempre.</div>
+        <div class="tl-body">Cliente satisfeito.</div>
       </div>
     </div>
-    
-    <div class="funciona-closing">
-      Sua indicação<br>vira referência.
-    </div>
+    <div class="funciona-closing">Sua indicação<br>vira referência.</div>
 
     <div class="comiss-wrap">
       <div class="comiss-tag">Comissionamento Transparente</div>
       <div class="comiss-main">
         <div class="comiss-number">10%</div>
         <div class="comiss-right">
-          <div class="comiss-desc">Sobre o valor total da compra realizada pelo seu cliente na loja.</div>
+          <div class="comiss-desc">Sobre o valor total da compra.</div>
           <div class="comiss-cats">PLANEJADOS · CONVENCIONAIS · DECOR</div>
         </div>
       </div>
-      
       <div class="comiss-details">
-        <div class="comiss-nota">Sem asterisco. O que está escrito aqui <strong>é o que vale.</strong></div>
-        <ul class="comiss-list">
-          <li>Pagamento após faturamento</li>
-          <li>Transparência total no repasse</li>
-          <li>Sem taxas ocultas</li>
-        </ul>
+        <div class="comiss-nota">Sem asterisco. O que está escrito <strong>é o que vale.</strong></div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1275,57 +410,32 @@ hr.divider {
   <div class="cta-inner reveal">
     <span class="section-tag">09 — Próximos Passos</span>
     <h2 class="section-title">Que tal um café?</h2>
-    <p class="section-lead" style="margin-bottom:64px;">Sem apresentação formal, sem PowerPoint na mesa. Só uma conversa rápida para entender se faz sentido para os dois lados.</p>
-    
     <div class="cta-contacts">
       <div class="contact-block">
         <div class="contact-name">Camila Renata</div>
-        <div class="contact-role">Relacionamento & Parcerias · Homefine & ZIAR DECOR</div>
-        <a href="https://wa.me/5511964286008" class="contact-link" target="_blank">
-          <span>WhatsApp</span><span>→</span>
-        </a>
-        <a href="mailto:administrativo@homefinemoveis.com" class="contact-link">
-          <span>E-mail</span><span>→</span>
-        </a>
+        <div class="contact-role">Relacionamento & Parcerias</div>
+        <a href="https://wa.me/5511964286008" class="contact-link" target="_blank"><span>WhatsApp</span><span>→</span></a>
+        <a href="mailto:administrativo@homefinemoveis.com" class="contact-link"><span>E-mail</span><span>→</span></a>
       </div>
-      
       <div class="contact-divider"></div>
-      
       <div class="contact-block">
         <div class="contact-name">Parceiro Comercial</div>
-        <div class="contact-role">Consultor · Homefine & ZIAR DECOR</div>
-        <a href="https://wa.me/55" class="contact-link" target="_blank">
-          <span>WhatsApp</span><span>→</span>
-        </a>
-        <a href="mailto:contato@homefinemoveis.com" class="contact-link">
-          <span>E-mail</span><span>→</span>
-        </a>
+        <div class="contact-role">Consultor</div>
+        <a href="https://wa.me/55" class="contact-link" target="_blank"><span>WhatsApp</span><span>→</span></a>
+        <a href="mailto:contato@homefinemoveis.com" class="contact-link"><span>E-mail</span><span>→</span></a>
       </div>
     </div>
-
     <div class="cta-footer">
       <div class="cta-brand">CAMILA<span>RENATA</span>.</div>
-      <div class="cta-fine">
-        @homefinebr · @ziardecor<br>
-        Documento confidencial. Não divulgar.
-      </div>
+      <div class="cta-fine">@homefinebr · @ziardecor</div>
     </div>
   </div>
 </section>
 
 <script>
 const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-
-reveals.forEach(reveal => {
-  observer.observe(reveal);
-});
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.1 });
+reveals.forEach(reveal => { observer.observe(reveal); });
 </script>
 
 </body>
