@@ -4,858 +4,873 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proposta de Parceria | Homefine & ZIAR DECOR</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,800&family=Montserrat+Alternates:wght@900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ─── VARIÁVEIS ─── */
 :root {
-  --red:    #8c0410;
-  --black:  #262626;
-  --white:  #fffafa;
-  --gray:   #888888;
-  --light:  #f4f3f0;
-  --border: #e0dfdc;
-  --dark:   #1a1a1a;
-
-  /* tipografia */
-  --f-alt:   'Montserrat Alternates', sans-serif;
-  --f-main:  'Montserrat', sans-serif;
+  --black: #0e0e0e;
+  --white: #f8f7f4;
+  --red: #b01c1c;
+  --dark: #1a1a1a;
+  --gray: #888;
+  --light: #f0efec;
+  --border: #ddd;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 html { scroll-behavior: smooth; }
 
 body {
   background: var(--white);
   color: var(--black);
-  font-family: var(--f-main);
-  font-weight: 400;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
 }
 
-/* ─── NAV ─── */
+/* ── HEADER NAV ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 999;
+  z-index: 100;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 14px 48px;
-  background: rgba(255,250,250,0.96);
-  backdrop-filter: blur(10px);
+  align-items: center;
+  padding: 16px 40px;
+  background: rgba(248,247,244,0.95);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
 
-.nav-logos {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.nav-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  color: var(--black);
 }
 
-.nav-logos img {
-  height: 32px;
-  width: auto;
-  display: block;
-  object-fit: contain;
-}
-
-.nav-logos .nav-sep {
-  width: 1px;
-  height: 24px;
-  background: var(--border);
-}
+.nav-brand span { color: var(--red); }
 
 .nav-links {
   display: flex;
   gap: 32px;
   list-style: none;
 }
+
 .nav-links a {
-  font-family: var(--f-main);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--gray);
   text-decoration: none;
   transition: color 0.2s;
 }
+
 .nav-links a:hover { color: var(--black); }
 
-/* ─── HELPERS ─── */
-.wrap {
-  max-width: 940px;
+/* ── SECTIONS ── */
+section { width: 100%; }
+
+.container {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 40px;
 }
 
-/* Tags de seção — Montserrat Alternates Black */
-.sec-tag {
-  display: block;
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 14px;
-}
-
-/* Títulos h2 — Montserrat Alternates Black */
-h2.sec-title {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: clamp(36px, 5.5vw, 68px);
-  line-height: 1.0;
-  color: var(--black);
-  margin-bottom: 32px;
-}
-
-.sec-lead {
-  font-family: var(--f-main);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.75;
-  color: #444;
-  max-width: 540px;
-}
-
-hr.div {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 48px 0;
-}
-
-/* ─── REVEAL ─── */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-.reveal.on { opacity: 1; transform: translateY(0); }
-
-/* ─── CAPA ─── */
+/* ── CAPA ── */
 #capa {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 130px 48px 80px;
-  max-width: 940px;
+  padding: 120px 40px 80px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .capa-logos {
   display: flex;
+  gap: 48px;
   align-items: center;
-  gap: 40px;
-  margin-bottom: 72px;
+  margin-bottom: 80px;
   opacity: 0;
-  animation: fu 0.8s ease 0.15s forwards;
+  animation: fadeUp 0.8s ease 0.2s forwards;
 }
-.logo-block { display: flex; flex-direction: column; gap: 3px; }
-.logo-name {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: 17px;
-  letter-spacing: 0.06em;
-  color: var(--black);
+
+.logo-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.08em;
 }
+
 .logo-sub {
-  font-family: var(--f-main);
-  font-size: 8px;
-  font-weight: 400;
-  letter-spacing: 0.22em;
+  font-size: 9px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gray);
+  margin-top: 2px;
 }
-.logo-sep { width: 1px; height: 36px; background: var(--border); }
 
-.capa-tag {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: 11px;
-  letter-spacing: 0.28em;
+.logo-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+}
+
+.capa-greeting {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gray);
   margin-bottom: 16px;
   opacity: 0;
-  animation: fu 0.8s ease 0.3s forwards;
+  animation: fadeUp 0.8s ease 0.4s forwards;
 }
 
 .capa-title {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: clamp(64px, 11vw, 120px);
-  line-height: 0.92;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(72px, 12vw, 130px);
+  line-height: 0.9;
   color: var(--black);
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   opacity: 0;
-  animation: fu 0.8s ease 0.45s forwards;
+  animation: fadeUp 0.8s ease 0.5s forwards;
 }
 
 .capa-sub {
-  font-family: var(--f-main);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.7;
+  font-family: 'Crimson Pro', serif;
+  font-size: 22px;
+  font-weight: 300;
   color: #555;
-  max-width: 460px;
+  line-height: 1.5;
+  max-width: 480px;
   opacity: 0;
-  animation: fu 0.8s ease 0.6s forwards;
+  animation: fadeUp 0.8s ease 0.7s forwards;
 }
 
 .capa-disclaimer {
-  margin-top: 64px;
-  font-family: var(--f-main);
-  font-size: 9px;
-  font-weight: 400;
-  color: #bbb;
-  line-height: 1.7;
-  max-width: 380px;
+  margin-top: 60px;
+  font-size: 10px;
+  color: var(--gray);
+  line-height: 1.6;
+  max-width: 360px;
   opacity: 0;
-  animation: fu 0.8s ease 0.8s forwards;
+  animation: fadeUp 0.8s ease 0.9s forwards;
 }
 
-/* ─── 01 NOVO MOMENTO ─── */
-#momento { padding: 100px 0; background: var(--white); }
+/* ── SECTION COMMON ── */
+.section-pad {
+  padding: 100px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 0.92;
+  color: var(--black);
+  margin-bottom: 40px;
+}
+
+.section-lead {
+  font-family: 'Crimson Pro', serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #333;
+  max-width: 560px;
+}
+
+hr.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 48px 0;
+}
+
+/* ── NOVO MOMENTO ── */
+#momento { background: var(--white); }
 
 .momento-img {
   width: 100%;
-  height: 380px;
+  height: 340px;
   object-fit: cover;
   margin-top: 48px;
   display: block;
 }
 
-/* ─── 02 DOR ─── */
-#dor { background: var(--black); padding: 100px 0; }
-#dor .sec-tag        { color: #555; }
-#dor h2.sec-title    { color: var(--white); }
+/* ── DOR DO PARCEIRO ── */
+#dor { background: var(--black); color: var(--white); }
+#dor .section-title { color: var(--white); }
+#dor .section-tag { color: #666; }
 
-.dor-list { list-style: none; margin: 48px 0; }
+.dor-list {
+  list-style: none;
+  margin: 48px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
 .dor-item {
   display: flex;
   align-items: flex-start;
   gap: 24px;
-  padding: 26px 0;
-  border-bottom: 1px solid #2e2e2e;
-  font-family: var(--f-main);
-  font-size: 17px;
-  font-weight: 400;
+  padding: 28px 0;
+  border-bottom: 1px solid #2a2a2a;
+  font-size: 18px;
+  font-weight: 300;
   color: #ccc;
-  line-height: 1.5;
+  line-height: 1.4;
 }
-.dor-item:first-child { border-top: 1px solid #2e2e2e; }
-.dor-n {
-  font-family: var(--f-main);
-  font-size: 9px;
-  font-weight: 700;
+
+.dor-num {
+  font-size: 10px;
+  font-weight: 600;
   letter-spacing: 0.2em;
   color: #444;
-  margin-top: 5px;
+  margin-top: 4px;
   flex-shrink: 0;
 }
-.dor-resolve {
-  font-family: var(--f-main);
-  font-size: 18px;
-  font-weight: 800;
+
+.dor-resolucao {
+  font-family: 'Crimson Pro', serif;
+  font-size: 24px;
   font-style: italic;
   color: var(--white);
-  margin-top: 40px;
+  margin-top: 48px;
 }
 
-/* ─── 03 QUEM SOMOS ─── */
-#somos { padding: 100px 0; background: var(--white); }
+/* ── QUEM SOMOS ── */
+#somos { background: var(--white); }
 
-.marcas {
+.marcas-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 48px 0;
   border: 1px solid var(--border);
-  margin: 48px 0 0;
 }
-.marca {
+
+.marca-card {
   padding: 40px;
   border-right: 1px solid var(--border);
 }
-.marca:last-child { border-right: none; }
+
+.marca-card:last-child { border-right: none; }
+
 .marca-name {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: 28px;
-  margin-bottom: 6px;
-}
-.marca-tag {
-  font-family: var(--f-main);
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 14px;
-}
-.marca-body {
-  font-family: var(--f-main);
-  font-size: 13px;
-  font-weight: 400;
-  color: #555;
-  line-height: 1.75;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
 }
 
-.somos-bar {
+.marca-desc {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 16px;
+}
+
+.marca-body {
+  font-size: 14px;
+  font-weight: 300;
+  color: #555;
+  line-height: 1.7;
+}
+
+.somos-banner {
   background: var(--red);
-  padding: 28px 40px;
+  padding: 32px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: 40px;
 }
-.somos-bar-item {
-  font-family: var(--f-main);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+
+.banner-item {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.8);
 }
-.somos-bar-hl {
-  font-family: var(--f-main);
-  font-size: 18px;
+
+.banner-arrow { color: rgba(255,255,255,0.4); }
+
+.banner-highlight {
+  font-family: 'Crimson Pro', serif;
+  font-size: 26px;
   font-style: italic;
-  font-weight: 800;
   color: var(--white);
 }
 
-/* ─── 04 O QUE ENTREGAMOS ─── */
-#entrega { padding: 100px 0; background: var(--light); }
+/* ── O QUE ENTREGAMOS ── */
+#entrega { background: var(--light); }
 
 .entrega-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin: 48px 0;
+  border: 1px solid #ddd;
   background: var(--white);
-  border: 1px solid var(--border);
-  margin: 48px 0 0;
 }
-.e-card {
-  padding: 36px;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.e-card:nth-child(2n) { border-right: none; }
-.e-card:nth-child(3),
-.e-card:nth-child(4)  { border-bottom: none; }
 
-.e-icon { font-size: 26px; display: block; margin-bottom: 18px; }
-.e-tag {
-  font-family: var(--f-main);
+.entrega-card {
+  padding: 36px;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.entrega-card:nth-child(2) { border-right: none; }
+.entrega-card:nth-child(3) { border-bottom: none; }
+.entrega-card:nth-child(4) { border-right: none; border-bottom: none; }
+
+.entrega-icon {
+  font-size: 28px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.entrega-tag {
   font-size: 8px;
   font-weight: 700;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gray);
   margin-bottom: 6px;
 }
-.e-name {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: 22px;
+
+.entrega-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.05em;
   margin-bottom: 10px;
 }
-.e-body {
-  font-family: var(--f-main);
+
+.entrega-body {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 300;
   color: #666;
-  line-height: 1.75;
+  line-height: 1.7;
   margin-bottom: 12px;
 }
-/* Seção 04 — texto após "|" (acento) em Montserrat Italic */
-.e-accent {
-  font-family: var(--f-main);
-  font-size: 12px;
+
+.entrega-accent {
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
   font-style: italic;
-  font-weight: 400;
   color: var(--black);
   border-left: 2px solid var(--black);
   padding-left: 10px;
   line-height: 1.6;
 }
 
-.entrega-foot {
+.entrega-footer {
   background: var(--black);
-  padding: 22px 36px;
+  padding: 24px 36px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
 }
-.entrega-foot-a {
-  font-family: var(--f-main);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+
+.entrega-footer-text {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   color: var(--white);
+  text-transform: uppercase;
 }
-.entrega-foot-b {
-  font-family: var(--f-main);
-  font-size: 14px;
+
+.entrega-footer-sub {
+  font-family: 'Crimson Pro', serif;
+  font-size: 16px;
   font-style: italic;
-  font-weight: 400;
-  color: #888;
+  color: #aaa;
 }
 
-/* ─── 05 NOSSA PROMESSA ─── */
-#promessa { padding: 100px 0; background: var(--white); }
+/* ── NOSSA PROMESSA ── */
+#promessa { background: var(--white); }
 
-.p-grid {
+.promessa-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border: 1px solid var(--border);
+  gap: 0;
   margin: 48px 0;
+  border: 1px solid var(--border);
 }
-.p-card {
+
+.promessa-card {
   padding: 36px;
   border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-.p-card:nth-child(2n) { border-right: none; }
-.p-card:nth-child(5)  { grid-column: 1 / -1; border-right: none; border-bottom: none; }
-.p-card:nth-child(3),
-.p-card:nth-child(4)  { border-bottom: none; }
 
-.p-num {
-  font-family: var(--f-main);
+.promessa-card:nth-child(2n) { border-right: none; }
+.promessa-card:nth-child(5) { border-bottom: none; grid-column: 1 / -1; border-right: none; }
+
+.promessa-num {
   font-size: 8px;
   font-weight: 700;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+  letter-spacing: 0.25em;
   color: var(--gray);
-  margin-bottom: 6px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
-.p-name {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: 24px;
+
+.promessa-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
   margin-bottom: 10px;
 }
-.p-body {
-  font-family: var(--f-main);
+
+.promessa-body {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 300;
   color: #666;
-  line-height: 1.75;
+  line-height: 1.7;
   margin-bottom: 12px;
 }
-/* Seção 05 — texto após "|" (acento) em Montserrat Italic */
-.p-accent {
-  font-family: var(--f-main);
-  font-size: 12px;
+
+.promessa-accent {
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
   font-style: italic;
-  font-weight: 400;
   color: var(--black);
   border-left: 2px solid var(--black);
   padding-left: 10px;
   line-height: 1.6;
 }
 
-/* ─── 06 PORTFÓLIO ─── */
-#portfolio { padding: 100px 0; background: var(--black); }
-#portfolio .sec-tag      { color: #555; }
-#portfolio h2.sec-title  { color: var(--white); }
+/* ── PORTFÓLIO ── */
+#portfolio { background: var(--black); padding: 100px 0; }
 
-.p-grid-fotos {
+.portfolio-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+#portfolio .section-title { color: var(--white); }
+#portfolio .section-tag { color: #555; }
+
+.portfolio-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px;
-  margin-top: 48px;
+  gap: 3px;
+  margin: 48px 0;
 }
-.p-foto {
+
+.portfolio-img-wrap {
   position: relative;
-  aspect-ratio: 4/3;
   overflow: hidden;
+  aspect-ratio: 4/3;
   background: #222;
 }
-.p-foto img {
+
+.portfolio-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s ease, filter 0.4s ease;
-  filter: brightness(0.82);
+  transition: transform 0.6s ease;
+  filter: brightness(0.85);
 }
-.p-foto:hover img { transform: scale(1.04); filter: brightness(1); }
-.p-foto-cap {
+
+.portfolio-img-wrap:hover img { transform: scale(1.04); filter: brightness(1); }
+
+.portfolio-caption {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  padding: 14px 16px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.65));
-  font-family: var(--f-main);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  padding: 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.8);
 }
 
-/* ─── VÍDEOS ─── */
-#videos { padding: 100px 0; background: var(--dark); }
-#videos .sec-tag      { color: #555; }
-#videos h2.sec-title  { color: var(--white); }
+/* ── VÍDEOS ── */
+#videos { background: var(--dark); padding: 100px 0; }
 
-.v-lead {
-  font-family: var(--f-main);
-  font-size: 15px;
+.videos-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+#videos .section-title { color: var(--white); }
+#videos .section-tag { color: #555; }
+
+.videos-lead {
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
   font-style: italic;
-  font-weight: 400;
-  color: #666;
+  color: #888;
   margin-bottom: 56px;
 }
-.v-grid {
+
+.videos-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 24px;
   justify-items: center;
 }
-.v-wrap { width: 100%; max-width: 300px; }
-.v-player {
-  border-radius: 18px;
+
+.video-wrap {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 16px;
   overflow: hidden;
   background: #000;
-  box-shadow: 0 28px 64px rgba(0,0,0,0.7);
-  width: 100%;
-  aspect-ratio: 9/16;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6);
 }
-.v-player iframe { width: 100%; height: 100%; border: none; display: block; }
-.v-label {
-  margin-top: 14px;
-  font-family: var(--f-main);
+
+.video-label {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #555;
   text-align: center;
+  margin-top: 16px;
 }
 
-/* ─── 07 SHOWROOM + CONVITE ─── */
-#showroom { padding: 100px 0; background: var(--black); }
-#showroom .sec-tag      { color: #555; }
-#showroom h2.sec-title  { color: var(--white); }
+/* ── SHOWROOM ── */
+#showroom { background: var(--black); color: var(--white); padding: 100px 0; }
 
-.sh-text {
-  font-family: var(--f-main);
+.showroom-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+#showroom .section-title { color: var(--white); }
+#showroom .section-tag { color: #555; }
+
+.showroom-text {
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 300;
   color: #aaa;
   line-height: 1.8;
   max-width: 520px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
-.sh-sub {
-  font-family: var(--f-main);
+
+.showroom-sub {
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: #555;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
-/* Layout renders: 2 em cima, 1 embaixo */
-.sh-renders-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 56px;
-}
-.sh-renders-top {
+.showroom-renders {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px;
+  gap: 3px;
+  margin: 48px 0 56px;
 }
-.sh-render {
-  overflow: hidden;
-  background: #222;
-  aspect-ratio: 4/3;
-}
-.sh-render.wide { aspect-ratio: 2/1; }
-.sh-render img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: brightness(0.88);
-  transition: filter 0.4s;
-}
-.sh-render:hover img { filter: brightness(1); }
 
-/* Bloco convite — centralizado */
-.sh-convite {
-  border: 1px solid #2a2a2a;
-  padding: 48px 40px;
+.render-wrap {
+  aspect-ratio: 4/3;
+  background: #2a2a2a;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #444;
 }
-.sh-cv-title {
-  font-family: var(--f-main);
-  font-size: 22px;
+
+.convite-box {
+  border: 1px solid #2a2a2a;
+  padding: 40px;
+  margin-top: 8px;
+}
+
+.convite-title {
+  font-family: 'Crimson Pro', serif;
+  font-size: 28px;
+  font-weight: 300;
   font-style: italic;
-  font-weight: 400;
   color: var(--white);
-  line-height: 1.4;
-  margin-bottom: 14px;
-  max-width: 520px;
+  margin-bottom: 16px;
+  line-height: 1.3;
 }
-.sh-cv-body {
-  font-family: var(--f-main);
+
+.convite-body {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 300;
   color: #888;
   line-height: 1.8;
-  margin-bottom: 28px;
-  max-width: 480px;
+  margin-bottom: 32px;
 }
-.sh-cv-date {
-  font-family: var(--f-main);
+
+.convite-date {
   font-size: 9px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #555;
   margin-bottom: 24px;
 }
-.btn-avisada {
+
+.btn-convite {
   display: inline-block;
   border: 1px solid #555;
   color: var(--white);
-  font-family: var(--f-main);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   padding: 14px 32px;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition: all 0.2s;
 }
-.btn-avisada:hover {
+
+.btn-convite:hover {
   background: var(--white);
   color: var(--black);
   border-color: var(--white);
 }
 
-/* ─── 08 COMO FUNCIONA ─── */
-#funciona { padding: 100px 0 0; background: var(--white); }
+/* ── COMO FUNCIONA ── */
+#funciona { background: var(--white); }
 
-/* Tarja preta ao redor da timeline */
-.tl-band {
-  background: var(--black);
-  padding: 48px 0;
-  margin: 48px 0 0;
-}
-.tl-band .wrap { padding: 0 48px; }
-
-/* Timeline horizontal — 3 colunas */
-.tl {
+.timeline {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0;
+  margin: 56px 0;
   position: relative;
 }
-.tl::before {
+
+.timeline::before {
   content: '';
   position: absolute;
-  top: 17px;
-  left: calc(16.66% + 10px);
-  right: calc(16.66% + 10px);
+  top: 20px;
+  left: calc(16.66% + 16px);
+  right: calc(16.66% + 16px);
   height: 1px;
-  background: #555;
-}
-.tl-s { padding-right: 28px; position: relative; }
-.tl-s:last-child { padding-right: 0; }
-
-.tl-dot {
-  width: 34px;
-  height: 34px;
-  border: 1px solid #888;
-  border-radius: 50%;
   background: var(--black);
+  z-index: 0;
+}
+
+.tl-step { padding-right: 32px; position: relative; }
+.tl-step:last-child { padding-right: 0; }
+
+.tl-circle {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--black);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  color: var(--white);
   margin-bottom: 20px;
+  background: var(--white);
   position: relative;
   z-index: 1;
+  font-size: 14px;
 }
+
 .tl-tag {
-  font-family: var(--f-main);
   font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #555;
-  margin-bottom: 6px;
+  color: var(--gray);
+  margin-bottom: 8px;
 }
-.tl-name {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: 18px;
+
+.tl-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
   margin-bottom: 10px;
-  line-height: 1.1;
-  color: var(--white);
+  line-height: 1;
 }
+
 .tl-body {
-  font-family: var(--f-main);
-  font-size: 11px;
-  font-weight: 400;
-  color: #888;
-  line-height: 1.75;
-  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 12px;
 }
-.tl-acc {
-  font-family: var(--f-main);
-  font-size: 11px;
+
+.tl-accent {
+  font-family: 'Crimson Pro', serif;
+  font-size: 12px;
   font-style: italic;
-  font-weight: 400;
-  color: #ccc;
-  border-left: 2px solid #555;
+  color: var(--black);
+  border-left: 2px solid var(--black);
   padding-left: 8px;
   line-height: 1.6;
 }
 
-.fn-close {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: clamp(22px, 3.5vw, 36px);
+.funciona-closing {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(24px, 4vw, 40px);
   color: var(--black);
-  line-height: 1.15;
-  margin: 56px 0 64px;
+  margin-bottom: 64px;
+  line-height: 1.1;
 }
 
-/* ─── COMISSIONAMENTO ─── */
-.comiss { border-top: 1px solid var(--border); padding-top: 56px; }
+/* ── COMISSIONAMENTO ── */
+.comiss-wrap {
+  border-top: 1px solid var(--border);
+  padding-top: 56px;
+}
+
 .comiss-tag {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gray);
   margin-bottom: 32px;
 }
-.comiss-body {
+
+.comiss-main {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 40px;
-  margin-bottom: 36px;
-  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
-.comiss-pct {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: clamp(72px, 13vw, 130px);
+
+.comiss-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 14vw, 140px);
   line-height: 0.85;
   color: var(--red);
 }
-.comiss-info { flex: 1; min-width: 200px; padding-top: 12px; }
+
+.comiss-right {
+  flex: 1;
+  padding-top: 16px;
+}
+
 .comiss-desc {
-  font-family: var(--f-main);
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 300;
   color: #555;
   line-height: 1.7;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
+
 .comiss-cats {
-  font-family: var(--f-main);
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gray);
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
-.comiss-rows { display: flex; flex-direction: column; gap: 12px; }
-.comiss-row { display: flex; gap: 16px; align-items: baseline; }
-.comiss-lbl {
-  font-family: var(--f-main);
+
+.comiss-details {
+  display: flex;
+  gap: 48px;
+}
+
+.comiss-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comiss-detail-label {
   font-size: 9px;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gray);
-  min-width: 80px;
 }
-.comiss-val {
-  font-family: var(--f-main);
-  font-size: 13px;
-  font-weight: 800;
+
+.comiss-detail-val {
+  font-size: 14px;
+  font-weight: 500;
   color: var(--black);
 }
-.comiss-close {
-  font-family: var(--f-main);
-  font-size: 15px;
+
+.comiss-closing {
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
   font-style: italic;
-  font-weight: 400;
   color: var(--black);
   border-top: 1px solid var(--border);
   padding-top: 24px;
+  margin-top: 40px;
 }
 
-/* ─── CTA ─── */
-#cta { padding: 120px 48px 100px; max-width: 940px; margin: 0 auto; }
+/* ── CTA FINAL ── */
+#cta { background: var(--white); padding: 120px 40px; max-width: 900px; margin: 0 auto; }
 
 .cta-name {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: clamp(52px, 9vw, 96px);
-  line-height: 0.92;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(60px, 10vw, 110px);
+  line-height: 0.9;
   color: var(--black);
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
+
 .cta-text {
-  font-family: var(--f-main);
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 300;
   color: #444;
-  line-height: 1.75;
+  line-height: 1.7;
   max-width: 480px;
   margin-bottom: 64px;
 }
-.cta-cols {
+
+.cta-contacts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  gap: 48px;
   margin-bottom: 64px;
 }
-.c-col { display: flex; flex-direction: column; }
-.c-name {
-  font-family: var(--f-main);
+
+.contact-block { display: flex; flex-direction: column; gap: 0; }
+
+.contact-name {
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gray);
   margin-bottom: 4px;
 }
-.c-role {
-  font-family: var(--f-main);
+
+.contact-role {
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 500;
   color: var(--black);
   margin-bottom: 20px;
-  line-height: 1.4;
+  letter-spacing: 0.05em;
 }
-.c-link {
+
+.contact-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -863,124 +878,88 @@ hr.div {
   border-bottom: 1px solid var(--border);
   text-decoration: none;
   color: var(--black);
-  font-family: var(--f-main);
-  font-size: 12px;
-  font-weight: 500;
-  transition: padding-left 0.2s, color 0.2s;
+  font-size: 13px;
+  font-weight: 400;
+  transition: padding-left 0.2s;
 }
-.c-link:hover { padding-left: 8px; color: var(--red); }
 
-/* ─── FOOTER ─── */
-.cta-foot {
+.contact-link:hover { padding-left: 8px; color: var(--red); }
+
+.contact-divider {
+  width: 1px;
+  background: var(--border);
+  align-self: stretch;
+}
+
+.cta-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 36px;
+  padding-top: 40px;
   border-top: 1px solid var(--border);
-  flex-wrap: wrap;
-  gap: 20px;
 }
 
 .cta-brand {
-  font-family: var(--f-alt);
-  font-weight: 900;
-  font-size: 15px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
   letter-spacing: 0.05em;
-  color: var(--black);
 }
+
 .cta-brand span { color: var(--red); }
 
-.footer-social {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.footer-social a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: var(--gray);
-  font-family: var(--f-main);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  transition: color 0.2s;
-}
-.footer-social a:hover { color: var(--black); }
-.footer-social svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-  flex-shrink: 0;
-}
-.footer-social .soc-sep {
-  width: 1px;
-  height: 16px;
-  background: var(--border);
-}
-
 .cta-fine {
-  font-family: var(--f-main);
-  font-size: 9px;
-  font-weight: 400;
-  color: #bbb;
-  line-height: 1.7;
+  font-size: 10px;
+  color: var(--gray);
   text-align: right;
+  line-height: 1.6;
 }
 
-/* ─── KEYFRAMES ─── */
-@keyframes fu {
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── MOBILE ─── */
-@media (max-width: 660px) {
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 640px) {
   nav { padding: 14px 20px; }
   .nav-links { display: none; }
-  .wrap { padding: 0 20px; }
-  #capa { padding: 110px 20px 60px; }
-  #cta  { padding: 80px 20px; }
-
-  .marcas, .entrega-grid, .p-grid,
-  .p-grid-fotos, .v-grid, .tl, .cta-cols { grid-template-columns: 1fr; }
-
-  .sh-renders-top { grid-template-columns: 1fr; }
-  .tl::before { display: none; }
-  .tl-s { padding-right: 0; padding-bottom: 40px; }
-  .tl-band .wrap { padding: 0 20px; }
-
-  .marca { border-right: none; border-bottom: 1px solid var(--border); }
-  .marca:last-child { border-bottom: none; }
-
-  .e-card { border-right: none !important; }
-  .p-card { border-right: none !important; }
-  .p-card:nth-child(5) { grid-column: 1; }
-
-  .somos-bar { flex-direction: column; gap: 10px; }
-  .entrega-foot { flex-direction: column; }
-  .comiss-body { flex-direction: column; gap: 16px; }
-  .v-wrap { max-width: 100%; }
-  .footer-social { flex-wrap: wrap; }
-  .cta-foot { flex-direction: column; align-items: flex-start; }
+  .section-pad { padding: 72px 20px; }
+  .container { padding: 0 20px; }
+  .marcas-grid, .entrega-grid, .promessa-grid,
+  .portfolio-grid, .videos-grid, .showroom-renders,
+  .timeline, .cta-contacts, .comiss-main { grid-template-columns: 1fr; }
+  .timeline::before { display: none; }
+  .somos-banner { flex-direction: column; gap: 16px; }
+  .entrega-footer { flex-direction: column; gap: 8px; }
+  .contact-divider { display: none; }
+  .videos-grid { gap: 32px; }
+  .video-wrap { max-width: 100%; }
+  #capa { padding: 100px 20px 60px; }
+  #cta { padding: 80px 20px; }
+  .comiss-details { flex-direction: column; gap: 20px; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logos">
-    <img src="images/logo-homefine.png" alt="Homefine">
-    <div class="nav-sep"></div>
-    <img src="images/logo-ziar.png" alt="ZIAR DECOR">
-  </div>
+  <div class="nav-brand">CAMILA<span>RENATA</span>.</div>
   <ul class="nav-links">
     <li><a href="#momento">Início</a></li>
     <li><a href="#entrega">Serviços</a></li>
     <li><a href="#portfolio">Portfólio</a></li>
-    <li><a href="#videos">Projetos</a></li>
     <li><a href="#funciona">Parceria</a></li>
     <li><a href="#cta">Contato</a></li>
   </ul>
@@ -989,176 +968,176 @@ hr.div {
 <!-- CAPA -->
 <section id="capa">
   <div class="capa-logos">
-    <div class="logo-block">
-      <div class="logo-name">Homefine</div>
+    <div>
+      <div class="logo-text">Homefine</div>
       <div class="logo-sub">Móveis Sob Medida</div>
     </div>
-    <div class="logo-sep"></div>
-    <div class="logo-block">
-      <div class="logo-name">ZIAR DECOR</div>
+    <div class="logo-divider"></div>
+    <div>
+      <div class="logo-text">ZIAR DECOR</div>
       <div class="logo-sub">Decoração & Ambientação</div>
     </div>
   </div>
-  <div class="capa-tag">Proposta de Parceria</div>
+  <div class="capa-greeting">Proposta de Parceria</div>
   <div class="capa-title">Olá,<br>Arquiteta!</div>
   <div class="capa-sub">Esses são os detalhes e etapas da nossa proposta de parceria.</div>
-  <div class="capa-disclaimer">Este documento é de autoria de Camila Renata, representante de relacionamento da Homefine e ZIAR DECOR. Não divulgar sem consentimento por escrito.</div>
+  <div class="capa-disclaimer">Este documento contém informações de propriedade de Camila Renata, representante de relacionamento da Homefine e ZIAR DECOR. Não divulgar sem consentimento.</div>
 </section>
 
-<!-- 01 NOVO MOMENTO -->
+<!-- NOVO MOMENTO -->
 <section id="momento">
-  <div class="wrap reveal">
-    <span class="sec-tag">01 — Novo Momento</span>
-    <h2 class="sec-title">Estamos em um<br>novo capítulo.</h2>
-    <p class="sec-lead">Nova gestão. Novo showroom. Novo padrão de entrega.</p>
-    <hr class="div">
-    <p style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:400;color:#555;line-height:1.8;max-width:540px;">Esta apresentação chega até você porque queremos construir parcerias à altura do que estamos nos tornando.</p>
-    <img class="momento-img" src="images/fachada.jpg" alt="Homefine & ZIAR DECOR" onerror="this.style.display='none'">
+  <div class="section-pad reveal">
+    <span class="section-tag">01 — Novo Momento</span>
+    <h2 class="section-title">Estamos em um novo capítulo.</h2>
+    <p class="section-lead">Nova gestão. Novo showroom. Novo padrão de entrega.</p>
+    <hr class="divider">
+    <p style="font-size:15px; font-weight:300; color:#555; line-height:1.8; max-width:560px;">Esta apresentação chega até você porque queremos construir parcerias à altura do que estamos nos tornando.</p>
+    <img class="momento-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80" alt="Showroom Homefine & ZIAR DECOR" onerror="this.style.display='none'">
   </div>
 </section>
 
-<!-- 02 DOR DO PARCEIRO -->
+<!-- DOR DO PARCEIRO -->
 <section id="dor">
-  <div class="wrap reveal">
-    <span class="sec-tag">02 — A Dor do Parceiro</span>
-    <h2 class="sec-title">Você já perdeu noites de sono por causa de fornecedor?</h2>
+  <div class="section-pad reveal">
+    <span class="section-tag">02 — A Dor do Parceiro</span>
+    <h2 class="section-title">Você já perdeu noites de sono por causa de fornecedor?</h2>
     <ul class="dor-list">
-      <li class="dor-item"><span class="dor-n">01</span><span>Marceneiro atrasou. Obra parada. Cliente no seu pescoço.</span></li>
-      <li class="dor-item"><span class="dor-n">02</span><span>Móvel chegou errado. Projeto comprometido.</span></li>
-      <li class="dor-item"><span class="dor-n">03</span><span>Cinco fornecedores diferentes. Cinco desculpas diferentes.</span></li>
+      <li class="dor-item"><span class="dor-num">01</span><span>Marceneiro atrasou. Obra parada. Cliente no seu pescoço.</span></li>
+      <li class="dor-item"><span class="dor-num">02</span><span>Móvel chegou errado. Projeto comprometido.</span></li>
+      <li class="dor-item"><span class="dor-num">03</span><span>Cinco fornecedores diferentes. Cinco desculpas diferentes.</span></li>
     </ul>
-    <p class="dor-resolve">A gente entende. E resolvemos isso. →</p>
+    <p class="dor-resolucao">A gente entende. E resolvemos isso. →</p>
   </div>
 </section>
 
-<!-- 03 QUEM SOMOS -->
+<!-- QUEM SOMOS -->
 <section id="somos">
-  <div class="wrap reveal">
-    <span class="sec-tag">03 — Quem Somos</span>
-    <h2 class="sec-title">Duas marcas.<br>Uma operação.</h2>
-    <div class="marcas">
-      <div class="marca">
+  <div class="section-pad reveal">
+    <span class="section-tag">03 — Quem Somos</span>
+    <h2 class="section-title">Duas marcas.<br>Uma operação.</h2>
+    <div class="marcas-grid">
+      <div class="marca-card">
         <div class="marca-name">Homefine</div>
-        <div class="marca-tag">Móveis Sob Medida</div>
-        <div class="marca-body">Projeto, precisão e acabamento premium. Cada detalhe executado com fidelidade à sua concepção.</div>
+        <div class="marca-desc">Móveis Sob Medida</div>
+        <div class="marca-body">Projeto, precisão e acabamento premium. Cada detalhe executado com fidelidade ao seu projeto.</div>
       </div>
-      <div class="marca">
+      <div class="marca-card">
         <div class="marca-name">ZIAR DECOR</div>
-        <div class="marca-tag">Decoração & Ambientação</div>
+        <div class="marca-desc">Decoração & Ambientação</div>
         <div class="marca-body">Móveis convencionais, curadoria de peças e ambientação completa. Do sofá ao quadro na parede.</div>
       </div>
     </div>
-    <div class="somos-bar">
-      <span class="somos-bar-item">Duas Marcas →</span>
-      <span class="somos-bar-item">Uma Operação →</span>
-      <span class="somos-bar-hl">O ambiente inteiro entregue.</span>
+    <div class="somos-banner">
+      <span class="banner-item">Duas Marcas <span class="banner-arrow">→</span></span>
+      <span class="banner-item">Uma Operação <span class="banner-arrow">→</span></span>
+      <span class="banner-highlight">O ambiente inteiro entregue.</span>
     </div>
   </div>
 </section>
 
-<!-- 04 O QUE ENTREGAMOS -->
+<!-- O QUE ENTREGAMOS -->
 <section id="entrega">
-  <div class="wrap reveal">
-    <span class="sec-tag">04 — O que Entregamos</span>
-    <h2 class="sec-title">Quatro frentes.<br>Uma operação.</h2>
+  <div class="section-pad reveal">
+    <span class="section-tag">04 — O que Entregamos</span>
+    <h2 class="section-title">Quatro frentes.<br>Uma operação.</h2>
     <div class="entrega-grid">
-      <div class="e-card">
-        <span class="e-icon">📐</span>
-        <div class="e-tag">01 — Marcenaria</div>
-        <div class="e-name">Sob Medida</div>
-        <div class="e-body">Produção precisa, projeto respeitado, acabamento premium.</div>
-        <div class="e-accent">O projeto que você entrega ao seu cliente sai exatamente como foi concebido.</div>
+      <div class="entrega-card">
+        <span class="entrega-icon">📐</span>
+        <div class="entrega-tag">01 — Marcenaria</div>
+        <div class="entrega-name">Sob Medida</div>
+        <div class="entrega-body">Produção precisa, projeto respeitado, acabamento premium.</div>
+        <div class="entrega-accent">O projeto que você entrega ao seu cliente sai exatamente como foi concebido.</div>
       </div>
-      <div class="e-card">
-        <span class="e-icon">🛋️</span>
-        <div class="e-tag">02 — Móveis</div>
-        <div class="e-name">Convencionais</div>
-        <div class="e-body">Catálogo amplo, marcas selecionadas, showroom físico disponível.</div>
-        <div class="e-accent">Leve seu cliente para ver, tocar e decidir. O espaço é seu também.</div>
+      <div class="entrega-card">
+        <span class="entrega-icon">🛋️</span>
+        <div class="entrega-tag">02 — Móveis</div>
+        <div class="entrega-name">Convencionais</div>
+        <div class="entrega-body">Catálogo amplo, marcas selecionadas, showroom físico disponível.</div>
+        <div class="entrega-accent">Leve seu cliente para ver, tocar e decidir. O espaço é seu também.</div>
       </div>
-      <div class="e-card">
-        <span class="e-icon">🏺</span>
-        <div class="e-tag">03 — Decor</div>
-        <div class="e-name">& Ambientação</div>
-        <div class="e-body">Curadoria de peças para fechar o ambiente com identidade.</div>
-        <div class="e-accent">Nada de ambiente pela metade. Entregamos o todo.</div>
+      <div class="entrega-card">
+        <span class="entrega-icon">🏺</span>
+        <div class="entrega-tag">03 — Decor</div>
+        <div class="entrega-name">& Ambientação</div>
+        <div class="entrega-body">Curadoria de peças para fechar o ambiente com identidade.</div>
+        <div class="entrega-accent">Nada de ambiente pela metade. Entregamos o todo.</div>
       </div>
-      <div class="e-card">
-        <span class="e-icon">🏗️</span>
-        <div class="e-tag">04 — Obras</div>
-        <div class="e-name">& Reformas</div>
-        <div class="e-body">Execução supervisionada com parceiros técnicos certificados.</div>
-        <div class="e-accent">Um único responsável do começo ao fim. Você não precisa supervisionar ninguém.</div>
+      <div class="entrega-card">
+        <span class="entrega-icon">🏗️</span>
+        <div class="entrega-tag">04 — Obras</div>
+        <div class="entrega-name">& Reformas</div>
+        <div class="entrega-body">Execução supervisionada com parceiros técnicos certificados.</div>
+        <div class="entrega-accent">Um único responsável do começo ao fim. Você não precisa supervisionar ninguém.</div>
       </div>
     </div>
-    <div class="entrega-foot">
-      <span class="entrega-foot-a">Tudo em um lugar. Um contato. Um compromisso.</span>
-      <span class="entrega-foot-b">Você fecha o projeto. A gente executa tudo.</span>
+    <div class="entrega-footer">
+      <span class="entrega-footer-text">Tudo em um lugar. Um contato. Um compromisso.</span>
+      <span class="entrega-footer-sub">Você fecha o projeto. A gente executa tudo.</span>
     </div>
   </div>
 </section>
 
-<!-- 05 NOSSA PROMESSA -->
+<!-- NOSSA PROMESSA -->
 <section id="promessa">
-  <div class="wrap reveal">
-    <span class="sec-tag">05 — Nossa Promessa</span>
-    <h2 class="sec-title">Compromissos são fáceis de listar.<br>Difíceis de cumprir.</h2>
-    <div class="p-grid">
-      <div class="p-card">
-        <div class="p-num">01 — Prazo</div>
-        <div class="p-name">É Prazo.</div>
-        <div class="p-body">Comunicamos antes, nunca depois. Se algo mudar, você sabe primeiro.</div>
-        <div class="p-accent">Nosso compromisso é com a sua tranquilidade e o cronograma do seu projeto.</div>
+  <div class="section-pad reveal">
+    <span class="section-tag">05 — Nossa Promessa</span>
+    <h2 class="section-title">Compromissos são fáceis de listar.<br>Difíceis de cumprir.</h2>
+    <div class="promessa-grid">
+      <div class="promessa-card">
+        <div class="promessa-num">01 — Prazo</div>
+        <div class="promessa-name">É Prazo.</div>
+        <div class="promessa-body">Comunicamos antes, nunca depois. Se algo mudar, você sabe primeiro.</div>
+        <div class="promessa-accent">Nosso compromisso é com a sua tranquilidade e o cronograma do seu projeto.</div>
       </div>
-      <div class="p-card">
-        <div class="p-num">02 — Seu Projeto</div>
-        <div class="p-name">É Sagrado.</div>
-        <div class="p-body">Nenhuma sugestão ao seu cliente sem sua autorização. O projeto é seu.</div>
-        <div class="p-accent">Nós somos o braço direito que executa a sua visão com fidelidade.</div>
+      <div class="promessa-card">
+        <div class="promessa-num">02 — Seu Projeto</div>
+        <div class="promessa-name">É Sagrado.</div>
+        <div class="promessa-body">Nenhuma sugestão ao seu cliente sem sua autorização. O projeto é seu.</div>
+        <div class="promessa-accent">Nós somos o braço direito que executa a sua visão com fidelidade.</div>
       </div>
-      <div class="p-card">
-        <div class="p-num">03 — Orçamento em</div>
-        <div class="p-name">Até 48h.</div>
-        <div class="p-body">Sua proposta não espera. Respondemos rápido para que você feche rápido.</div>
-        <div class="p-accent">O tempo do seu cliente é a nossa prioridade.</div>
+      <div class="promessa-card">
+        <div class="promessa-num">03 — Orçamento em</div>
+        <div class="promessa-name">Até 48h.</div>
+        <div class="promessa-body">Sua proposta não espera. Respondemos rápido para que você feche rápido.</div>
+        <div class="promessa-accent">O tempo do seu cliente é a nossa prioridade.</div>
       </div>
-      <div class="p-card">
-        <div class="p-num">04 — Um Contato</div>
-        <div class="p-name">Dedicado.</div>
-        <div class="p-body">Você fala com uma pessoa. Sempre a mesma. Sem redirecionar, sem repetir.</div>
-        <div class="p-accent">Canal direto com quem resolve, com continuidade e agilidade.</div>
+      <div class="promessa-card">
+        <div class="promessa-num">04 — Um Contato</div>
+        <div class="promessa-name">Dedicado.</div>
+        <div class="promessa-body">Você fala com uma pessoa. Sempre a mesma. Sem redirecionar, sem repetir.</div>
+        <div class="promessa-accent">Canal direto com quem resolve, garantindo continuidade e agilidade.</div>
       </div>
-      <div class="p-card">
-        <div class="p-num">05 — Garantia</div>
-        <div class="p-name">Documentada.</div>
-        <div class="p-body">Pós-obra com prazo definido e processo claro. Sem letra miúda.</div>
-        <div class="p-accent">Cuidamos do seu cliente com o mesmo zelo que você.</div>
+      <div class="promessa-card">
+        <div class="promessa-num">05 — Garantia</div>
+        <div class="promessa-name">Documentada.</div>
+        <div class="promessa-body">Pós-obra com prazo definido e processo claro. Sem letra miúda.</div>
+        <div class="promessa-accent">Cuidamos do seu cliente com o mesmo zelo que você.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 06 PORTFÓLIO -->
+<!-- PORTFÓLIO -->
 <section id="portfolio">
-  <div class="wrap reveal">
-    <span class="sec-tag">06 — Nosso Trabalho</span>
-    <h2 class="sec-title">Projetos<br>Entregues.</h2>
-    <div class="p-grid-fotos">
-      <div class="p-foto">
-        <img src="images/portfolio1.jpg" alt="Projeto São Paulo" onerror="this.parentElement.style.background='#2a2a2a'">
-        <div class="p-foto-cap">São Paulo · Cozinha sob medida</div>
+  <div class="portfolio-inner reveal">
+    <span class="section-tag">06 — Nosso Trabalho</span>
+    <h2 class="section-title">Projetos<br>Entregues.</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-img-wrap">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Projeto 1">
+        <div class="portfolio-caption">São Paulo · Cozinha integrada</div>
       </div>
-      <div class="p-foto">
-        <img src="images/portfolio2.jpg" alt="Projeto São Paulo" onerror="this.parentElement.style.background='#2a2a2a'">
-        <div class="p-foto-cap">São Paulo · Sala de estar integrada</div>
+      <div class="portfolio-img-wrap">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Projeto 2">
+        <div class="portfolio-caption">Campinas · Suíte master</div>
       </div>
-      <div class="p-foto">
-        <img src="images/portfolio3.jpg" alt="Projeto São Paulo" onerror="this.parentElement.style.background='#2a2a2a'">
-        <div class="p-foto-cap">São Paulo · Área gourmet</div>
+      <div class="portfolio-img-wrap">
+        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80" alt="Projeto 3">
+        <div class="portfolio-caption">São Paulo · Sala de estar</div>
       </div>
-      <div class="p-foto">
-        <img src="images/portfolio4.jpg" alt="Projeto São Paulo" onerror="this.parentElement.style.background='#2a2a2a'">
-        <div class="p-foto-cap">São Paulo · Home bar & lounge</div>
+      <div class="portfolio-img-wrap">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Projeto 4">
+        <div class="portfolio-caption">Interior SP · Home office</div>
       </div>
     </div>
   </div>
@@ -1166,171 +1145,151 @@ hr.div {
 
 <!-- VÍDEOS -->
 <section id="videos">
-  <div class="wrap reveal">
-    <span class="sec-tag">Vídeos dos Projetos</span>
-    <h2 class="sec-title">Veja como<br>entregamos.</h2>
-    <p class="v-lead">Dois projetos completos. Do briefing à entrega final.</p>
-    <div class="v-grid">
-      <div class="v-wrap">
-        <div class="v-player">
-          <iframe src="https://www.youtube.com/embed/tN0T7miS9Dk"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+  <div class="videos-inner reveal">
+    <span class="section-tag">Vídeos dos Projetos</span>
+    <h2 class="section-title">Veja como<br>entregamos.</h2>
+    <p class="videos-lead">Dois projetos completos. Do briefing à entrega final.</p>
+    <div class="videos-grid">
+      <div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/tN0T7miS9Dk" width="100%" style="aspect-ratio:9/16; border:none; display:block;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-        <p class="v-label">Projeto 01 · Tour completo</p>
+        <p class="video-label">Projeto 01 · Tour completo</p>
       </div>
-      <div class="v-wrap">
-        <div class="v-player">
-          <iframe src="https://www.youtube.com/embed/nYa43ixQvTw"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+      <div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/nYa43ixQvTw" width="100%" style="aspect-ratio:9/16; border:none; display:block;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-        <p class="v-label">Projeto 02 · Tour completo</p>
+        <p class="video-label">Projeto 02 · Tour completo</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 07 SHOWROOM + CONVITE -->
+<!-- SHOWROOM + CONVITE -->
 <section id="showroom">
-  <div class="wrap reveal">
-    <span class="sec-tag">07 — Showroom + Convite</span>
-    <h2 class="sec-title">Antes de abrir para o público,<br>queremos abrir para você.</h2>
-    <p class="sh-text">Estes são alguns dos ambientes sendo preparados para o nosso novo showroom — um espaço projetado para ser a extensão do seu atendimento.</p>
-    <p class="sh-sub">Ainda não abrimos. Mas já queremos que você veja.</p>
-
-    <div class="sh-renders-wrap">
-      <div class="sh-renders-top">
-        <div class="sh-render">
-          <img src="foto1.jpeg" alt="Render Showroom 01">
-        </div>
-        <div class="sh-render">
-          <img src="foto_2.jpeg" alt="Render Showroom 02">
-        </div>
-      </div>
-      <div class="sh-render wide">
-        <img src="foto_3.jpeg" alt="Render Showroom 03">
-      </div>
+  <div class="showroom-inner reveal">
+    <span class="section-tag">07 — Showroom + Convite</span>
+    <h2 class="section-title">Antes de abrir<br>para o público.</h2>
+    <p class="showroom-text">Estes são alguns dos ambientes sendo preparados para o nosso novo showroom — um espaço projetado para ser a extensão do seu atendimento.</p>
+    <p class="showroom-sub">Ainda não abrimos. Mas já queremos que você veja.</p>
+    <div class="showroom-renders">
+      <div class="render-wrap">[ Render 01 ]</div>
+      <div class="render-wrap">[ Render 02 ]</div>
+      <div class="render-wrap">[ Render 03 ]</div>
+      <div class="render-wrap">[ Render 04 ]</div>
     </div>
-
-    <div class="sh-convite">
-      <div class="sh-cv-title">Inauguração exclusiva para parceiros.</div>
-      <div class="sh-cv-body">Um encontro íntimo — sem protocolo, sem pauta.<br>Para que você conheça o espaço antes de todo mundo.</div>
-      <div class="sh-cv-date">Data: a confirmar — em breve você recebe o convite</div>
-      <a href="https://wa.me/5511964286008" class="btn-avisada" target="_blank">QUERO SER AVISADA →</a>
+    <div class="convite-box">
+      <div class="convite-title">Inauguração exclusiva para parceiros.</div>
+      <div class="convite-body">Um encontro íntimo — sem protocolo, sem pauta.<br>Só para que você conheça o espaço antes de todo mundo.</div>
+      <div class="convite-date">Data: a confirmar — em breve você recebe o convite</div>
+      <a href="https://wa.me/5511964286008" class="btn-convite" target="_blank">QUERO SER AVISADA →</a>
     </div>
   </div>
 </section>
 
-<!-- 08 COMO FUNCIONA + COMISSIONAMENTO -->
+<!-- COMO FUNCIONA + COMISSIONAMENTO -->
 <section id="funciona">
-  <div class="wrap reveal">
-    <span class="sec-tag">08 — Como Funciona</span>
-    <h2 class="sec-title">Simples para você.</h2>
-    <p style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--gray);margin-bottom:0;">COMPLETO PARA O SEU CLIENTE</p>
+  <div class="section-pad reveal">
+    <span class="section-tag">08 — Como Funciona</span>
+    <h2 class="section-title">Simples para você.</h2>
+    <p class="section-lead" style="margin-bottom:0; font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; font-family:'Barlow',sans-serif; color:var(--gray);">COMPLETO PARA O SEU CLIENTE</p>
 
-    <div class="tl-band">
-      <div class="wrap">
-        <div class="tl">
-          <div class="tl-s">
-            <div class="tl-dot">↑</div>
-            <div class="tl-tag">01 — Você nos Apresenta</div>
-            <div class="tl-name">Indicação</div>
-            <div class="tl-body">Passamos o Briefing juntos. Definimos escopos e os próximos passos.</div>
-            <div class="tl-acc">Sem formulário<br>sem burocracia</div>
-          </div>
-          <div class="tl-s">
-            <div class="tl-dot">⊙</div>
-            <div class="tl-tag">02 — Nós Cuidamos de Tudo</div>
-            <div class="tl-name">Atendimento</div>
-            <div class="tl-body">Projeto, orçamento, produção e instalação.</div>
-            <div class="tl-acc">De perto ou<br>só nos marcos</div>
-          </div>
-          <div class="tl-s">
-            <div class="tl-dot">✓</div>
-            <div class="tl-tag">03 — Entrega no Prazo</div>
-            <div class="tl-name">Resultado</div>
-            <div class="tl-body">Cliente satisfeito. Sua reputação intacta, e fortalecida.</div>
-            <div class="tl-acc">Sua indicação<br>vira referência</div>
-          </div>
-        </div>
+    <div class="timeline" style="margin-top:56px;">
+      <div class="tl-step">
+        <div class="tl-circle">↑</div>
+        <div class="tl-tag">01 — Indicação</div>
+        <div class="tl-title">Você nos apresenta.</div>
+        <div class="tl-body">Briefing em 15 minutos. Escopo definido na hora.</div>
+        <div class="tl-accent">Sem formulário. Sem burocracia.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-circle">⊙</div>
+        <div class="tl-tag">02 — Atendimento</div>
+        <div class="tl-title">Nós cuidamos de tudo.</div>
+        <div class="tl-body">Projeto, produção, entrega e instalação.</div>
+        <div class="tl-accent">De perto ou só nos marcos.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-circle">✓</div>
+        <div class="tl-tag">03 — Resultado</div>
+        <div class="tl-title">Entrega no prazo.</div>
+        <div class="tl-body">Cliente satisfeito. Reputação fortalecida.</div>
+        <div class="tl-accent">Sua indicação vira referência.</div>
       </div>
     </div>
 
-    <p class="fn-close">Você indica uma vez.<br>Vira parceiro para sempre.</p>
+    <div class="funciona-closing">Você indica uma vez.<br>Vira parceiro para sempre.</div>
 
-    <div class="comiss">
+    <div class="comiss-wrap">
       <div class="comiss-tag">Comissionamento</div>
-      <div class="comiss-body">
-        <div class="comiss-pct">10%</div>
-        <div class="comiss-info">
+      <div class="comiss-main">
+        <div class="comiss-number">10%</div>
+        <div class="comiss-right">
           <div class="comiss-desc">sobre o valor total da compra realizada na loja</div>
           <div class="comiss-cats">PLANEJADOS · CONVENCIONAIS · DECOR</div>
-          <div class="comiss-rows">
-            <div class="comiss-row">
-              <span class="comiss-lbl">Pagamento</span>
-              <span class="comiss-val">Pix</span>
+          <div class="comiss-details">
+            <div class="comiss-detail-item">
+              <span class="comiss-detail-label">Pagamento</span>
+              <span class="comiss-detail-val">Pix / Transferência</span>
             </div>
-            <div class="comiss-row">
-              <span class="comiss-lbl">Repasse</span>
-              <span class="comiss-val">Após aprovação financeira e confirmação do pagamento</span>
+            <div class="comiss-detail-item">
+              <span class="comiss-detail-label">Repasse</span>
+              <span class="comiss-detail-val">__ dias úteis</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="comiss-close">Sem asterisco. O que está escrito aqui é o que vale.</div>
+      <div class="comiss-closing">Sem asterisco. O que está escrito aqui é o que vale.</div>
     </div>
   </div>
 </section>
 
-<!-- 09 CTA FINAL -->
+<!-- CTA FINAL -->
 <section>
   <div id="cta" class="reveal">
     <div class="cta-name">Arquiteta,</div>
     <p class="cta-text">Que tal um café? Sem apresentação formal, sem PowerPoint na mesa. Só uma conversa para ver se faz sentido para os dois lados.</p>
 
-    <div class="cta-cols">
-      <div class="c-col">
-        <div class="c-name">Camila Renata</div>
-        <div class="c-role">Relacionamento & Parcerias<br>Homefine & ZIAR DECOR</div>
-        <a href="https://wa.me/5511964286008" class="c-link" target="_blank">
+    <div class="cta-contacts">
+      <div class="contact-block">
+        <div class="contact-name">Camila Renata</div>
+        <div class="contact-role">Relacionamento & Parcerias · Homefine & ZIAR DECOR</div>
+        <a href="https://wa.me/5511964286008" class="contact-link" target="_blank">
           <span>WhatsApp</span><span>→</span>
         </a>
-        <a href="/cdn-cgi/l/email-protection#87e6e3eaeee9eef4f3f5e6f3eef1e8c7efe8eae2e1eee9e2eae8f1e2eef4a9e4e8ea" class="c-link">
+        <a href="mailto:administrativo@homefinemoveis.com" class="contact-link">
           <span>E-mail</span><span>→</span>
         </a>
       </div>
-      <div class="c-col">
-        <div class="c-name">Elias Orte</div>
-        <div class="c-role">Consultor Comercial<br>Homefine & ZIAR DECOR</div>
-        <a href="https://wa.me/5511985300649" class="c-link" target="_blank">
+      <div class="contact-block">
+        <div class="contact-name">Parceiro Comercial</div>
+        <div class="contact-role">Consultor · Homefine & ZIAR DECOR</div>
+        <a href="https://wa.me/55" class="contact-link" target="_blank">
           <span>WhatsApp</span><span>→</span>
         </a>
-        <a href="/cdn-cgi/l/email-protection#e8898c858186819b9c9a899c819e87a88087858d8e81868d85879e8d819bc68b8785" class="c-link">
+        <a href="mailto:contato@homefinemoveis.com" class="contact-link">
           <span>E-mail</span><span>→</span>
         </a>
       </div>
     </div>
 
-    <div class="cta-foot">
+    <div class="cta-footer">
       <div class="cta-brand">CAMILA<span>RENATA</span>.</div>
-
-      <div class="footer-social">
-        <a href="https://www.instagram.com/homefinebr/?hl=pt-br" target="_blank">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          @homefinebr
-        </a>
-        <div class="soc-sep"></div>
-        <a href="https://www.instagram.com/ziardecor/?hl=pt-br" target="_blank">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          @ziardecor
-        </a>
+      <div class="cta-fine">
+        @homefinebr · @ziardecor<br>
+        Documento confidencial. Não divulgar.
       </div>
-
-      <div class="cta-fine">Documento de autoria de Camila Renata.<br>Não divulgar sem consentimento.</div>
     </div>
   </div>
 </section>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const obs = new IntersectionOb
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
