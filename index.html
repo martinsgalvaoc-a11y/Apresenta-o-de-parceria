@@ -4,439 +4,1137 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proposta de Parceria | Homefine & ZIAR DECOR</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300&family=Montserrat+Alternates:wght@700;900&display=swap" rel="stylesheet">
+
 <style>
 :root {
-  --black: #0e0e0e;
-  --white: #f8f7f4;
-  --red: #b01c1c;
-  --dark: #1a1a1a;
-  --gray: #888;
-  --light: #f0efec;
-  --border: #ddd;
+  --red:    #8c0410;
+  --black:  #262626;
+  --white:  #fffafa;
+  --gray:   #888888;
+  --light:  #f4f3f0;
+  --border: #e0dfdc;
+  --dark:   #1a1a1a;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+
 body {
-  background: var(--white); color: var(--black);
-  font-family: 'Barlow', sans-serif; font-weight: 300; overflow-x: hidden;
+  background: var(--white);
+  color: var(--black);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* ─── NAV ─── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 16px 40px; background: rgba(248,247,244,0.95);
-  backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(255,250,250,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
 }
-.nav-brand { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 18px; letter-spacing: 0.05em; color: var(--black); }
-.nav-brand span { color: var(--red); }
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+
+.nav-logo {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: var(--black);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--red); }
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray);
+  text-decoration: none;
+  transition: color 0.2s;
+}
 .nav-links a:hover { color: var(--black); }
 
-section { width: 100%; }
-.container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+/* ─── HELPERS ─── */
+.wrap {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
 
-#capa { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 40px 80px; max-width: 900px; margin: 0 auto; }
-.capa-logos { display: flex; gap: 48px; align-items: center; margin-bottom: 80px; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
-.logo-text { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: 0.08em; }
-.logo-sub { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-top: 2px; }
-.logo-divider { width: 1px; height: 32px; background: var(--border); }
+.sec-tag {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 14px;
+}
 
-.capa-greeting { font-size: 10px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards; }
-.capa-title { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: clamp(48px, 8vw, 80px); line-height: 0.9; color: var(--black); margin-bottom: 32px; opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards; }
-.capa-sub { font-family: 'Crimson Pro', serif; font-size: 22px; font-weight: 300; color: #555; line-height: 1.5; max-width: 480px; opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards; }
-.capa-disclaimer { margin-top: 60px; font-size: 10px; color: var(--gray); line-height: 1.6; max-width: 360px; opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards; }
+h2.sec-title {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 900;
+  font-size: clamp(36px, 5.5vw, 68px);
+  line-height: 1.0;
+  color: var(--black);
+  margin-bottom: 32px;
+}
 
-.section-pad { padding: 100px 40px; max-width: 900px; margin: 0 auto; }
-.section-tag { font-size: 9px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; display: block; }
-.section-title { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: clamp(36px, 6vw, 64px); line-height: 0.92; color: var(--black); margin-bottom: 40px; }
-.section-lead { font-family: 'Crimson Pro', serif; font-size: 20px; font-weight: 400; line-height: 1.6; color: #333; max-width: 560px; }
-hr.divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+.sec-lead {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: #444;
+  max-width: 540px;
+}
 
-#momento { background: var(--white); }
-.momento-img { width: 100%; height: 340px; object-fit: cover; margin-top: 48px; display: block; }
+hr.div {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 48px 0;
+}
 
-#dor { background: var(--black); color: var(--white); }
-#dor .section-title { color: var(--white); }
-#dor .section-tag { color: #666; }
-.dor-list { list-style: none; margin: 48px 0; display: flex; flex-direction: column; gap: 0; }
-.dor-item { display: flex; align-items: flex-start; gap: 24px; padding: 28px 0; border-bottom: 1px solid #2a2a2a; font-size: 18px; font-weight: 300; color: #ccc; line-height: 1.4; }
-.dor-num { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; color: #444; margin-top: 4px; flex-shrink: 0; }
-.dor-resolucao { font-family: 'Crimson Pro', serif; font-size: 24px; font-style: italic; color: var(--white); margin-top: 48px; }
+/* ─── REVEAL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.on { opacity: 1; transform: translateY(0); }
 
-#somos { background: var(--white); }
-.marcas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 48px 0; border: 1px solid var(--border); }
-.marca-card { padding: 40px; border-right: 1px solid var(--border); }
-.marca-card:last-child { border-right: none; }
-.marca-name { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.05em; margin-bottom: 8px; }
-.marca-desc { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
-.marca-body { font-size: 14px; font-weight: 300; color: #555; line-height: 1.7; }
-.somos-banner { background: var(--red); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; gap: 40px; }
-.banner-item { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.7); letter-spacing: 0.1em; text-transform: uppercase; }
-.banner-arrow { color: rgba(255,255,255,0.4); }
-.banner-highlight { font-family: 'Crimson Pro', serif; font-size: 26px; font-style: italic; color: var(--white); }
+/* ─── CAPA ─── */
+#capa {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 130px 48px 80px;
+  max-width: 940px;
+  margin: 0 auto;
+}
 
-#entrega { background: var(--light); }
-.entrega-grid { display: grid; grid-template-columns: 1fr 1fr; margin: 48px 0; border: 1px solid #ddd; background: var(--white); }
-.entrega-card { padding: 36px; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; position: relative; }
-.entrega-card:nth-child(2) { border-right: none; }
-.entrega-card:nth-child(3) { border-bottom: none; }
-.entrega-card:nth-child(4) { border-right: none; border-bottom: none; }
-.entrega-icon { font-size: 28px; margin-bottom: 20px; display: block; }
-.entrega-tag { font-size: 8px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
-.entrega-name { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.05em; margin-bottom: 10px; }
-.entrega-body { font-size: 12px; font-weight: 300; color: #666; line-height: 1.7; margin-bottom: 12px; }
-.entrega-accent { font-family: 'Crimson Pro', serif; font-size: 13px; font-style: italic; color: var(--black); border-left: 2px solid var(--black); padding-left: 10px; line-height: 1.6; }
-.entrega-footer { background: var(--black); padding: 24px 36px; display: flex; justify-content: space-between; align-items: center; }
-.entrega-footer-text { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; color: var(--white); text-transform: uppercase; }
-.entrega-footer-sub { font-family: 'Crimson Pro', serif; font-size: 16px; font-style: italic; color: #aaa; }
+.capa-logos {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 72px;
+  opacity: 0;
+  animation: fu 0.8s ease 0.15s forwards;
+}
+.logo-block { display: flex; flex-direction: column; gap: 3px; }
+.logo-name {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 900;
+  font-size: 17px;
+  letter-spacing: 0.06em;
+  color: var(--black);
+}
+.logo-sub {
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.logo-sep { width: 1px; height: 36px; background: var(--border); }
 
-#promessa { background: var(--white); }
-.promessa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 48px 0; border: 1px solid var(--border); }
-.promessa-card { padding: 36px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.promessa-card:nth-child(2n) { border-right: none; }
-.promessa-card:nth-child(5) { border-bottom: none; grid-column: 1 / -1; border-right: none; }
-.promessa-num { font-size: 8px; font-weight: 700; letter-spacing: 0.25em; color: var(--gray); text-transform: uppercase; margin-bottom: 8px; }
-.promessa-name { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 26px; margin-bottom: 10px; }
-.promessa-body { font-size: 12px; font-weight: 300; color: #666; line-height: 1.7; margin-bottom: 12px; }
-.promessa-accent { font-family: 'Crimson Pro', serif; font-size: 13px; font-style: italic; color: var(--black); border-left: 2px solid var(--black); padding-left: 10px; line-height: 1.6; }
+.capa-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fu 0.8s ease 0.3s forwards;
+}
 
-#portfolio { background: var(--black); padding: 100px 0; }
-.portfolio-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; }
-#portfolio .section-title { color: var(--white); }
-#portfolio .section-tag { color: #555; }
-.portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 48px 0; }
-.portfolio-img-wrap { position: relative; overflow: hidden; aspect-ratio: 4/3; background: #222; }
-.portfolio-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; filter: brightness(0.85); }
-.portfolio-img-wrap:hover img { transform: scale(1.04); filter: brightness(1); }
-.portfolio-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,0.7)); font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+.capa-title {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 900;
+  font-size: clamp(64px, 11vw, 120px);
+  line-height: 0.92;
+  color: var(--black);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fu 0.8s ease 0.45s forwards;
+}
 
-#showroom { background: var(--black); color: var(--white); padding: 100px 0; }
-.showroom-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; }
-#showroom .section-title { color: var(--white); }
-#showroom .section-tag { color: #555; }
-.showroom-text { font-size: 15px; font-weight: 300; color: #aaa; line-height: 1.8; max-width: 520px; margin-bottom: 16px; }
-.showroom-sub { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #555; margin-bottom: 32px; }
-.showroom-renders { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 48px 0 56px; }
-.render-wrap { aspect-ratio: 4/3; background: #2a2a2a; display: flex; align-items: center; justify-content: center; overflow: hidden;}
-.render-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.convite-box { border: 1px solid #2a2a2a; padding: 40px; margin-top: 8px; }
-.convite-title { font-family: 'Crimson Pro', serif; font-size: 28px; font-weight: 300; font-style: italic; color: var(--white); margin-bottom: 16px; line-height: 1.3; }
-.convite-body { font-size: 13px; font-weight: 300; color: #888; line-height: 1.8; margin-bottom: 32px; }
-.convite-date { font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #555; margin-bottom: 24px; }
-.btn-convite { display: inline-block; border: 1px solid #555; color: var(--white); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 14px 32px; text-decoration: none; transition: all 0.2s; }
-.btn-convite:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+.capa-sub {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #555;
+  max-width: 460px;
+  opacity: 0;
+  animation: fu 0.8s ease 0.6s forwards;
+}
 
-#funciona { background: var(--white); }
-.timeline { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin: 56px 0; position: relative; }
-.timeline::before { content: ''; position: absolute; top: 20px; left: calc(16.66% + 16px); right: calc(16.66% + 16px); height: 1px; background: var(--black); z-index: 0; }
-.tl-step { padding-right: 32px; position: relative; }
-.tl-step:last-child { padding-right: 0; }
-.tl-circle { width: 36px; height: 36px; border: 1px solid var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; background: var(--white); position: relative; z-index: 1; font-size: 14px; }
-.tl-tag { font-size: 8px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
-.tl-title { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 26px; margin-bottom: 10px; line-height: 1; }
-.tl-body { font-size: 12px; font-weight: 300; color: #666; line-height: 1.7; margin-bottom: 12px; }
-.tl-accent { font-family: 'Crimson Pro', serif; font-size: 12px; font-style: italic; color: var(--black); border-left: 2px solid var(--black); padding-left: 8px; line-height: 1.6; }
-.funciona-closing { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: clamp(24px, 4vw, 40px); color: var(--black); margin-bottom: 64px; line-height: 1.1; }
+.capa-disclaimer {
+  margin-top: 64px;
+  font-size: 9px;
+  font-weight: 400;
+  color: #bbb;
+  line-height: 1.7;
+  max-width: 380px;
+  opacity: 0;
+  animation: fu 0.8s ease 0.8s forwards;
+}
 
-.comiss-wrap { border-top: 1px solid var(--border); padding-top: 56px; }
-.comiss-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 32px; }
-.comiss-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; margin-bottom: 40px; }
-.comiss-number { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: clamp(60px, 10vw, 100px); line-height: 0.85; color: var(--red); }
-.comiss-right { flex: 1; padding-top: 16px; }
-.comiss-desc { font-size: 14px; font-weight: 300; color: #555; line-height: 1.7; margin-bottom: 8px; }
-.comiss-cats { font-size: 9px; font-weight: 600; letter-spacing: 0.25em; color: var(--black); text-transform: uppercase; }
-.comiss-details { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.comiss-nota { font-family: 'Crimson Pro', serif; font-size: 16px; font-style: italic; color: var(--black); max-width: 280px; }
-.comiss-nota strong { font-weight: 600; font-style: normal; }
-.comiss-list { list-style: none; }
-.comiss-list li { font-size: 12px; color: #666; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-.comiss-list li::before { content: ''; width: 4px; height: 4px; background: var(--black); border-radius: 50%; }
+/* ─── NOVO MOMENTO ─── */
+#momento { padding: 100px 0; background: var(--white); }
 
-#cta { background: var(--white); padding: 120px 0 60px; }
-.cta-inner { max-width: 900px; margin: 0 auto; padding: 0 40px; }
-.cta-title { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: clamp(48px, 8vw, 80px); line-height: 0.9; margin-bottom: 56px; }
-.cta-contacts { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 48px; margin-bottom: 80px; }
-.contact-block { display: flex; flex-direction: column; }
-.contact-name { font-size: 20px; font-weight: 500; margin-bottom: 4px; }
-.contact-role { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 32px; }
-.contact-link { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--black); font-size: 13px; font-weight: 400; transition: padding-left 0.2s; }
-.contact-link:hover { padding-left: 8px; color: var(--red); }
-.contact-divider { width: 1px; background: var(--border); align-self: stretch; }
-.cta-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 40px; border-top: 1px solid var(--border); }
-.cta-brand { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 20px; letter-spacing: 0.05em; }
+.momento-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  margin-top: 48px;
+  display: block;
+}
+
+/* ─── DOR ─── */
+#dor { background: var(--black); padding: 100px 0; }
+#dor .sec-tag  { color: #555; }
+#dor h2.sec-title { color: var(--white); }
+
+.dor-list { list-style: none; margin: 48px 0; }
+.dor-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 26px 0;
+  border-bottom: 1px solid #2e2e2e;
+  font-size: 17px;
+  font-weight: 300;
+  color: #ccc;
+  line-height: 1.5;
+}
+.dor-item:first-child { border-top: 1px solid #2e2e2e; }
+.dor-n {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #444;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.dor-resolve {
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--white);
+  margin-top: 40px;
+}
+
+/* ─── QUEM SOMOS ─── */
+#somos { padding: 100px 0; background: var(--white); }
+
+.marcas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+  margin: 48px 0 0;
+}
+.marca {
+  padding: 40px;
+  border-right: 1px solid var(--border);
+}
+.marca:last-child { border-right: none; }
+.marca-name {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.marca-tag {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 14px;
+}
+.marca-body { font-size: 13px; font-weight: 300; color: #555; line-height: 1.75; }
+
+.somos-bar {
+  background: var(--red);
+  padding: 28px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.somos-bar-item {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+.somos-bar-hl {
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--white);
+}
+
+/* ─── ENTREGAMOS ─── */
+#entrega { padding: 100px 0; background: var(--light); }
+
+.entrega-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--white);
+  border: 1px solid var(--border);
+  margin: 48px 0 0;
+}
+.e-card {
+  padding: 36px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.e-card:nth-child(2n) { border-right: none; }
+.e-card:nth-child(3),
+.e-card:nth-child(4) { border-bottom: none; }
+
+.e-icon { font-size: 26px; display: block; margin-bottom: 18px; }
+.e-tag {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 6px;
+}
+.e-name {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.e-body { font-size: 12px; font-weight: 300; color: #666; line-height: 1.75; margin-bottom: 12px; }
+.e-accent {
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--black);
+  border-left: 2px solid var(--black);
+  padding-left: 10px;
+  line-height: 1.6;
+}
+
+.entrega-foot {
+  background: var(--black);
+  padding: 22px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.entrega-foot-a {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.entrega-foot-b {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  color: #888;
+}
+
+/* ─── PROMESSA ─── */
+#promessa { padding: 100px 0; background: var(--white); }
+
+.p-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+  margin: 48px 0;
+}
+.p-card {
+  padding: 36px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.p-card:nth-child(2n) { border-right: none; }
+.p-card:nth-child(5)  { grid-column: 1 / -1; border-right: none; border-bottom: none; }
+.p-card:nth-child(3),
+.p-card:nth-child(4)  { border-bottom: none; }
+
+.p-num  { font-size: 8px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+.p-name { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 24px; margin-bottom: 10px; }
+.p-body { font-size: 12px; font-weight: 300; color: #666; line-height: 1.75; margin-bottom: 12px; }
+.p-accent {
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--black);
+  border-left: 2px solid var(--black);
+  padding-left: 10px;
+  line-height: 1.6;
+}
+
+/* ─── PORTFÓLIO ─── */
+#portfolio { padding: 100px 0; background: var(--black); }
+#portfolio .sec-tag   { color: #555; }
+#portfolio h2.sec-title { color: var(--white); }
+
+.p-grid-fotos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-top: 48px;
+}
+.p-foto {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #222;
+}
+.p-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: brightness(0.82);
+}
+.p-foto:hover img { transform: scale(1.04); filter: brightness(1); }
+.p-foto-cap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 14px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.65));
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+}
+
+/* ─── VÍDEOS ─── */
+#videos { padding: 100px 0; background: #1a1a1a; }
+#videos .sec-tag    { color: #555; }
+#videos h2.sec-title { color: var(--white); }
+
+.v-lead {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 300;
+  color: #666;
+  margin-bottom: 56px;
+}
+
+.v-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  justify-items: center;
+}
+.v-wrap {
+  width: 100%;
+  max-width: 300px;
+}
+.v-player {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 28px 64px rgba(0,0,0,0.7);
+  width: 100%;
+  aspect-ratio: 9/16;
+}
+.v-player iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+.v-label {
+  margin-top: 14px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #555;
+  text-align: center;
+}
+
+/* ─── SHOWROOM ─── */
+#showroom { padding: 100px 0; background: var(--black); }
+#showroom .sec-tag    { color: #555; }
+#showroom h2.sec-title { color: var(--white); }
+
+.sh-text {
+  font-size: 15px;
+  font-weight: 300;
+  color: #aaa;
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: 8px;
+}
+.sh-sub {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.sh-renders {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 56px;
+}
+.sh-render {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #222;
+}
+.sh-render img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.88);
+  transition: filter 0.4s;
+}
+.sh-render:hover img { filter: brightness(1); }
+.sh-render.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #444;
+}
+
+.sh-convite {
+  border: 1px solid #2a2a2a;
+  padding: 40px;
+}
+.sh-cv-title {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+.sh-cv-body {
+  font-size: 13px;
+  font-weight: 300;
+  color: #888;
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+.sh-cv-date {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 24px;
+}
+.btn-avisada {
+  display: inline-block;
+  border: 1px solid #555;
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn-avisada:hover {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+
+/* ─── COMO FUNCIONA ─── */
+#funciona { padding: 100px 0; background: var(--white); }
+
+.tl {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  margin: 56px 0 64px;
+  position: relative;
+}
+.tl::before {
+  content: '';
+  position: absolute;
+  top: 17px;
+  left: calc(16.66% + 10px);
+  right: calc(16.66% + 10px);
+  height: 1px;
+  background: var(--black);
+}
+.tl-s { padding-right: 28px; position: relative; }
+.tl-s:last-child { padding-right: 0; }
+
+.tl-dot {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.tl-tag  { font-size: 8px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+.tl-name { font-family: 'Montserrat Alternates', sans-serif; font-weight: 900; font-size: 20px; margin-bottom: 10px; line-height: 1.1; }
+.tl-body { font-size: 11px; font-weight: 300; color: #666; line-height: 1.75; margin-bottom: 10px; }
+.tl-acc  { font-size: 11px; font-style: italic; color: var(--black); border-left: 2px solid var(--black); padding-left: 8px; line-height: 1.6; }
+
+.fn-close {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 900;
+  font-size: clamp(22px, 3.5vw, 36px);
+  color: var(--black);
+  line-height: 1.15;
+  margin-bottom: 64px;
+}
+
+/* ─── COMISSIONAMENTO ─── */
+.comiss { border-top: 1px solid var(--border); padding-top: 56px; }
+.comiss-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gray); margin-bottom: 32px; }
+
+.comiss-body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.comiss-pct {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 900;
+  font-size: clamp(72px, 13vw, 130px);
+  line-height: 0.85;
+  color: var(--red);
+}
+.comiss-info { flex: 1; min-width: 200px; padding-top: 12px; }
+.comiss-desc { font-size: 13px; font-weight: 300; color: #555; line-height: 1.7; margin-bottom: 6px; }
+.comiss-cats { font-size: 8px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray); margin-bottom: 28px; }
+.comiss-rows { display: flex; flex-direction: column; gap: 12px; }
+.comiss-row { display: flex; gap: 16px; align-items: baseline; }
+.comiss-lbl { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); min-width: 80px; }
+.comiss-val { font-size: 13px; font-weight: 500; color: var(--black); }
+
+.comiss-close {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--black);
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+/* ─── CTA ─── */
+#cta { padding: 120px 48px 100px; max-width: 940px; margin: 0 auto; }
+
+.cta-name {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 900;
+  font-size: clamp(52px, 9vw, 96px);
+  line-height: 0.92;
+  color: var(--black);
+  margin-bottom: 28px;
+}
+.cta-text {
+  font-size: 17px;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 64px;
+}
+
+.cta-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-bottom: 64px;
+}
+.c-col { display: flex; flex-direction: column; }
+.c-name {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 4px;
+}
+.c-role {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+.c-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--black);
+  font-size: 12px;
+  font-weight: 500;
+  transition: padding-left 0.2s, color 0.2s;
+}
+.c-link:hover { padding-left: 8px; color: var(--red); }
+
+.cta-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 36px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.cta-brand {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 900;
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  color: var(--black);
+}
 .cta-brand span { color: var(--red); }
-.cta-fine { font-size: 10px; color: var(--gray); text-align: right; line-height: 1.6; }
+.cta-fine {
+  font-size: 9px;
+  font-weight: 400;
+  color: #bbb;
+  line-height: 1.7;
+  text-align: right;
+}
 
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+/* ─── KEYFRAMES ─── */
+@keyframes fu {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-@media (max-width: 640px) {
+/* ─── MOBILE ─── */
+@media (max-width: 660px) {
   nav { padding: 14px 20px; }
   .nav-links { display: none; }
-  .section-pad { padding: 72px 20px; }
-  .container { padding: 0 20px; }
-  .marcas-grid, .entrega-grid, .promessa-grid, .portfolio-grid, .showroom-renders, .timeline, .cta-contacts, .comiss-main { grid-template-columns: 1fr; }
-  .timeline::before { display: none; }
-  .somos-banner { flex-direction: column; gap: 16px; }
-  .entrega-footer { flex-direction: column; gap: 8px; }
-  .contact-divider { display: none; }
-  #capa { padding: 100px 20px 60px; }
-  #cta { padding: 80px 20px; }
-  .comiss-details { flex-direction: column; gap: 20px; }
+  .wrap { padding: 0 20px; }
+  #capa { padding: 110px 20px 60px; }
+  #cta  { padding: 80px 20px; }
+
+  .marcas, .entrega-grid, .p-grid,
+  .p-grid-fotos, .v-grid, .sh-renders,
+  .tl, .cta-cols { grid-template-columns: 1fr; }
+
+  .tl::before { display: none; }
+  .tl-s { padding-right: 0; padding-bottom: 40px; }
+
+  .marca { border-right: none; border-bottom: 1px solid var(--border); }
+  .marca:last-child { border-bottom: none; }
+
+  .e-card { border-right: none !important; }
+  .p-card { border-right: none !important; }
+  .p-card:nth-child(5) { grid-column: 1; }
+
+  .somos-bar { flex-direction: column; gap: 10px; }
+  .entrega-foot { flex-direction: column; }
+
+  .comiss-body { flex-direction: column; gap: 16px; }
+  .v-wrap { max-width: 100%; }
+  .sh-renders { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-brand">CAMILA<span>RENATA</span>.</div>
+  <a class="nav-logo" href="#capa">CAMILA<span>RENATA</span>.</a>
   <ul class="nav-links">
     <li><a href="#momento">Início</a></li>
     <li><a href="#entrega">Serviços</a></li>
     <li><a href="#portfolio">Portfólio</a></li>
+    <li><a href="#videos">Projetos</a></li>
     <li><a href="#funciona">Parceria</a></li>
     <li><a href="#cta">Contato</a></li>
   </ul>
 </nav>
 
+<!-- CAPA -->
 <section id="capa">
   <div class="capa-logos">
-    <div class="logo-text">Homefine<div class="logo-sub">Móveis Sob Medida</div></div>
-    <div class="logo-divider"></div>
-    <div class="logo-text">ZIAR DECOR<div class="logo-sub">Convencionais & Decor</div></div>
+    <div class="logo-block">
+      <div class="logo-name">Homefine</div>
+      <div class="logo-sub">Móveis Sob Medida</div>
+    </div>
+    <div class="logo-sep"></div>
+    <div class="logo-block">
+      <div class="logo-name">ZIAR DECOR</div>
+      <div class="logo-sub">Decoração & Ambientação</div>
+    </div>
   </div>
-  <div class="capa-greeting">Olá, Arquiteta!</div>
-  <h1 class="capa-title">Proposta de<br>Parceria.</h1>
-  <p class="capa-sub">Estes são os detalhes, etapas e compromissos do nosso formato de trabalho conjunto.</p>
-  <p class="capa-disclaimer">Documento confidencial preparado para parceiros selecionados. Não compartilhar ou reproduzir sem autorização prévia.</p>
+  <div class="capa-tag">Proposta de Parceria</div>
+  <div class="capa-title">Olá,<br>Arquiteta!</div>
+  <div class="capa-sub">Esses são os detalhes e etapas da nossa proposta de parceria.</div>
+  <div class="capa-disclaimer">Este documento é de autoria de Camila Renata, representante de relacionamento da Homefine e ZIAR DECOR. Não divulgar sem consentimento por escrito.</div>
 </section>
-<hr class="divider">
 
+<!-- 01 NOVO MOMENTO -->
 <section id="momento">
-  <div class="section-pad reveal">
-    <span class="section-tag">01 — Novo Momento</span>
-    <h2 class="section-title">Estamos em um novo capítulo.</h2>
-    <p class="section-lead">Nova gestão. Novo showroom. Novo padrão de entrega. Esta apresentação chega até você porque queremos construir parcerias à altura do que estamos nos tornando.</p>
-    <img class="momento-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80" alt="Showroom" onerror="this.style.display='none'">
+  <div class="wrap reveal">
+    <span class="sec-tag">01 — Novo Momento</span>
+    <h2 class="sec-title">Estamos em um<br>novo capítulo.</h2>
+    <p class="sec-lead">Nova gestão. Novo showroom. Novo padrão de entrega.</p>
+    <hr class="div">
+    <p style="font-size:14px;font-weight:300;color:#555;line-height:1.8;max-width:540px;">Esta apresentação chega até você porque queremos construir parcerias à altura do que estamos nos tornando.</p>
+    <!-- SUBSTITUA pelo caminho da foto da fachada -->
+    <img class="momento-img" src="images/fachada.jpg" alt="Homefine & ZIAR DECOR" onerror="this.style.display='none'">
   </div>
 </section>
 
+<!-- 02 DOR DO PARCEIRO -->
 <section id="dor">
-  <div class="section-pad reveal">
-    <span class="section-tag">02 — A Dor do Parceiro</span>
-    <h2 class="section-title">Você já perdeu noites de sono por causa de fornecedor?</h2>
+  <div class="wrap reveal">
+    <span class="sec-tag">02 — A Dor do Parceiro</span>
+    <h2 class="sec-title">Você já perdeu noites de sono por causa de fornecedor?</h2>
     <ul class="dor-list">
-      <li class="dor-item"><span class="dor-num">01</span><span>Marceneiro atrasou. Obra parada. Cliente no seu pescoço.</span></li>
-      <li class="dor-item"><span class="dor-num">02</span><span>Móvel chegou errado. Projeto comprometido.</span></li>
-      <li class="dor-item"><span class="dor-num">03</span><span>Cinco fornecedores diferentes. Cinco desculpas diferentes.</span></li>
+      <li class="dor-item"><span class="dor-n">01</span><span>Marceneiro atrasou. Obra parada. Cliente no seu pescoço.</span></li>
+      <li class="dor-item"><span class="dor-n">02</span><span>Móvel chegou errado. Projeto comprometido.</span></li>
+      <li class="dor-item"><span class="dor-n">03</span><span>Cinco fornecedores diferentes. Cinco desculpas diferentes.</span></li>
     </ul>
-    <p class="dor-resolucao">A gente entende. E resolvemos isso. →</p>
+    <p class="dor-resolve">A gente entende. E resolvemos isso. →</p>
   </div>
 </section>
 
+<!-- 03 QUEM SOMOS -->
 <section id="somos">
-  <div class="section-pad reveal">
-    <span class="section-tag">03 — Quem Somos</span>
-    <h2 class="section-title">Duas marcas.<br>Uma operação.</h2>
-    <div class="marcas-grid">
-      <div class="marca-card">
+  <div class="wrap reveal">
+    <span class="sec-tag">03 — Quem Somos</span>
+    <h2 class="sec-title">Duas marcas.<br>Uma operação.</h2>
+    <div class="marcas">
+      <div class="marca">
         <div class="marca-name">Homefine</div>
-        <div class="marca-desc">Móveis Sob Medida</div>
-        <div class="marca-body">Projeto, precisão e acabamento premium. Cada detalhe executado com fidelidade ao seu projeto.</div>
+        <div class="marca-tag">Móveis Sob Medida</div>
+        <div class="marca-body">Projeto, precisão e acabamento premium. Cada detalhe executado com fidelidade à sua concepção.</div>
       </div>
-      <div class="marca-card">
+      <div class="marca">
         <div class="marca-name">ZIAR DECOR</div>
-        <div class="marca-desc">Decoração & Ambientação</div>
+        <div class="marca-tag">Decoração & Ambientação</div>
         <div class="marca-body">Móveis convencionais, curadoria de peças e ambientação completa. Do sofá ao quadro na parede.</div>
       </div>
     </div>
-    <div class="somos-banner">
-      <span class="banner-item">Duas Marcas <span class="banner-arrow">→</span></span>
-      <span class="banner-item">Uma Operação <span class="banner-arrow">→</span></span>
-      <span class="banner-highlight">O ambiente inteiro entregue.</span>
+    <div class="somos-bar">
+      <span class="somos-bar-item">Duas Marcas →</span>
+      <span class="somos-bar-item">Uma Operação →</span>
+      <span class="somos-bar-hl">O ambiente inteiro entregue.</span>
     </div>
   </div>
 </section>
 
+<!-- 04 O QUE ENTREGAMOS -->
 <section id="entrega">
-  <div class="section-pad reveal">
-    <span class="section-tag">04 — O que Entregamos</span>
-    <h2 class="section-title">Quatro frentes.<br>Uma operação.</h2>
+  <div class="wrap reveal">
+    <span class="sec-tag">04 — O que Entregamos</span>
+    <h2 class="sec-title">Quatro frentes.<br>Uma operação.</h2>
     <div class="entrega-grid">
-      <div class="entrega-card">
-        <span class="entrega-icon">📐</span>
-        <div class="entrega-tag">01 — Marcenaria</div>
-        <div class="entrega-name">Sob Medida</div>
-        <div class="entrega-body">Produção precisa, projeto respeitado, acabamento premium.</div>
-        <div class="entrega-accent">O projeto que você entrega sai exatamente como foi concebido.</div>
+      <div class="e-card">
+        <span class="e-icon">📐</span>
+        <div class="e-tag">01 — Marcenaria</div>
+        <div class="e-name">Sob Medida</div>
+        <div class="e-body">Produção precisa, projeto respeitado, acabamento premium.</div>
+        <div class="e-accent">O projeto que você entrega ao seu cliente sai exatamente como foi concebido.</div>
       </div>
-      <div class="entrega-card">
-        <span class="entrega-icon">🛋️</span>
-        <div class="entrega-tag">02 — Móveis</div>
-        <div class="entrega-name">Convencionais</div>
-        <div class="entrega-body">Catálogo amplo, marcas selecionadas, showroom de alto padrão.</div>
-        <div class="entrega-accent">Leve seu cliente para ver e experimentar antes de decidir.</div>
+      <div class="e-card">
+        <span class="e-icon">🛋️</span>
+        <div class="e-tag">02 — Móveis</div>
+        <div class="e-name">Convencionais</div>
+        <div class="e-body">Catálogo amplo, marcas selecionadas, showroom físico disponível.</div>
+        <div class="e-accent">Leve seu cliente para ver, tocar e decidir. O espaço é seu também.</div>
       </div>
-      <div class="entrega-card">
-        <span class="entrega-icon">🖼️</span>
-        <div class="entrega-tag">03 — Decoração</div>
-        <div class="entrega-name">Decor</div>
-        <div class="entrega-body">Curadoria de peças para fechar o ambiente com identidade.</div>
-        <div class="entrega-accent">Nada de ambiente pela metade. Entrega visual completa.</div>
+      <div class="e-card">
+        <span class="e-icon">🏺</span>
+        <div class="e-tag">03 — Decor</div>
+        <div class="e-name">& Ambientação</div>
+        <div class="e-body">Curadoria de peças para fechar o ambiente com identidade.</div>
+        <div class="e-accent">Nada de ambiente pela metade. Entregamos o todo.</div>
       </div>
-      <div class="entrega-card">
-        <span class="entrega-icon">🏗️</span>
-        <div class="entrega-tag">04 — Execução</div>
-        <div class="entrega-name">Obras</div>
-        <div class="entrega-body">Execução supervisionada com parceiros qualificados.</div>
-        <div class="entrega-accent">Um único responsável do começo ao fim da instalação.</div>
+      <div class="e-card">
+        <span class="e-icon">🏗️</span>
+        <div class="e-tag">04 — Obras</div>
+        <div class="e-name">& Reformas</div>
+        <div class="e-body">Execução supervisionada com parceiros técnicos certificados.</div>
+        <div class="e-accent">Um único responsável do começo ao fim. Você não precisa supervisionar ninguém.</div>
       </div>
+    </div>
+    <div class="entrega-foot">
+      <span class="entrega-foot-a">Tudo em um lugar. Um contato. Um compromisso.</span>
+      <span class="entrega-foot-b">Você fecha o projeto. A gente executa tudo.</span>
     </div>
   </div>
 </section>
 
+<!-- 05 NOSSA PROMESSA -->
 <section id="promessa">
-  <div class="section-pad reveal">
-    <span class="section-tag">05 — Nossa Promessa</span>
-    <h2 class="section-title">Compromissos difíceis de cumprir.</h2>
-    <div class="promessa-grid">
-      <div class="promessa-card">
-        <div class="promessa-num">01 — Prazo</div>
-        <div class="promessa-name">É Prazo.</div>
-        <div class="promessa-body">Comunicamos antes. Se algo mudar, você sabe primeiro.</div>
+  <div class="wrap reveal">
+    <span class="sec-tag">05 — Nossa Promessa</span>
+    <h2 class="sec-title">Compromissos são fáceis de listar.<br>Difíceis de cumprir.</h2>
+    <div class="p-grid">
+      <div class="p-card">
+        <div class="p-num">01 — Prazo</div>
+        <div class="p-name">É Prazo.</div>
+        <div class="p-body">Comunicamos antes, nunca depois. Se algo mudar, você sabe primeiro.</div>
+        <div class="p-accent">Nosso compromisso é com a sua tranquilidade e o cronograma do seu projeto.</div>
       </div>
-      <div class="promessa-card">
-        <div class="promessa-num">02 — Seu Projeto</div>
-        <div class="promessa-name">É Sagrado.</div>
-        <div class="promessa-body">Nenhuma sugestão ao seu cliente sem sua autorização.</div>
+      <div class="p-card">
+        <div class="p-num">02 — Seu Projeto</div>
+        <div class="p-name">É Sagrado.</div>
+        <div class="p-body">Nenhuma sugestão ao seu cliente sem sua autorização. O projeto é seu.</div>
+        <div class="p-accent">Nós somos o braço direito que executa a sua visão com fidelidade.</div>
       </div>
-      <div class="promessa-card">
-        <div class="promessa-num">03 — Orçamento</div>
-        <div class="promessa-name">Até 48h.</div>
-        <div class="promessa-body">Respondemos rápido para que você feche rápido.</div>
+      <div class="p-card">
+        <div class="p-num">03 — Orçamento em</div>
+        <div class="p-name">Até 48h.</div>
+        <div class="p-body">Sua proposta não espera. Respondemos rápido para que você feche rápido.</div>
+        <div class="p-accent">O tempo do seu cliente é a nossa prioridade.</div>
       </div>
-      <div class="promessa-card">
-        <div class="promessa-num">04 — Um Contato</div>
-        <div class="promessa-name">Dedicado.</div>
-        <div class="promessa-body">Você fala com a mesma pessoa. Garantindo agilidade.</div>
+      <div class="p-card">
+        <div class="p-num">04 — Um Contato</div>
+        <div class="p-name">Dedicado.</div>
+        <div class="p-body">Você fala com uma pessoa. Sempre a mesma. Sem redirecionar, sem repetir.</div>
+        <div class="p-accent">Canal direto com quem resolve, com continuidade e agilidade.</div>
+      </div>
+      <div class="p-card">
+        <div class="p-num">05 — Garantia</div>
+        <div class="p-name">Documentada.</div>
+        <div class="p-body">Pós-obra com prazo definido e processo claro. Sem letra miúda.</div>
+        <div class="p-accent">Cuidamos do seu cliente com o mesmo zelo que você.</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- 06 PORTFÓLIO -->
 <section id="portfolio">
-  <div class="portfolio-inner reveal">
-    <span class="section-tag">06 — Nosso Trabalho</span>
-    <h2 class="section-title">Projetos<br>Entregues.</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-img-wrap"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Projeto 1"></div>
-      <div class="portfolio-img-wrap"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Projeto 2"></div>
-      <div class="portfolio-img-wrap"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80" alt="Projeto 3"></div>
-      <div class="portfolio-img-wrap"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80" alt="Projeto 4"></div>
+  <div class="wrap reveal">
+    <span class="sec-tag">06 — Nosso Trabalho</span>
+    <h2 class="sec-title">Projetos<br>Entregues.</h2>
+    <div class="p-grid-fotos">
+      <!-- SUBSTITUA src pelas suas fotos reais. Nomes sugeridos abaixo. -->
+      <div class="p-foto">
+        <img src="images/portfolio1.jpg" alt="Projeto São Paulo" onerror="this.parentElement.style.background='#2a2a2a'">
+        <div class="p-foto-cap">São Paulo · Cozinha sob medida</div>
+      </div>
+      <div class="p-foto">
+        <img src="images/portfolio2.jpg" alt="Projeto São Paulo" onerror="this.parentElement.style.background='#2a2a2a'">
+        <div class="p-foto-cap">São Paulo · Sala de estar integrada</div>
+      </div>
+      <div class="p-foto">
+        <img src="images/portfolio3.jpg" alt="Projeto São Paulo" onerror="this.parentElement.style.background='#2a2a2a'">
+        <div class="p-foto-cap">São Paulo · Área gourmet</div>
+      </div>
+      <div class="p-foto">
+        <img src="images/portfolio4.jpg" alt="Projeto São Paulo" onerror="this.parentElement.style.background='#2a2a2a'">
+        <div class="p-foto-cap">São Paulo · Home bar & lounge</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- VÍDEOS -->
+<section id="videos">
+  <div class="wrap reveal">
+    <span class="sec-tag">Vídeos dos Projetos</span>
+    <h2 class="sec-title">Veja como<br>entregamos.</h2>
+    <p class="v-lead">Dois projetos completos. Do briefing à entrega final.</p>
+    <div class="v-grid">
+      <div class="v-wrap">
+        <div class="v-player">
+          <iframe src="https://www.youtube.com/embed/tN0T7miS9Dk"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <p class="v-label">Projeto 01 · Tour completo</p>
+      </div>
+      <div class="v-wrap">
+        <div class="v-player">
+          <iframe src="https://www.youtube.com/embed/nYa43ixQvTw"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <p class="v-label">Projeto 02 · Tour completo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 SHOWROOM + CONVITE -->
 <section id="showroom">
-  <div class="showroom-inner reveal">
-    <span class="section-tag">07 — Showroom + Convite</span>
-    <h2 class="section-title">Antes de abrir para o público, queremos abrir para você.</h2>
-    <p class="showroom-text">Estes são alguns dos ambientes sendo preparados para o nosso novo showroom — um espaço projetado para ser a extensão do seu atendimento.</p>
-    
-    <div class="showroom-renders">
-      <div class="render-wrap"><img src="foto1.jpg" alt="Showroom 1"></div>
-      <div class="render-wrap"><img src="foto4.jpg" alt="Showroom 2"></div>
-      <div class="render-wrap"><img src="foto5.jpg" alt="Showroom 3"></div>
-      <div class="render-wrap"><img src="foto6.jpg" alt="Showroom 4"></div>
+  <div class="wrap reveal">
+    <span class="sec-tag">07 — Showroom + Convite</span>
+    <h2 class="sec-title">Antes de abrir<br>para o público.</h2>
+    <p class="sh-text">Estes são alguns dos ambientes sendo preparados para o nosso novo showroom — um espaço projetado para ser a extensão do seu atendimento.</p>
+    <p class="sh-sub">Ainda não abrimos. Mas já queremos que você veja.</p>
+    <div class="sh-renders">
+      <!-- renders: foto1.jpeg, foto_2.jpeg, foto_3.jpeg — use os nomes corretos -->
+      <div class="sh-render">
+        <img src="images/render1.jpg" alt="Render Showroom" onerror="this.parentElement.classList.add('placeholder');this.parentElement.innerHTML='[ Render 01 ]'">
+      </div>
+      <div class="sh-render">
+        <img src="images/render2.jpg" alt="Render Showroom" onerror="this.parentElement.classList.add('placeholder');this.parentElement.innerHTML='[ Render 02 ]'">
+      </div>
+      <div class="sh-render">
+        <img src="images/render3.jpg" alt="Render Showroom" onerror="this.parentElement.classList.add('placeholder');this.parentElement.innerHTML='[ Render 03 ]'">
+      </div>
+      <div class="sh-render placeholder">[ Render 04 ]</div>
     </div>
-    
-    <div class="convite-box">
-      <div class="convite-title">Inauguração exclusiva.</div>
-      <div class="convite-body">Um encontro íntimo — sem protocolo.<br>Só para que você conheça o espaço antes de todo mundo.</div>
-      <a href="https://wa.me/5511964286008" class="btn-convite" target="_blank">QUERO SER AVISADA →</a>
+    <div class="sh-convite">
+      <div class="sh-cv-title">Inauguração exclusiva para parceiros.</div>
+      <div class="sh-cv-body">Um encontro íntimo — sem protocolo, sem pauta.<br>Para que você conheça o espaço antes de todo mundo.</div>
+      <div class="sh-cv-date">Data: a confirmar — em breve você recebe o convite</div>
+      <a href="https://wa.me/5511964286008" class="btn-avisada" target="_blank">QUERO SER AVISADA →</a>
     </div>
   </div>
 </section>
 
+<!-- 08 COMO FUNCIONA + COMISSIONAMENTO -->
 <section id="funciona">
-  <div class="section-pad reveal">
-    <span class="section-tag">08 — Como Funciona</span>
-    <h2 class="section-title">Simples para você.</h2>
-    <p class="section-lead" style="margin-bottom:0; font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--gray);">COMPLETO PARA O SEU CLIENTE</p>
-    
-    <div class="timeline" style="margin-top:56px;">
-      <div class="tl-step">
-        <div class="tl-circle">↑</div>
+  <div class="wrap reveal">
+    <span class="sec-tag">08 — Como Funciona</span>
+    <h2 class="sec-title">Simples para você.</h2>
+    <p style="font-size:9px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--gray);margin-bottom:0;">COMPLETO PARA O SEU CLIENTE</p>
+
+    <div class="tl">
+      <div class="tl-s">
+        <div class="tl-dot">↑</div>
         <div class="tl-tag">01 — Indicação</div>
-        <div class="tl-title">Você nos<br>Apresenta.</div>
-        <div class="tl-body">Passamos o briefing juntos.</div>
+        <div class="tl-name">Você nos apresenta.</div>
+        <div class="tl-body">Briefing em 15 minutos. Escopo definido na hora.</div>
+        <div class="tl-acc">Sem formulário. Sem burocracia.</div>
       </div>
-      <div class="tl-step">
-        <div class="tl-circle">↑</div>
-        <div class="tl-tag">02 — Execução</div>
-        <div class="tl-title">Nós cuidamos<br>de tudo.</div>
-        <div class="tl-body">Projeto executivo, orçamento, produção.</div>
+      <div class="tl-s">
+        <div class="tl-dot">⊙</div>
+        <div class="tl-tag">02 — Atendimento</div>
+        <div class="tl-name">Nós cuidamos de tudo.</div>
+        <div class="tl-body">Projeto, produção, entrega e instalação.</div>
+        <div class="tl-acc">De perto ou só nos marcos.</div>
       </div>
-      <div class="tl-step">
-        <div class="tl-circle">↑</div>
+      <div class="tl-s">
+        <div class="tl-dot">✓</div>
         <div class="tl-tag">03 — Resultado</div>
-        <div class="tl-title">Entrega no<br>Prazo.</div>
-        <div class="tl-body">Cliente satisfeito.</div>
+        <div class="tl-name">Entrega no prazo.</div>
+        <div class="tl-body">Cliente satisfeito. Reputação fortalecida.</div>
+        <div class="tl-acc">Sua indicação vira referência.</div>
       </div>
     </div>
-    <div class="funciona-closing">Sua indicação<br>vira referência.</div>
 
-    <div class="comiss-wrap">
-      <div class="comiss-tag">Comissionamento Transparente</div>
-      <div class="comiss-main">
-        <div class="comiss-number">10%</div>
-        <div class="comiss-right">
-          <div class="comiss-desc">Sobre o valor total da compra.</div>
+    <p class="fn-close">Você indica uma vez.<br>Vira parceiro para sempre.</p>
+
+    <div class="comiss">
+      <div class="comiss-tag">Comissionamento</div>
+      <div class="comiss-body">
+        <div class="comiss-pct">10%</div>
+        <div class="comiss-info">
+          <div class="comiss-desc">sobre o valor total da compra realizada na loja</div>
           <div class="comiss-cats">PLANEJADOS · CONVENCIONAIS · DECOR</div>
+          <div class="comiss-rows">
+            <div class="comiss-row">
+              <span class="comiss-lbl">Pagamento</span>
+              <span class="comiss-val">Pix</span>
+            </div>
+            <div class="comiss-row">
+              <span class="comiss-lbl">Repasse</span>
+              <span class="comiss-val">Após aprovação financeira e confirmação do pagamento</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="comiss-details">
-        <div class="comiss-nota">Sem asterisco. O que está escrito <strong>é o que vale.</strong></div>
-      </div>
+      <div class="comiss-close">Sem asterisco. O que está escrito aqui é o que vale.</div>
     </div>
   </div>
 </section>
 
-<section id="cta">
-  <div class="cta-inner reveal">
-    <span class="section-tag">09 — Próximos Passos</span>
-    <h2 class="section-title">Que tal um café?</h2>
-    <div class="cta-contacts">
-      <div class="contact-block">
-        <div class="contact-name">Camila Renata</div>
-        <div class="contact-role">Relacionamento & Parcerias</div>
-        <a href="https://wa.me/5511964286008" class="contact-link" target="_blank"><span>WhatsApp</span><span>→</span></a>
-        <a href="mailto:administrativo@homefinemoveis.com" class="contact-link"><span>E-mail</span><span>→</span></a>
+<!-- 09 CTA FINAL -->
+<section>
+  <div id="cta" class="reveal">
+    <div class="cta-name">Arquiteta,</div>
+    <p class="cta-text">Que tal um café? Sem apresentação formal, sem PowerPoint na mesa. Só uma conversa para ver se faz sentido para os dois lados.</p>
+
+    <div class="cta-cols">
+      <div class="c-col">
+        <div class="c-name">Camila Renata</div>
+        <div class="c-role">Relacionamento & Parcerias<br>Homefine & ZIAR DECOR</div>
+        <a href="https://wa.me/5511964286008" class="c-link" target="_blank">
+          <span>WhatsApp</span><span>→</span>
+        </a>
+        <a href="mailto:administrativo@homefinemoveis.com" class="c-link">
+          <span>E-mail</span><span>→</span>
+        </a>
       </div>
-      <div class="contact-divider"></div>
-      <div class="contact-block">
-        <div class="contact-name">Parceiro Comercial</div>
-        <div class="contact-role">Consultor</div>
-        <a href="https://wa.me/55" class="contact-link" target="_blank"><span>WhatsApp</span><span>→</span></a>
-        <a href="mailto:contato@homefinemoveis.com" class="contact-link"><span>E-mail</span><span>→</span></a>
+      <div class="c-col">
+        <div class="c-name">Elias Orte</div>
+        <div class="c-role">Consultor Comercial<br>Homefine & ZIAR DECOR</div>
+        <a href="https://wa.me/5511985300649" class="c-link" target="_blank">
+          <span>WhatsApp</span><span>→</span>
+        </a>
+        <a href="mailto:administrativo@homefinemoveis.com" class="c-link">
+          <span>E-mail</span><span>→</span>
+        </a>
       </div>
     </div>
-    <div class="cta-footer">
+
+    <div class="cta-foot">
       <div class="cta-brand">CAMILA<span>RENATA</span>.</div>
-      <div class="cta-fine">@homefinebr · @ziardecor</div>
+      <div class="cta-fine">
+        @homefinebr · @ziardecor<br>
+        Documento de autoria de Camila Renata. Não divulgar.
+      </div>
     </div>
   </div>
 </section>
 
 <script>
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.1 });
-reveals.forEach(reveal => { observer.observe(reveal); });
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
-
 </body>
 </html>
