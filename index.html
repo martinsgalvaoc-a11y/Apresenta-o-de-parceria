@@ -482,17 +482,55 @@ hr.div {
 
 /* ─── SHOWROOM ─── */
 #showroom { padding: 100px 0; background: var(--black); }
-#showroom .sec-tag    { color: #555; }
+#showroom .sec-tag { color: #555; }
 #showroom h2.sec-title { color: var(--white); }
 
 .sh-text {
-  font-size: 15px;
-  font-weight: 300;
-  color: #aaa;
-  line-height: 1.8;
-  max-width: 520px;
-  margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 300;
+    color: #aaa;
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif !important; /* Fonte Montserrat Bold */
 }
+
+/* NOVO LAYOUT: 2 em cima, 1 embaixo */
+.div-sh-renders {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.row-sh-top {
+    display: flex;
+    gap: 15px;
+}
+
+.row-sh-top .div-sh-render {
+    flex: 1;
+}
+
+.row-sh-bottom {
+    width: 100%;
+}
+
+.row-sh-bottom .div-sh-render {
+    width: 100%;
+    aspect-ratio: 2 / 1; /* Deixa a cozinha larga */
+}
+
+.div-sh-render img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Ajuste das fontes globais que você pediu */
+h2, .sec-title { font-family: 'Montserrat Alternates', sans-serif !important; }
+h1, h3, .assinatura { font-family: 'Montserrat', sans-serif !important; font-weight: 800; }
 .sh-sub {
   font-size: 9px;
   font-weight: 700;
@@ -1007,12 +1045,22 @@ hr.div {
 
 <!-- 07 SHOWROOM + CONVITE -->
 <section id="showroom">
-  <div class="wrap reveal">
-    <span class="sec-tag">07 — Showroom + Convite</span>
-    <h2 class="sec-title">Antes de abrir<br>para o público.</h2>
-    <p class="sh-text">Estes são alguns dos ambientes sendo preparados para o nosso novo showroom — um espaço projetado para ser a extensão do seu atendimento.</p>
-    <p class="sh-sub">Ainda não abrimos. Mas já queremos que você veja.</p>
-    <div class="sh-renders">
+  <div class="div-sh-renders">
+    <div class="row-sh-top">
+        <div class="div-sh-render">
+            <img src="foto1.jpeg" alt="Render Showroom 01">
+        </div>
+        <div class="div-sh-render">
+            <img src="foto2.jpeg" alt="Render Showroom 02">
+        </div>
+    </div>
+    
+    <div class="row-sh-bottom">
+        <div class="div-sh-render wide-render">
+            <img src="foto3.jpeg" alt="Render Showroom 03">
+        </div>
+    </div>
+</div>
       <!-- renders: foto1.jpeg, foto2.jpeg, foto3.jpeg — use os nomes corretos -->
       <div class="sh-render">
         <img src="foto1.jpeg" alt="Render Showroom" onerror="this.parentElement.classList.add('placeholder');this.parentElement.innerHTML='[ Render 01 ]'">
