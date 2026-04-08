@@ -702,7 +702,44 @@ h1, h3, .assinatura { font-family: 'Montserrat', sans-serif !important; font-wei
   border-top: 1px solid var(--border);
   padding-top: 24px;
 }
+/* --- AJUSTE DE FONTES E PROPORÇÃO --- */
+/* Títulos de seção (01, 02...) e nomes grandes no CTA */
+h2, .sec-title, .cta-name { 
+    font-family: 'Montserrat Alternates', sans-serif !important; 
+}
 
+/* Seu nome (Camila Renata), "Olá", subtítulos e textos */
+h1, h3, .sh-text, .assinatura, .sh-cv-title, .sh-cv-body { 
+    font-family: 'Montserrat', sans-serif !important; 
+    font-weight: 800 !important; 
+}
+
+/* Organização das fotos: 2 em cima, 1 embaixo */
+.div-sh-renders { display: flex; flex-direction: column; gap: 15px; width: 100%; }
+.row-sh-top { display: flex; gap: 15px; width: 100%; }
+.row-sh-top .div-sh-render { flex: 1; }
+.row-sh-bottom { width: 100%; }
+.row-sh-bottom .div-sh-render img { aspect-ratio: 16 / 9; object-fit: cover; }
+.div-sh-render img { width: 100%; display: block; border-radius: 4px; }
+  /* --- CORREÇÃO DE FONTES E LAYOUT --- */
+
+/* 1. Fontes: Alternates só nos títulos, Bold no resto */
+h2, .sec-title, .cta-name { 
+    font-family: 'Montserrat Alternates', sans-serif !important; 
+}
+
+h1, h3, .sh-text, .assinatura, .comiss-val, .comiss-desc { 
+    font-family: 'Montserrat', sans-serif !important; 
+    font-weight: 800 !important; 
+}
+
+/* 2. Layout Showroom: 2 em cima, 1 embaixo */
+.div-sh-renders { display: flex; flex-direction: column; gap: 15px; width: 100%; }
+.row-sh-top { display: flex; gap: 15px; width: 100%; }
+.row-sh-top .div-sh-render { flex: 1; }
+.row-sh-bottom { width: 100%; }
+.row-sh-bottom .div-sh-render { width: 100%; aspect-ratio: 2 / 1; }
+.div-sh-render img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
 /* ─── CTA ─── */
 #cta { padding: 120px 48px 100px; max-width: 940px; margin: 0 auto; }
 
@@ -1061,17 +1098,7 @@ h1, h3, .assinatura { font-family: 'Montserrat', sans-serif !important; font-wei
         </div>
     </div>
 </div>
-      <!-- renders: foto1.jpeg, foto2.jpeg, foto3.jpeg — use os nomes corretos -->
-      <div class="sh-render">
-        <img src="foto1.jpeg" alt="Render Showroom" onerror="this.parentElement.classList.add('placeholder');this.parentElement.innerHTML='[ Render 01 ]'">
-      </div>
-      <div class="sh-render">
-        <img src="foto2.jpeg" alt="Render Showroom" onerror="this.parentElement.classList.add('placeholder');this.parentElement.innerHTML='[ Render 02 ]'">
-      </div>
-      <div class="sh-render">
-        <img src="foto3.jpeg" alt="Render Showroom" onerror="this.parentElement.classList.add('placeholder');this.parentElement.innerHTML='[ Render 03 ]'">
-      </div>
-      <div class="sh-render placeholder">[ Render 04 ]</div>
+      
     </div>
     <div class="sh-convite">
       <div class="sh-cv-title">Inauguração exclusiva para parceiros.</div>
