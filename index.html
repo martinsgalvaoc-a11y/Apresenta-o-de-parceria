@@ -22,7 +22,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
 
         body {
             background-color: var(--bg-white);
@@ -34,7 +34,6 @@
 
         .wrap { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
         
-        /* Títulos e Subtítulos conforme sua hierarquia */
         .sec-title-main {
             font-family: var(--font-title);
             font-weight: 900;
@@ -58,13 +57,12 @@
 
         /* Capa */
         #capa { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 40px; }
-        .capa-logos { display: flex; align-items: center; gap: 30px; margin-bottom: 40px; }
+        .capa-logos { display: flex; align-items: center; gap: 30px; margin-bottom: 60px; }
         .capa-logos img { height: 35px; object-fit: contain; }
         .capa-divisor { width: 1px; height: 35px; background-color: var(--border-color); }
         
         .capa-saudacao { font-family: var(--font-title); font-weight: 900; font-size: clamp(48px, 8vw, 90px); margin-bottom: 20px; line-height: 1; }
         
-        /* Menu Clicável */
         .capa-menu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 600px; margin: 40px 0; }
         .capa-menu a { 
             font-weight: 600; font-size: 13px; letter-spacing: 1px; 
@@ -75,9 +73,8 @@
         
         .assinatura-main { font-family: var(--font-text); font-weight: 900; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; }
         .renata-red { color: var(--brand-red); }
-
-        /* Ícone Instagram */
         .ig-icon { width: 14px; height: 14px; vertical-align: middle; margin-right: 5px; fill: currentColor; }
+        .capa-aviso { font-size: 10px; color: #aaa; max-width: 400px; margin-top: 20px; line-height: 1.5; }
 
         /* Seção 03 Tarja Vermelha */
         .tarja-vermelha {
@@ -93,7 +90,7 @@
         .tarja-vermelha span { font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
         .tarja-vermelha h4 { font-style: italic; font-weight: 800; font-size: 22px; }
 
-        /* Seção 08 Tarja Preta */
+        /* Seção 08 Tarja Preta e Timeline */
         .tarja-preta {
             background: var(--bg-black);
             color: white;
@@ -101,20 +98,33 @@
             margin-top: 40px;
             border-radius: 4px;
         }
-        .timeline-flex {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
+        .timeline-container { position: relative; }
+        .timeline-line {
+            position: absolute;
+            top: 25px; /* Alinha com o centro da elipse */
+            left: 25px;
+            right: 25px;
+            height: 1px;
+            background: #555;
+            z-index: 1;
         }
-        .tl-card { flex: 1; }
-        .tl-icon { font-size: 30px; margin-bottom: 15px; display: block; }
+        .timeline-flex { display: flex; justify-content: space-between; gap: 20px; }
+        .tl-card { flex: 1; position: relative; z-index: 2; }
+        
+        .tl-icon-wrapper {
+            width: 50px; height: 50px; 
+            border-radius: 50%; border: 1px solid #555; 
+            background: var(--bg-black); 
+            display: flex; align-items: center; justify-content: center; 
+            margin-bottom: 20px;
+        }
+        .tl-icon { font-size: 20px; color: white; display: block; }
+        
         .tl-card h5 { font-family: var(--font-title); font-size: 18px; margin-bottom: 10px; }
         .tl-card p { font-size: 13px; color: #aaa; line-height: 1.5; }
 
-        /* Showroom Layout */
+        /* Layout Geral */
         .sh-previa-title { font-family: var(--font-title); font-weight: 900; font-size: 42px; margin: 20px 0; }
-
-        /* Estilo dos Cards com Ícones */
         .card { padding: 30px; border: 1px solid var(--border-color); border-radius: 8px; position: relative; }
         .card-icon { font-size: 28px; margin-bottom: 15px; display: block; }
 
@@ -128,9 +138,14 @@
         .footer { margin-top: 80px; padding: 40px 0; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
         .sociais a { margin-left: 25px; text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 13px; display: flex; align-items: center; }
 
+        /* Ajustes Mobile (Espaçamento nas bordas) */
         @media (max-width: 768px) {
+            .wrap { padding: 0 25px; } /* Garante que não gruda na borda esquerda no celular */
+            #capa { padding: 60px 25px; }
             .capa-menu, .timeline-flex, .tarja-vermelha { flex-direction: column; grid-template-columns: 1fr; gap: 30px; text-align: center; }
             .tarja-vermelha { align-items: center; }
+            .timeline-line { display: none; } /* Oculta a linha de fundo no celular */
+            .tl-icon-wrapper { margin: 0 auto 20px auto; } /* Centraliza o círculo no celular */
         }
     </style>
 </head>
@@ -143,13 +158,6 @@
             <img src="logo_ziar.png" alt="Ziar Decor">
         </div>
         
-        <div class="assinatura-main" style="margin-bottom: 10px;">CAMILA<span class="renata-red">RENATA</span>.</div>
-        
-        <div style="display: flex; gap: 20px; margin-bottom: 40px;">
-            <span style="font-size: 12px; font-weight: 700;"><svg class="ig-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@homefinebr</span>
-            <span style="font-size: 12px; font-weight: 700;"><svg class="ig-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@ziardecor</span>
-        </div>
-
         <h1 class="capa-saudacao">Olá,<br>Arquiteta!</h1>
         <p style="font-size: 18px; color: var(--text-gray); max-width: 450px;">Esses são os detalhes e etapas da nossa proposta de parceria.</p>
         
@@ -163,7 +171,7 @@
             <a href="#portfolio">06. Portifólio</a>
             <a href="#showroom">07. Novo Showroom</a>
             <a href="#funciona">08. Como Funciona</a>
-            <a href="#contatos">09. CTA Final</a>
+            <a href="#contatos">09. Contato Final</a>
         </div>
 
         <p class="capa-aviso">Esse documento possui informações e dados que são de propriedade de Camila Renata, representante de relacionamento Home Fine e Ziar. Por favor, não divulgar sem o consentimento por escrito.</p>
@@ -174,6 +182,19 @@
         <p class="sec-subtitle">Estamos em um novo capítulo.</p>
         <p style="font-size: 16px; line-height: 1.7; color: var(--text-gray); max-width: 600px;">Nova gestão. Novo showroom. Novo padrão de entrega.<br><br>Esta apresentação chega até você porque queremos construir parcerias à altura do que estamos nos tornando.</p>
         <img src="fachada.jpg" alt="Fachada" style="width: 100%; height: 450px; object-fit: cover; border-radius: 8px; margin-top: 40px;">
+    </section>
+
+    <section id="dor" class="bg-dark" style="padding: 100px 0;">
+        <div class="wrap reveal">
+            <h2 class="sec-title-main">02. A dor do parceiro</h2>
+            <p class="sec-subtitle">Você já perdeu noites de sono por causa de fornecedor?</p>
+            <ul style="margin-top: 40px; list-style: none;">
+                <li style="font-size: 18px; padding: 20px 0; border-bottom: 1px solid #444; display: flex; gap: 20px;"><span style="font-weight: 800; color: var(--brand-red);">01.</span> Marceneiro Atrasou. Obra parada.</li>
+                <li style="font-size: 18px; padding: 20px 0; border-bottom: 1px solid #444; display: flex; gap: 20px;"><span style="font-weight: 800; color: var(--brand-red);">02.</span> Móvel chegou errado. Projeto comprometido.</li>
+                <li style="font-size: 18px; padding: 20px 0; border-bottom: 1px solid #444; display: flex; gap: 20px;"><span style="font-weight: 800; color: var(--brand-red);">03.</span> Vários fornecedores diferentes. Várias desculpas.</li>
+            </ul>
+            <p style="font-style: italic; font-weight: 800; font-size: 20px; margin-top: 40px; color: var(--bg-white);">A gente entende. E resolvemos isso. &rarr;</p>
+        </div>
     </section>
 
     <section id="somos" class="wrap reveal" style="padding: 100px 0;">
@@ -206,27 +227,66 @@
                 <div class="card bg-dark" style="border-color: #444;">
                     <span class="card-icon">📐</span>
                     <h3>01 - Marcenaria</h3>
-                    <p>Produção precisa, projeto respeitado, acabamento premium.</p>
-                    <p class="card-destaque">O projeto que você entrega sai exatamente como foi concebido.</p>
+                    <p style="color: #aaa; margin: 10px 0;">Produção precisa, projeto respeitado, acabamento premium.</p>
+                    <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">O projeto que você entrega sai exatamente como foi concebido.</p>
                 </div>
                 <div class="card bg-dark" style="border-color: #444;">
                     <span class="card-icon">🛋️</span>
                     <h3>02 - Móveis</h3>
-                    <p>Catálogo amplo, marcas selecionadas, showroom físico.</p>
-                    <p class="card-destaque">Leve seu cliente para ver e decidir. O espaço é seu.</p>
+                    <p style="color: #aaa; margin: 10px 0;">Catálogo amplo, marcas selecionadas, showroom físico.</p>
+                    <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Leve seu cliente para ver e decidir. O espaço é seu.</p>
                 </div>
                 <div class="card bg-dark" style="border-color: #444;">
                     <span class="card-icon">🏺</span>
                     <h3>03 - Decor</h3>
-                    <p>Curadoria de peças para fechar o ambiente com identidade.</p>
-                    <p class="card-destaque">Nada de ambiente pela metade, entregamos o todo.</p>
+                    <p style="color: #aaa; margin: 10px 0;">Curadoria de peças para fechar o ambiente com identidade.</p>
+                    <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Nada de ambiente pela metade, entregamos o todo.</p>
                 </div>
                 <div class="card bg-dark" style="border-color: #444;">
                     <span class="card-icon">🏗️</span>
                     <h3>04 - Obras</h3>
-                    <p>Execução supervisionada com parceiros certificados.</p>
-                    <p class="card-destaque">Você não precisa mais supervisionar ninguém.</p>
+                    <p style="color: #aaa; margin: 10px 0;">Execução supervisionada com parceiros certificados.</p>
+                    <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Você não precisa mais supervisionar ninguém.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="promessa" class="wrap reveal" style="padding: 100px 0;">
+        <h2 class="sec-title-main">05. Nossa Promessa</h2>
+        <p class="sec-subtitle">Compromissos são fáceis de listar. Difíceis de cumprir.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="card">
+                <h3 style="font-family: var(--font-title); font-size: 22px;">01 - PRAZO</h3>
+                <p style="color: var(--text-gray); margin: 10px 0;">Comunicamos antes, nunca depois. Se algo mudar, você sabe primeiro.</p>
+                <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Nosso compromisso é com a sua tranquilidade.</p>
+            </div>
+            <div class="card">
+                <h3 style="font-family: var(--font-title); font-size: 22px;">02 - SEU PROJETO</h3>
+                <p style="color: var(--text-gray); margin: 10px 0;">Nenhuma sugestão ao cliente sem autorização. O projeto é seu.</p>
+                <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Nós executamos a sua visão com fidelidade.</p>
+            </div>
+            <div class="card">
+                <h3 style="font-family: var(--font-title); font-size: 22px;">03 - ORÇAMENTO</h3>
+                <p style="color: var(--text-gray); margin: 10px 0;">Respondemos rápido para que você feche rápido. Até 48h.</p>
+                <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">O tempo do seu cliente é a nossa prioridade.</p>
+            </div>
+            <div class="card">
+                <h3 style="font-family: var(--font-title); font-size: 22px;">04 - UM CONTATO</h3>
+                <p style="color: var(--text-gray); margin: 10px 0;">Você fala com uma pessoa. Sem redirecionar.</p>
+                <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Canal direto com quem resolve.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="bg-dark" style="padding: 100px 0;">
+        <div class="wrap reveal">
+            <h2 class="sec-title-main">06. Nosso Trabalho</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 40px;">
+                <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;"><img src="portfolio1.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Projeto 1"></div>
+                <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;"><img src="portfolio2.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Projeto 2"></div>
+                <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;"><img src="portfolio3.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Projeto 3"></div>
+                <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;"><img src="portfolio4.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Projeto 4"></div>
             </div>
         </div>
     </section>
@@ -247,9 +307,9 @@
             <img src="showroom3.jpg" alt="Showroom 3" style="width: 100%; aspect-ratio: 21/9; object-fit: cover; border-radius: 4px;">
         </div>
 
-        <div class="convite-box">
-            <h3 style="font-style: italic;">Inauguração exclusiva para parceiros</h3>
-            <p>Um evento íntimo, sem protocolo, para que você conheça o espaço antes de todo mundo.</p>
+        <div style="text-align: center; margin-top: 60px; padding: 40px; border: 1px solid var(--border-color); border-radius: 8px;">
+            <h3 style="font-family: var(--font-title); font-size: 24px; margin-bottom: 15px; font-style: italic;">Inauguração exclusiva para parceiros</h3>
+            <p style="font-size: 14px; color: var(--text-gray);">Um evento íntimo, sem protocolo, para que você conheça o espaço antes de todo mundo.</p>
             <p style="font-weight: 700; font-size: 11px; margin-top: 20px;">DATA: A CONFIRMAR - EM BREVE VOCÊ RECEBE O CONVITE</p>
             <a href="https://wa.me/5511964286008" class="btn-black" target="_blank">Quero ser avisada</a>
         </div>
@@ -261,32 +321,52 @@
         <p style="font-weight: 800; font-size: 11px; letter-spacing: 2px; color: var(--text-gray);">COMPLETO PARA O SEU CLIENTE</p>
 
         <div class="tarja-preta">
-            <div class="timeline-flex">
-                <div class="tl-card">
-                    <span class="tl-icon">↗</span>
-                    <h5>01-VOCÊ NOS APRESENTA</h5>
-                    <p>Passamos o Briefing juntos. Definimos escopos.</p>
-                    <p style="color: white; font-style: italic; margin-top: 10px; font-size: 12px;">Sem burocracia.</p>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="timeline-flex">
+                    <div class="tl-card">
+                        <div class="tl-icon-wrapper"><span class="tl-icon">↗</span></div>
+                        <h5>01-VOCÊ NOS APRESENTA</h5>
+                        <p>Passamos o Briefing juntos. Definimos escopos e os próximos passos.</p>
+                        <p style="color: white; font-style: italic; margin-top: 10px; font-size: 12px;">Sem formulário, sem burocracia.</p>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-icon-wrapper"><span class="tl-icon">⊙</span></div>
+                        <h5>02-NÓS CUIDAMOS DE TUDO</h5>
+                        <p>Projeto, orçamento, produção e instalação.</p>
+                        <p style="color: white; font-style: italic; margin-top: 10px; font-size: 12px;">De perto ou só nos marcos.</p>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-icon-wrapper"><span class="tl-icon">✓</span></div>
+                        <h5>03-ENTREGA NO PRAZO</h5>
+                        <p>Cliente satisfeito. Sua reputação intacta, e fortalecida.</p>
+                        <p style="color: white; font-style: italic; margin-top: 10px; font-size: 12px;">Sua indicação vira referência.</p>
+                    </div>
                 </div>
-                <div class="tl-card">
-                    <span class="tl-icon">⊙</span>
-                    <h5>02-NÓS CUIDAMOS DE TUDO</h5>
-                    <p>Projeto, orçamento, produção e instalação.</p>
-                    <p style="color: white; font-style: italic; margin-top: 10px; font-size: 12px;">Só nos marcos.</p>
+            </div>
+        </div>
+
+        <p style="margin-top: 50px; font-weight: 800; font-size: 18px;">Você indica uma vez. Vira parceiro para sempre.</p>
+        
+        <div style="margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--border-color); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px;">
+            <h2 style="font-family: var(--font-title); font-size: clamp(60px, 10vw, 90px); color: var(--brand-red); line-height: 1;">10%</h2>
+            <div>
+                <p style="font-weight: 800; margin-bottom: 10px; font-size: 14px;">COMISSIONAMENTO</p>
+                <p style="font-size: 14px; margin-bottom: 10px; color: var(--text-gray);">sobre o valor total da compra realizada na loja.<br>PLANEJADOS • CONVENCIONAIS • DECOR</p>
+                
+                <div style="margin: 20px 0; font-size: 13px;">
+                    <p style="margin-bottom: 5px;"><strong>PAGAMENTO:</strong> Pix</p>
+                    <p><strong>REPASSE:</strong> Após aprovação financeira e confirmação do pagamento.</p>
                 </div>
-                <div class="tl-card">
-                    <span class="tl-icon">✓</span>
-                    <h5>03-ENTREGA NO PRAZO</h5>
-                    <p>Cliente satisfeito. Sua reputação fortalecida.</p>
-                    <p style="color: white; font-style: italic; margin-top: 10px; font-size: 12px;">Vira referência.</p>
-                </div>
+
+                <p style="font-style: italic; font-size: 12px; color: #aaa;">Sem asterisco. O que está escrito aqui é o que vale.</p>
             </div>
         </div>
     </section>
 
     <section id="contatos" class="wrap reveal" style="padding: 100px 0;">
-        <h2 class="sec-title-main">09. CTA Final</h2>
-        <p class="sec-subtitle">Arquiteta, Que tal um café?</p>
+        <h2 class="sec-title-main" style="margin-bottom: 20px;">Arquiteta,<br>Que tal um café?</h2>
+        <p class="sec-subtitle">Sem apresentação formal, sem PowerPoint na mesa. Só uma conversa para ver se faz sentido para os dois lados.</p>
         
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px;">
             <div>
