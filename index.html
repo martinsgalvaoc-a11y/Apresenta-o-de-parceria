@@ -139,6 +139,11 @@
         
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; }
 
+        /* Estilos adicionados para a seção de vídeos */
+        .grid-3-video { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .video-wrapper { aspect-ratio: 9/16; border-radius: 8px; overflow: hidden; background: var(--bg-black); position: relative; }
+        .video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
         .sec-title-main {
             font-family: var(--font-title);
             font-weight: 900;
@@ -349,12 +354,14 @@
             .fachada-img { height: auto; aspect-ratio: 4/3; }
 
             .nav-inner { padding: 0 25px; }
+
+            /* Ajuste Mobile vídeos */
+            .grid-3-video { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- STICKY NAV -->
     <nav id="sticky-nav">
         <div class="nav-inner">
             <a href="#capa" class="nav-brand">Homefine &amp; ZIAR DECOR</a>
@@ -384,7 +391,6 @@
         </div>
     </nav>
 
-    <!-- CAPA -->
     <header id="capa" class="wrap">
         <div class="capa-logos">
             <img src="logo_homefine.png" alt="Homefine">
@@ -408,7 +414,6 @@
         </div>
     </header>
 
-    <!-- 01 NOVO MOMENTO -->
     <section id="novo-momento" class="wrap pad-section">
         <h2 class="sec-title-main">01. Novo<br>momento</h2>
         <p class="sec-subtitle">Estamos em um novo capítulo.</p>
@@ -418,7 +423,6 @@
         <p style="font-style: italic; font-size: 12px; color: #aaa; margin-top: 15px; text-align: left;">Três andares inteiros para você e seu cliente explorar.</p>
     </section>
 
-    <!-- 02 DOR DO PARCEIRO -->
     <section id="dor" class="bg-dark pad-section">
         <div class="wrap">
             <h2 class="sec-title-main">02. A dor do<br>parceiro</h2>
@@ -432,7 +436,6 @@
         </div>
     </section>
 
-    <!-- 03 QUEM SOMOS -->
     <section id="somos" class="wrap pad-section">
         <h2 class="sec-title-main">03. Quem<br>Somos</h2>
         <div class="grid-2" style="gap: 40px; margin-top: 40px;">
@@ -455,7 +458,6 @@
         </div>
     </section>
 
-    <!-- 04 O QUE ENTREGAMOS -->
     <section id="entregamos" class="bg-dark pad-section">
         <div class="wrap">
             <h2 class="sec-title-main">04. O que<br>Entregamos</h2>
@@ -489,7 +491,6 @@
         </div>
     </section>
 
-    <!-- 05 NOSSA PROMESSA -->
     <section id="promessa" class="wrap pad-section">
         <h2 class="sec-title-main">05. Nossa<br>Promessa</h2>
         <p class="sec-subtitle">Compromissos são fáceis de listar. Difíceis de cumprir.</p>
@@ -522,7 +523,6 @@
         </div>
     </section>
 
-    <!-- 06 PORTFÓLIO -->
     <section id="portfolio" class="bg-dark pad-section">
         <div class="wrap">
             <h2 class="sec-title-main">06. Nosso<br>Trabalho</h2>
@@ -535,7 +535,22 @@
         </div>
     </section>
 
-    <!-- 07 SHOWROOM -->
+    <section id="videos" class="wrap pad-section">
+        <h2 class="sec-title-main">A gente sabe fazer.</h2>
+        <p class="sec-subtitle" style="font-style: italic;">Play para conferir.</p>
+        <div class="grid-3-video" style="margin-top: 40px;">
+            <div class="video-wrapper">
+                <video src="video1.mp4" controls poster="thumb-video1.jpg"></video>
+            </div>
+            <div class="video-wrapper">
+                <video src="video2.mp4" controls poster="thumb-video2.jpg"></video>
+            </div>
+            <div class="video-wrapper">
+                <video src="video3.mp4" controls poster="thumb-video3.jpg"></video>
+            </div>
+        </div>
+    </section>
+
     <section id="showroom" class="wrap pad-section">
         <h2 class="sec-title-main">07. Novo<br>Showroom</h2>
         <p class="sec-subtitle">Antes de abrir para o público, queremos abrir para você.</p>
@@ -562,7 +577,6 @@
         </div>
     </section>
 
-    <!-- 08 COMO FUNCIONA -->
     <section id="funciona" class="wrap pad-section">
         <h2 class="sec-title-main">08. Como<br>Funciona</h2>
         <p class="sec-subtitle" style="margin-bottom: 5px;">Simples para você</p>
@@ -615,14 +629,12 @@
         </div>
     </section>
 
-    <!-- 09 CONTATO -->
     <section id="contatos" class="wrap pad-section">
         <h2 class="sec-title-main" style="margin-bottom: 20px;">Que tal um<br>café com a gente?</h2>
         <p class="sec-subtitle">Sem apresentação formal, sem PowerPoint na mesa. Só uma conversa para ver se faz sentido para os dois lados.</p>
         
         <div class="grid-2" style="gap: 60px; margin-top: 50px;">
 
-            <!-- Camila Renata -->
             <div>
                 <p style="font-weight: 800; font-size: 11px; letter-spacing: 2px; color: var(--text-gray); margin-bottom: 8px; text-transform: uppercase;">Camila Renata</p>
                 <p style="font-style: italic; font-size: 15px; color: var(--text-gray); margin-bottom: 24px;">Relacionamento &amp; Parcerias<br>Homefine &amp; ZIAR DECOR</p>
@@ -638,7 +650,6 @@
                 </a>
             </div>
 
-            <!-- Elias Orte -->
             <div>
                 <p style="font-weight: 800; font-size: 11px; letter-spacing: 2px; color: var(--text-gray); margin-bottom: 8px; text-transform: uppercase;">Elias Orte</p>
                 <p style="font-style: italic; font-size: 15px; color: var(--text-gray); margin-bottom: 24px;">Consultor Comercial<br>Homefine &amp; ZIAR DECOR</p>
