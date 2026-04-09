@@ -39,8 +39,8 @@
         .sec-title-main {
             font-family: var(--font-title);
             font-weight: 900;
-            font-size: clamp(48px, 8vw, 82px); /* Aumentado para dar mais destaque */
-            line-height: 1; /* Linhas mais unidas para ficar elegante com a quebra */
+            font-size: clamp(48px, 8vw, 82px);
+            line-height: 1; 
             margin-bottom: 20px;
         }
 
@@ -138,8 +138,25 @@
         .card { padding: 30px; border: 1px solid var(--border-color); border-radius: 8px; position: relative; }
         .card-icon { font-size: 28px; margin-bottom: 15px; display: block; }
         
-        /* Títulos Internos dos Cards: Montserrat ExtraBold */
-        .card h3 { font-family: var(--font-text); font-weight: 800; font-size: 22px; margin-bottom: 15px; }
+        /* Títulos Internos dos Cards com Duas Linhas */
+        .card-title-sm {
+            font-family: var(--font-text);
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+        .card-title-lg {
+            display: block;
+            font-size: 26px;
+            color: var(--text-dark);
+            margin-top: 5px;
+            line-height: 1.2;
+        }
+        .bg-dark .card-title-sm { color: #aaa; }
+        .bg-dark .card-title-lg { color: var(--bg-white); }
 
         .btn-black { 
             display: inline-block; background: var(--bg-black); color: white; 
@@ -160,6 +177,7 @@
             .tarja-vermelha { align-items: center; }
             .timeline-line { display: none; } 
             .tl-icon-wrapper { margin: 0 auto 20px auto; } 
+            .card-title-lg { font-size: 22px; }
         }
     </style>
 </head>
@@ -240,25 +258,25 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                 <div class="card bg-dark" style="border-color: #444;">
                     <span class="card-icon">📐</span>
-                    <h3>01 - Marcenaria</h3>
+                    <h3 class="card-title-sm">01 - Marcenaria<span class="card-title-lg">SOB MEDIDA.</span></h3>
                     <p style="color: #aaa; margin: 10px 0;">Produção precisa, projeto respeitado, acabamento premium.</p>
                     <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">O projeto que você entrega sai exatamente como foi concebido.</p>
                 </div>
                 <div class="card bg-dark" style="border-color: #444;">
                     <span class="card-icon">🛋️</span>
-                    <h3>02 - Móveis</h3>
+                    <h3 class="card-title-sm">02 - Móveis<span class="card-title-lg">CONVENCIONAIS.</span></h3>
                     <p style="color: #aaa; margin: 10px 0;">Catálogo amplo, marcas selecionadas, showroom físico.</p>
                     <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Leve seu cliente para ver e decidir. O espaço é seu.</p>
                 </div>
                 <div class="card bg-dark" style="border-color: #444;">
                     <span class="card-icon">🏺</span>
-                    <h3>03 - Decor</h3>
+                    <h3 class="card-title-sm">03 - Decor<span class="card-title-lg">& AMBIENTAÇÃO.</span></h3>
                     <p style="color: #aaa; margin: 10px 0;">Curadoria de peças para fechar o ambiente com identidade.</p>
                     <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Nada de ambiente pela metade, entregamos o todo.</p>
                 </div>
                 <div class="card bg-dark" style="border-color: #444;">
                     <span class="card-icon">🏗️</span>
-                    <h3>04 - Obras</h3>
+                    <h3 class="card-title-sm">04 - Obras<span class="card-title-lg">& REFORMAS.</span></h3>
                     <p style="color: #aaa; margin: 10px 0;">Execução supervisionada com parceiros certificados.</p>
                     <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Você não precisa mais supervisionar ninguém.</p>
                 </div>
@@ -271,24 +289,29 @@
         <p class="sec-subtitle">Compromissos são fáceis de listar. Difíceis de cumprir.</p>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
             <div class="card">
-                <h3>01 - PRAZO</h3>
+                <h3 class="card-title-sm">01 - Prazo<span class="card-title-lg">É PRAZO.</span></h3>
                 <p style="color: var(--text-gray); margin: 10px 0;">Comunicamos antes, nunca depois. Se algo mudar, você sabe primeiro.</p>
                 <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Nosso compromisso é com a sua tranquilidade.</p>
             </div>
             <div class="card">
-                <h3>02 - SEU PROJETO</h3>
+                <h3 class="card-title-sm">02 - Seu Projeto<span class="card-title-lg">É SAGRADO.</span></h3>
                 <p style="color: var(--text-gray); margin: 10px 0;">Nenhuma sugestão ao cliente sem autorização. O projeto é seu.</p>
                 <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Nós executamos a sua visão com fidelidade.</p>
             </div>
             <div class="card">
-                <h3>03 - ORÇAMENTO</h3>
+                <h3 class="card-title-sm">03 - Orçamento<span class="card-title-lg">EM ATÉ 48H.</span></h3>
                 <p style="color: var(--text-gray); margin: 10px 0;">Respondemos rápido para que você feche rápido. Até 48h.</p>
                 <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">O tempo do seu cliente é a nossa prioridade.</p>
             </div>
             <div class="card">
-                <h3>04 - UM CONTATO</h3>
+                <h3 class="card-title-sm">04 - Um Contato<span class="card-title-lg">DEDICADO.</span></h3>
                 <p style="color: var(--text-gray); margin: 10px 0;">Você fala com uma pessoa. Sem redirecionar.</p>
                 <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Canal direto com quem resolve.</p>
+            </div>
+            <div class="card" style="grid-column: 1 / -1;">
+                <h3 class="card-title-sm">05 - Garantia<span class="card-title-lg">DOCUMENTADA.</span></h3>
+                <p style="color: var(--text-gray); margin: 10px 0;">Pós-obra com prazo definido e processo claro. Sem letra miúda.</p>
+                <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Cuidamos do seu cliente com o mesmo zelo que você.</p>
             </div>
         </div>
     </section>
