@@ -33,7 +33,9 @@
         }
 
         .wrap { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+        .pad-section { padding-top: 100px; padding-bottom: 100px; }
         
+        /* Apenas os Títulos Principais das Seções usam a Alternates */
         .sec-title-main {
             font-family: var(--font-title);
             font-weight: 900;
@@ -53,11 +55,9 @@
 
         .bg-dark { background-color: var(--bg-black); color: var(--bg-white); }
         
-        /* Animação das seções rolando */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.on { opacity: 1; transform: translateY(0); }
 
-        /* Animação de entrada da capa (não depende do Javascript) */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -69,7 +69,8 @@
         .capa-logos img { height: 35px; object-fit: contain; }
         .capa-divisor { width: 1px; height: 35px; background-color: var(--border-color); }
         
-        .capa-saudacao { font-family: var(--font-title); font-weight: 900; font-size: clamp(48px, 8vw, 90px); margin-bottom: 20px; line-height: 1; }
+        /* Capa Saudação: Alterado para Montserrat ExtraBold */
+        .capa-saudacao { font-family: var(--font-text); font-weight: 800; font-size: clamp(48px, 8vw, 90px); margin-bottom: 20px; line-height: 1; }
         
         .capa-menu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 600px; margin: 40px 0; }
         .capa-menu a { 
@@ -128,13 +129,17 @@
         }
         .tl-icon { font-size: 20px; color: white; display: block; }
         
-        .tl-card h5 { font-family: var(--font-title); font-size: 18px; margin-bottom: 10px; }
+        /* Títulos Timeline: Alterado para Montserrat ExtraBold */
+        .tl-card h5 { font-family: var(--font-text); font-weight: 800; font-size: 18px; margin-bottom: 10px; }
         .tl-card p { font-size: 13px; color: #aaa; line-height: 1.5; }
 
-        /* Layout Geral */
-        .sh-previa-title { font-family: var(--font-title); font-weight: 900; font-size: 42px; margin: 20px 0; }
+        /* Layout Geral e Cards */
+        .sh-previa-title { font-family: var(--font-text); font-weight: 800; font-size: 42px; margin: 20px 0; }
         .card { padding: 30px; border: 1px solid var(--border-color); border-radius: 8px; position: relative; }
         .card-icon { font-size: 28px; margin-bottom: 15px; display: block; }
+        
+        /* Títulos Internos dos Cards: Alterado para Montserrat ExtraBold */
+        .card h3 { font-family: var(--font-text); font-weight: 800; font-size: 22px; margin-bottom: 15px; }
 
         .btn-black { 
             display: inline-block; background: var(--bg-black); color: white; 
@@ -149,6 +154,7 @@
         /* Ajustes Mobile */
         @media (max-width: 768px) {
             .wrap { padding: 0 25px; } 
+            .pad-section { padding-top: 60px; padding-bottom: 60px; }
             #capa { padding: 60px 25px; }
             .capa-menu, .timeline-flex, .tarja-vermelha { flex-direction: column; grid-template-columns: 1fr; gap: 30px; text-align: center; }
             .tarja-vermelha { align-items: center; }
@@ -185,14 +191,14 @@
         <p class="capa-aviso">Esse documento possui informações e dados que são de propriedade de Camila Renata, representante de relacionamento Home Fine e Ziar. Por favor, não divulgar sem o consentimento por escrito.</p>
     </header>
 
-    <section id="novo-momento" class="wrap reveal" style="padding: 100px 0;">
+    <section id="novo-momento" class="wrap reveal pad-section">
         <h2 class="sec-title-main">01. Novo momento</h2>
         <p class="sec-subtitle">Estamos em um novo capítulo.</p>
         <p style="font-size: 16px; line-height: 1.7; color: var(--text-gray); max-width: 600px;">Nova gestão. Novo showroom. Novo padrão de entrega.<br><br>Esta apresentação chega até você porque queremos construir parcerias à altura do que estamos nos tornando.</p>
         <img src="fachada.png" alt="Fachada" style="width: 100%; height: 450px; object-fit: cover; border-radius: 8px; margin-top: 40px;">
     </section>
 
-    <section id="dor" class="bg-dark" style="padding: 100px 0;">
+    <section id="dor" class="bg-dark pad-section">
         <div class="wrap reveal">
             <h2 class="sec-title-main">02. A dor do parceiro</h2>
             <p class="sec-subtitle">Você já perdeu noites de sono por causa de fornecedor?</p>
@@ -205,15 +211,15 @@
         </div>
     </section>
 
-    <section id="somos" class="wrap reveal" style="padding: 100px 0;">
+    <section id="somos" class="wrap reveal pad-section">
         <h2 class="sec-title-main">03. Quem Somos</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
             <div>
-                <h3 style="font-family: var(--font-title); font-size: 32px; margin-bottom: 15px;">Home Fine</h3>
+                <h3 style="font-family: var(--font-text); font-weight: 800; font-size: 32px; margin-bottom: 15px;">Home Fine</h3>
                 <p style="font-size: 15px; color: var(--text-gray);">Móveis Sob Medida. Projeto, Precisão e Acabamento Premium.</p>
             </div>
             <div>
-                <h3 style="font-family: var(--font-title); font-size: 32px; margin-bottom: 15px;">Ziar Decor</h3>
+                <h3 style="font-family: var(--font-text); font-weight: 800; font-size: 32px; margin-bottom: 15px;">Ziar Decor</h3>
                 <p style="font-size: 15px; color: var(--text-gray);">Móveis Convencionais. Decoração e Ambientação completa.</p>
             </div>
         </div>
@@ -227,7 +233,7 @@
         </div>
     </section>
 
-    <section id="entregamos" class="bg-dark" style="padding: 100px 0;">
+    <section id="entregamos" class="bg-dark pad-section">
         <div class="wrap reveal">
             <h2 class="sec-title-main">04. O que Entregamos</h2>
             <p class="sec-subtitle">Quatro frentes. Uma operação.</p>
@@ -260,34 +266,34 @@
         </div>
     </section>
 
-    <section id="promessa" class="wrap reveal" style="padding: 100px 0;">
+    <section id="promessa" class="wrap reveal pad-section">
         <h2 class="sec-title-main">05. Nossa Promessa</h2>
         <p class="sec-subtitle">Compromissos são fáceis de listar. Difíceis de cumprir.</p>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
             <div class="card">
-                <h3 style="font-family: var(--font-title); font-size: 22px;">01 - PRAZO</h3>
+                <h3>01 - PRAZO</h3>
                 <p style="color: var(--text-gray); margin: 10px 0;">Comunicamos antes, nunca depois. Se algo mudar, você sabe primeiro.</p>
                 <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Nosso compromisso é com a sua tranquilidade.</p>
             </div>
             <div class="card">
-                <h3 style="font-family: var(--font-title); font-size: 22px;">02 - SEU PROJETO</h3>
+                <h3>02 - SEU PROJETO</h3>
                 <p style="color: var(--text-gray); margin: 10px 0;">Nenhuma sugestão ao cliente sem autorização. O projeto é seu.</p>
                 <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Nós executamos a sua visão com fidelidade.</p>
             </div>
             <div class="card">
-                <h3 style="font-family: var(--font-title); font-size: 22px;">03 - ORÇAMENTO</h3>
+                <h3>03 - ORÇAMENTO</h3>
                 <p style="color: var(--text-gray); margin: 10px 0;">Respondemos rápido para que você feche rápido. Até 48h.</p>
                 <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">O tempo do seu cliente é a nossa prioridade.</p>
             </div>
             <div class="card">
-                <h3 style="font-family: var(--font-title); font-size: 22px;">04 - UM CONTATO</h3>
+                <h3>04 - UM CONTATO</h3>
                 <p style="color: var(--text-gray); margin: 10px 0;">Você fala com uma pessoa. Sem redirecionar.</p>
                 <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Canal direto com quem resolve.</p>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="bg-dark" style="padding: 100px 0;">
+    <section id="portfolio" class="bg-dark pad-section">
         <div class="wrap reveal">
             <h2 class="sec-title-main">06. Nosso Trabalho</h2>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 40px;">
@@ -299,7 +305,7 @@
         </div>
     </section>
 
-    <section id="showroom" class="wrap reveal" style="padding: 100px 0;">
+    <section id="showroom" class="wrap reveal pad-section">
         <h2 class="sec-title-main">07. Novo Showroom</h2>
         <p class="sec-subtitle">Antes de abrir para o público, queremos abrir para você.</p>
         
@@ -316,14 +322,14 @@
         </div>
 
         <div style="text-align: center; margin-top: 60px; padding: 40px; border: 1px solid var(--border-color); border-radius: 8px;">
-            <h3 style="font-family: var(--font-title); font-size: 24px; margin-bottom: 15px; font-style: italic;">Inauguração exclusiva para parceiros</h3>
+            <h3 style="font-family: var(--font-text); font-weight: 800; font-size: 24px; margin-bottom: 15px; font-style: italic;">Inauguração exclusiva para parceiros</h3>
             <p style="font-size: 14px; color: var(--text-gray);">Um evento íntimo, sem protocolo, para que você conheça o espaço antes de todo mundo.</p>
             <p style="font-weight: 700; font-size: 11px; margin-top: 20px;">DATA: A CONFIRMAR - EM BREVE VOCÊ RECEBE O CONVITE</p>
             <a href="https://wa.me/5511964286008" class="btn-black" target="_blank">Quero ser avisada</a>
         </div>
     </section>
 
-    <section id="funciona" class="wrap reveal" style="padding: 100px 0;">
+    <section id="funciona" class="wrap reveal pad-section">
         <h2 class="sec-title-main">08. Como Funciona</h2>
         <p class="sec-subtitle" style="margin-bottom: 5px;">Simples para você</p>
         <p style="font-weight: 800; font-size: 11px; letter-spacing: 2px; color: var(--text-gray);">COMPLETO PARA O SEU CLIENTE</p>
@@ -357,7 +363,7 @@
         <p style="margin-top: 50px; font-weight: 800; font-size: 18px;">Você indica uma vez. Vira parceiro para sempre.</p>
         
         <div style="margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--border-color); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px;">
-            <h2 style="font-family: var(--font-title); font-size: clamp(60px, 10vw, 90px); color: var(--brand-red); line-height: 1;">10%</h2>
+            <h2 style="font-family: var(--font-text); font-weight: 800; font-size: clamp(60px, 10vw, 90px); color: var(--brand-red); line-height: 1;">10%</h2>
             <div>
                 <p style="font-weight: 800; margin-bottom: 10px; font-size: 14px;">COMISSIONAMENTO</p>
                 <p style="font-size: 14px; margin-bottom: 10px; color: var(--text-gray);">sobre o valor total da compra realizada na loja.<br>PLANEJADOS • CONVENCIONAIS • DECOR</p>
@@ -372,7 +378,7 @@
         </div>
     </section>
 
-    <section id="contatos" class="wrap reveal" style="padding: 100px 0;">
+    <section id="contatos" class="wrap reveal pad-section">
         <h2 class="sec-title-main" style="margin-bottom: 20px;">Arquiteta,<br>Que tal um café?</h2>
         <p class="sec-subtitle">Sem apresentação formal, sem PowerPoint na mesa. Só uma conversa para ver se faz sentido para os dois lados.</p>
         
