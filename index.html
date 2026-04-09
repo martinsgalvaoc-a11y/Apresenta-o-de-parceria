@@ -75,11 +75,10 @@
         
         .capa-logos img { object-fit: contain; }
         .capa-logos img:first-of-type { height: 35px; }
-        .capa-logos img:last-of-type { height: 45px; } /* Ajuste de altura da Ziar (você pode editar aqui) */
+        .capa-logos img:last-of-type { height: 230px; } 
 
         .capa-saudacao { font-family: var(--font-text); font-weight: 800; font-size: clamp(40px, 8vw, 90px); margin-bottom: 20px; line-height: 1; }
         
-        /* Menu Alinhado */
         .capa-menu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px 30px; max-width: 600px; margin: 40px 0; text-align: left; }
         .capa-menu a { 
             font-weight: 600; font-size: 13px; letter-spacing: 1px; 
@@ -177,7 +176,6 @@
             
             .grid-2 { grid-template-columns: 1fr !important; }
             
-            /* Menu agora fica alinhado à esquerda e em uma coluna */
             .capa-menu { grid-template-columns: 1fr; text-align: left; }
             
             .timeline-flex, .tarja-vermelha { flex-direction: column; text-align: center; }
@@ -340,9 +338,9 @@
         <h2 class="sec-title-main">07. Novo<br>Showroom</h2>
         <p class="sec-subtitle">Antes de abrir para o público, queremos abrir para você.</p>
         
-        <h3 class="sh-previa-title">Prévia</h3>
+        <h3 class="sh-previa-title" style="margin-top: 60px;">Prévia</h3>
         <p style="font-weight: 800; font-size: 13px; letter-spacing: 1px; margin-bottom: 20px;">AINDA NÃO ABRIMOS. MAS JÁ QUEREMOS QUE VOCÊ VEJA.</p>
-        <p style="color: var(--text-gray); max-width: 550px; margin-bottom: 40px;">Estes são alguns dos ambientes sendo preparados para ser a extensão do seu atendimento.</p>
+        <p style="color: var(--text-gray); max-width: 550px; margin-bottom: 40px; line-height: 1.6;">Estes são alguns dos ambientes sendo preparados para o nosso novo showroom, um espaço projetado para ser a extensão do seu atendimento.</p>
 
         <div style="display: flex; flex-direction: column; gap: 10px;">
             <div style="display: flex; gap: 10px;">
@@ -351,6 +349,8 @@
             </div>
             <img src="showroom3.png" alt="Showroom 3" style="width: 100%; aspect-ratio: 21/9; object-fit: cover; border-radius: 4px;">
         </div>
+        
+        <p style="font-style: italic; font-size: 12px; color: #aaa; margin-top: 15px; text-align: left;">Imagens ilustrativas, showroom 2026 Home Fine & Ziar Decor.</p>
 
         <div style="text-align: center; margin-top: 60px; padding: 40px; border: 1px solid var(--border-color); border-radius: 8px;">
             <h3 style="font-family: var(--font-text); font-weight: 800; font-size: 24px; margin-bottom: 15px; font-style: italic;">Inauguração exclusiva para parceiros</h3>
@@ -393,22 +393,17 @@
 
         <p style="margin-top: 50px; font-weight: 800; font-size: 18px;">Você indica uma vez. Vira parceiro para sempre.</p>
         
-        <div style="margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--border-color);">
-            <h3 class="sh-previa-title" style="margin-bottom: 20px;">Comissionamento</h3>
+        <div style="margin-top: 80px;">
+            <h3 class="sh-previa-title" style="margin-bottom: 15px;">Comissionamento</h3>
             
-            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px;">
-                <h2 style="font-family: var(--font-text); font-weight: 800; font-size: clamp(60px, 10vw, 90px); color: var(--brand-red); line-height: 1; margin-top: -10px;">10%</h2>
-                <div style="flex: 1; min-width: 250px;">
-                    <p style="font-size: 14px; margin-bottom: 10px; color: var(--text-gray);">sobre o valor total da compra realizada na loja.<br>PLANEJADOS • CONVENCIONAIS • DECOR</p>
-                    
-                    <div style="margin: 20px 0; font-size: 13px;">
-                        <p style="margin-bottom: 5px;"><strong>PAGAMENTO:</strong> Pix</p>
-                        <p><strong>REPASSE:</strong> Após aprovação financeira e confirmação do pagamento.</p>
-                    </div>
-
-                    <p style="font-style: italic; font-size: 12px; color: #aaa;">Sem asterisco. O que está escrito aqui é o que vale.</p>
-                </div>
-            </div>
+            <hr style="border: none; border-top: 1px solid #ccc; margin-bottom: 15px;">
+            <h2 style="font-family: var(--font-text); font-weight: 800; font-size: clamp(80px, 15vw, 130px); color: var(--brand-red); line-height: 1; margin: 10px 0;">10%</h2>
+            <hr style="border: none; border-top: 1px solid #ccc; margin-top: 15px; margin-bottom: 30px;">
+            
+            <p style="font-size: 16px; margin-bottom: 5px; color: var(--text-gray);">sobre o valor total da compra realizada na loja.</p>
+            <p style="font-weight: 800; font-size: 14px; margin-bottom: 30px;">PLANEJADOS • CONVENCIONAIS • DECOR</p>
+            
+            <p style="font-style: italic; font-size: 14px; color: #aaa; line-height: 1.5;">Sem asterisco.<br>O que está escrito aqui<br>é o que vale.</p>
         </div>
     </section>
 
