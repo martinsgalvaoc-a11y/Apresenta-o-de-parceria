@@ -66,7 +66,18 @@
         /* Capa */
         #capa { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 40px; animation: fadeIn 1s ease-out forwards; }
         .capa-logos { display: flex; align-items: center; gap: 30px; margin-bottom: 60px; }
-        .capa-logos img { height: 35px; object-fit: contain; }
+        
+        /* Ajuste Proporcional dos Logos */
+        .capa-logos img { 
+            object-fit: contain; 
+        }
+        .capa-logos img:first-of-type {
+            height: 35px; /* Altura original para o logo da Home Fine */
+        }
+        .capa-logos img:last-of-type {
+            height: 42px; /* Aumentado ligeiramente para equilibrar proporcionalmente com o logo da Home Fine */
+        }
+
         .capa-divisor { width: 1px; height: 35px; background-color: var(--border-color); }
         
         /* Capa Saudação: Montserrat ExtraBold */
