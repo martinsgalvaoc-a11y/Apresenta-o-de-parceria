@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Proposta de Parceria | Homefine & ZIAR DECOR</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Montserrat+Alternates:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-white: #fffdfd;
+            --bg-black: #262626;
+            --brand-red: #8c0410;
+            --text-dark: #1a1a1a;
+            --text-gray: #888888;
+            --border-color: #e0dfdc;
+            --font-title: 'Montserrat Alternates', sans-serif;
+            --font-text: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            font-family: var(--font-text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── STICKY NAV ── */
+        #sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s;
+            background: rgba(255, 253, 253, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        #sticky-nav.visible {
+            transform: translateY(0);
+        }
+
+        .nav-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            font-weight: 800;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-gray);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--brand-red); }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .nav-hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .nav-drawer {
+            display: none;
+            flex-direction: column;
+            background: rgba(255, 253, 253, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 20px 25px 30px;
+            gap: 18px;
+            border-top: 1px solid var(--border-color);
+        }
+        .nav-drawer.open { display: flex; }
+        .nav-drawer a {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+        }
+
+        /* ── LAYOUT ── */
+        .wrap { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+        .pad-section { padding-top: 100px; padding-bottom: 100px; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; }
+
+        .sec-title-main {
+            font-family: var(--font-title);
+            font-weight: 900;
+            font-size: clamp(40px, 8vw, 82px);
+            line-height: 1; 
+            margin-bottom: 20px;
+            word-wrap: break-word;
+        }
+
+        .sec-subtitle {
+            font-family: var(--font-text);
+            font-weight: 400;
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .bg-dark { background-color: var(--bg-black); color: var(--bg-white); }
+
+        /* ── CAPA ── */
+        #capa { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 40px; }
+
+        .capa-logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        .capa-logos img {
+            object-fit: contain;
+            display: block;
+        }
+        .capa-logos img:first-of-type { height: 38px; }
+        .capa-logos img:last-of-type { height: 38px; }
+
+        .capa-saudacao { font-family: var(--font-text); font-weight: 800; font-size: clamp(60px, 14vw, 130px); margin-bottom: 20px; line-height: 1; }
+        
+        .capa-menu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px 30px; max-width: 600px; margin: 40px 0; text-align: left; }
+        .capa-menu a { 
+            font-weight: 600; font-size: 13px; letter-spacing: 1px; 
+            text-transform: uppercase; text-decoration: none; color: var(--text-dark);
+            transition: color 0.3s;
+        }
+        .capa-menu a:hover { color: var(--brand-red); }
+        
+        /* ── FOOTER / ASSINATURA ── */
+        .assinatura-main { font-family: var(--font-text); font-weight: 900; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; }
+        .renata-red { color: var(--brand-red); }
+        .ig-icon { width: 14px; height: 14px; vertical-align: middle; margin-right: 5px; fill: currentColor; }
+
+        /* ── TARJA VERMELHA ── */
+        .tarja-vermelha {
+            background: var(--brand-red);
+            color: white;
+            padding: 40px;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 4px;
+        }
+        .tarja-items { display: flex; gap: 40px; }
+        .tarja-vermelha span { font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+        .tarja-vermelha h4 { font-style: italic; font-weight: 800; font-size: 22px; }
+
+        /* ── TARJA PRETA / TIMELINE ── */
+        .tarja-preta {
+            background: var(--bg-black);
+            color: white;
+            padding: 60px 40px;
+            margin-top: 40px;
+            border-radius: 4px;
+        }
+        .timeline-container { position: relative; }
+        .timeline-line {
+            position: absolute;
+            top: 25px; 
+            left: 25px;
+            right: 25px;
+            height: 1px;
+            background: #555;
+            z-index: 1;
+        }
+        .timeline-flex { display: flex; justify-content: space-between; gap: 20px; }
+        .tl-card { flex: 1; position: relative; z-index: 2; }
+        
+        .tl-icon-wrapper {
+            width: 50px; height: 50px; 
+            border-radius: 50%; border: 1px solid #555; 
+            background: var(--bg-black); 
+            display: flex; align-items: center; justify-content: center; 
+            margin-bottom: 20px;
+        }
+        .tl-icon { font-size: 20px; color: white; display: block; }
+        
+        .tl-card h5 { font-family: var(--font-text); font-weight: 800; font-size: 18px; margin-bottom: 10px; }
+        .tl-card p { font-size: 13px; color: #aaa; line-height: 1.5; }
+
+        .sh-previa-title { font-family: var(--font-text); font-weight: 800; font-size: clamp(26px, 6vw, 42px); margin: 20px 0; }
+        
+        .fachada-img { width: 100%; height: 450px; object-fit: cover; border-radius: 8px; margin-top: 40px; }
+
+        /* ── CARDS ── */
+        .card { padding: 30px; border: 1px solid var(--border-color); border-radius: 8px; position: relative; }
+        .card-icon { font-size: 28px; margin-bottom: 15px; display: block; }
+        
+        .card-title-sm {
+            font-family: var(--font-text);
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+        .card-title-lg {
+            display: block;
+            font-size: 26px;
+            color: var(--text-dark);
+            margin-top: 5px;
+            line-height: 1.2;
+        }
+        .bg-dark .card-title-sm { color: #aaa; }
+        .bg-dark .card-title-lg { color: var(--bg-white); }
+
+        /* ── BOTÕES ── */
+        .btn-black { 
+            display: inline-block; background: var(--bg-black); color: white; 
+            padding: 18px 35px; text-decoration: none; font-weight: 800; 
+            font-size: 12px; letter-spacing: 2px; border-radius: 4px; 
+            margin-top: 20px; text-transform: uppercase;
+            transition: opacity 0.2s;
+        }
+        .btn-black:hover { opacity: 0.85; }
+
+        .btn-red {
+            display: inline-block;
+            background: var(--brand-red);
+            color: white;
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-red:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        /* ── LINKS DE CONTATO (mobile-friendly) ── */
+        .contact-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 800;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: color 0.2s;
+        }
+        .contact-link:hover { color: var(--brand-red); }
+        .contact-link .link-label { flex: 1; }
+        .contact-link .link-line {
+            display: inline-block;
+            width: 40px;
+            height: 1px;
+            background-color: currentColor;
+            margin: 0 15px;
+            flex-shrink: 0;
+        }
+        .contact-link .link-arrow { font-size: 18px; }
+
+        /* ── MOBILE ── */
+        @media (max-width: 768px) {
+            .wrap { padding: 0 25px; } 
+            .pad-section { padding-top: 60px; padding-bottom: 60px; }
+            #capa { padding: 60px 25px; }
+            
+            .grid-2 { grid-template-columns: 1fr !important; }
+            .capa-menu { grid-template-columns: 1fr; text-align: left; }
+            
+            .timeline-flex, .tarja-vermelha { flex-direction: column; text-align: center; }
+            .tarja-vermelha { align-items: center; gap: 20px; }
+            .tarja-items { flex-direction: column; gap: 10px; }
+            .tarja-vermelha h4 { text-align: center; margin-top: 10px; }
+            
+            .timeline-line { display: none; } 
+            .tl-icon-wrapper { margin: 0 auto 20px auto; } 
+            .card-title-lg { font-size: 22px; }
+            .fachada-img { height: auto; aspect-ratio: 4/3; }
+            .nav-inner { padding: 0 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="sticky-nav">
+        <div class="nav-inner">
+            <a href="#capa" class="nav-brand">Homefine &amp; ZIAR DECOR</a>
+            <ul class="nav-links">
+                <li><a href="#novo-momento">Novo Momento</a></li>
+                <li><a href="#somos">Quem Somos</a></li>
+                <li><a href="#entregamos">Entregamos</a></li>
+                <li><a href="#promessa">Promessa</a></li>
+                <li><a href="#showroom">Showroom</a></li>
+                <li><a href="#funciona">Como Funciona</a></li>
+                <li><a href="#contatos">Contato</a></li>
+            </ul>
+            <div class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="nav-drawer" id="nav-drawer">
+            <a href="#novo-momento">01. Novo Momento</a>
+            <a href="#dor">02. A dor do Parceiro</a>
+            <a href="#somos">03. Quem Somos</a>
+            <a href="#entregamos">04. O que entregamos</a>
+            <a href="#promessa">05. Nossa Promessa</a>
+            <a href="#portfolio">06. Portifólio</a>
+            <a href="#showroom">07. Novo Showroom</a>
+            <a href="#funciona">08. Como Funciona</a>
+            <a href="#contatos">09. Contato Final</a>
+        </div>
+    </nav>
+
+    <!-- CAPA -->
+    <header id="capa" class="wrap">
+        <div class="capa-logos">
+            <img src="logo_homefine.png" alt="Homefine">
+            <img src="logo_ziar.png" alt="Ziar Decor">
+        </div>
+        
+        <h1 class="capa-saudacao">Olá,<br>você!</h1>
+        <p style="font-size: 18px; color: var(--text-gray); max-width: 450px;">Esses são os detalhes e etapas da nossa proposta de parceria.</p>
+        
+        <div style="margin-top: 40px; font-weight: 800; font-size: 11px; letter-spacing: 2px;">MENU</div>
+        <div class="capa-menu">
+            <a href="#novo-momento">01. Novo Momento</a>
+            <a href="#dor">02. A dor do Parceiro</a>
+            <a href="#somos">03. Quem Somos</a>
+            <a href="#entregamos">04. O que entregamos</a>
+            <a href="#promessa">05. Nossa Promessa</a>
+            <a href="#portfolio">06. Portifólio</a>
+            <a href="#showroom">07. Novo Showroom</a>
+            <a href="#funciona">08. Como Funciona</a>
+            <a href="#contatos">09. Contato Final</a>
+        </div>
+    </header>
+
+    <!-- 01 NOVO MOMENTO -->
+    <section id="novo-momento" class="wrap pad-section">
+        <h2 class="sec-title-main">01. Novo<br>momento</h2>
+        <p class="sec-subtitle">Estamos em um novo capítulo.</p>
+        <p style="font-size: 16px; line-height: 1.7; color: var(--text-gray); max-width: 600px;">Nova gestão. Novo showroom. Novo padrão de entrega.<br><br>Esta apresentação chega até você porque queremos construir parcerias à altura do que estamos nos tornando.</p>
+        
+        <img src="fachada.png" alt="Fachada" class="fachada-img">
+        <p style="font-style: italic; font-size: 12px; color: #aaa; margin-top: 15px; text-align: left;">Três andares inteiros para você e seu cliente explorar.</p>
+    </section>
+
+    <!-- 02 DOR DO PARCEIRO — versão corretor -->
+    <section id="dor" class="bg-dark pad-section">
+        <div class="wrap">
+            <h2 class="sec-title-main">02. A dor do<br>parceiro</h2>
+            <p class="sec-subtitle">Seu cliente fechou o imóvel. E agora?</p>
+            <ul style="margin-top: 40px; list-style: none;">
+                <li style="font-size: 18px; padding: 20px 0; border-bottom: 1px solid #444; display: flex; gap: 20px;"><span style="font-weight: 800; color: var(--brand-red);">01.</span> Ele visitou dezenas de imóveis, negociou, assinou. Está exausto — e ainda precisa mobiliar tudo do zero.</li>
+                <li style="font-size: 18px; padding: 20px 0; border-bottom: 1px solid #444; display: flex; gap: 20px;"><span style="font-weight: 800; color: var(--brand-red);">02.</span> Sem tempo para pesquisar loja por loja. Sem energia para tomar mais uma decisão sozinho.</li>
+                <li style="font-size: 18px; padding: 20px 0; border-bottom: 1px solid #444; display: flex; gap: 20px;"><span style="font-weight: 800; color: var(--brand-red);">03.</span> Ele precisa de alguém de confiança que resolva isso por ele. E você pode ser essa pessoa.</li>
+            </ul>
+            <p style="font-style: italic; font-weight: 800; font-size: 20px; margin-top: 40px; color: var(--bg-white);">Você indica uma vez. A gente cuida de tudo — e você acompanha o quanto quiser. &rarr;</p>
+        </div>
+    </section>
+
+    <!-- 03 QUEM SOMOS -->
+    <section id="somos" class="wrap pad-section">
+        <h2 class="sec-title-main">03. Quem<br>Somos</h2>
+        <div class="grid-2" style="gap: 40px; margin-top: 40px;">
+            <div>
+                <h3 style="font-family: var(--font-text); font-weight: 800; font-size: 32px; margin-bottom: 15px;">Home Fine</h3>
+                <p style="font-size: 15px; color: var(--text-gray);">Móveis Sob Medida. Projeto, Precisão e Acabamento Premium.</p>
+            </div>
+            <div>
+                <h3 style="font-family: var(--font-text); font-weight: 800; font-size: 32px; margin-bottom: 15px;">Ziar Decor</h3>
+                <p style="font-size: 15px; color: var(--text-gray);">Móveis Convencionais. Decoração e Ambientação completa.</p>
+            </div>
+        </div>
+        
+        <div class="tarja-vermelha">
+            <div class="tarja-items">
+                <span>Duas Marcas &rarr;</span>
+                <span>Uma Operação &rarr;</span>
+            </div>
+            <h4>O ambiente inteiro entregue.</h4>
+        </div>
+    </section>
+
+    <!-- 04 O QUE ENTREGAMOS -->
+    <section id="entregamos" class="bg-dark pad-section">
+        <div class="wrap">
+            <h2 class="sec-title-main">04. O que<br>Entregamos</h2>
+            <p class="sec-subtitle">Quatro frentes. Uma operação.</p>
+            <div class="grid-2" style="gap: 20px;">
+                <div class="card bg-dark" style="border-color: #444;">
+                    <span class="card-icon">📐</span>
+                    <h3 class="card-title-sm">01 - Marcenaria<span class="card-title-lg">SOB MEDIDA.</span></h3>
+                    <p style="color: #aaa; margin: 10px 0;">Produção precisa, projeto respeitado, acabamento premium.</p>
+                    <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">O projeto que você entrega sai exatamente como foi concebido.</p>
+                </div>
+                <div class="card bg-dark" style="border-color: #444;">
+                    <span class="card-icon">🛋️</span>
+                    <h3 class="card-title-sm">02 - Móveis<span class="card-title-lg">CONVENCIONAIS.</span></h3>
+                    <p style="color: #aaa; margin: 10px 0;">Catálogo amplo, marcas selecionadas, showroom físico.</p>
+                    <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Leve seu cliente para ver e decidir. O espaço é seu.</p>
+                </div>
+                <div class="card bg-dark" style="border-color: #444;">
+                    <span class="card-icon">🏺</span>
+                    <h3 class="card-title-sm">03 - Decor<span class="card-title-lg">& AMBIENTAÇÃO.</span></h3>
+                    <p style="color: #aaa; margin: 10px 0;">Curadoria de peças para fechar o ambiente com identidade.</p>
+                    <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Nada de ambiente pela metade, entregamos o todo.</p>
+                </div>
+                <div class="card bg-dark" style="border-color: #444;">
+                    <span class="card-icon">🏗️</span>
+                    <h3 class="card-title-sm">04 - Obras<span class="card-title-lg">& REFORMAS.</span></h3>
+                    <p style="color: #aaa; margin: 10px 0;">Execução supervisionada com parceiros certificados.</p>
+                    <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Você não precisa mais supervisionar ninguém.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 NOSSA PROMESSA — card 02 adaptado para corretor -->
+    <section id="promessa" class="wrap pad-section">
+        <h2 class="sec-title-main">05. Nossa<br>Promessa</h2>
+        <p class="sec-subtitle">Compromissos são fáceis de listar. Difíceis de cumprir.</p>
+        <div class="grid-2" style="gap: 20px;">
+            <div class="card">
+                <h3 class="card-title-sm">01 - Prazo<span class="card-title-lg">É PRAZO.</span></h3>
+                <p style="color: var(--text-gray); margin: 10px 0;">Comunicamos antes, nunca depois. Se algo mudar, você sabe primeiro.</p>
+                <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Nosso compromisso é com a sua tranquilidade.</p>
+            </div>
+            <div class="card">
+                <h3 class="card-title-sm">02 - Seu Cliente<span class="card-title-lg">É SEU.</span></h3>
+                <p style="color: var(--text-gray); margin: 10px 0;">Nenhum contato direto sem a sua autorização. A relação que você construiu é respeitada por nós.</p>
+                <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Você indica. Nós atendemos. O vínculo continua sendo seu.</p>
+            </div>
+            <div class="card">
+                <h3 class="card-title-sm">03 - Orçamento<span class="card-title-lg">EM ATÉ 48H.</span></h3>
+                <p style="color: var(--text-gray); margin: 10px 0;">Respondemos rápido para que você feche rápido. Até 48h.</p>
+                <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">O tempo do seu cliente é a nossa prioridade.</p>
+            </div>
+            <div class="card">
+                <h3 class="card-title-sm">04 - Um Contato<span class="card-title-lg">DEDICADO.</span></h3>
+                <p style="color: var(--text-gray); margin: 10px 0;">Você fala com uma pessoa. Sem redirecionar.</p>
+                <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Canal direto com quem resolve.</p>
+            </div>
+            <div class="card" style="grid-column: 1 / -1;">
+                <h3 class="card-title-sm">05 - Garantia<span class="card-title-lg">DOCUMENTADA.</span></h3>
+                <p style="color: var(--text-gray); margin: 10px 0;">Pós-obra com prazo definido e processo claro. Sem letra miúda.</p>
+                <p style="font-style: italic; font-size: 13px; border-left: 2px solid var(--brand-red); padding-left: 10px;">Cuidamos do seu cliente com o mesmo zelo que você.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06 PORTFÓLIO -->
+    <section id="portfolio" class="bg-dark pad-section">
+        <div class="wrap">
+            <h2 class="sec-title-main">06. Nosso<br>Trabalho</h2>
+            <div class="grid-2" style="gap: 10px; margin-top: 40px;">
+                <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;"><img src="portfolio1.jpeg" style="width: 100%; height: 100%; object-fit: cover;" alt="Projeto 1"></div>
+                <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;"><img src="portfolio2.jpeg" style="width: 100%; height: 100%; object-fit: cover;" alt="Projeto 2"></div>
+                <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;"><img src="portfolio3.jpeg" style="width: 100%; height: 100%; object-fit: cover;" alt="Projeto 3"></div>
+                <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;"><img src="portfolio4.jpeg" style="width: 100%; height: 100%; object-fit: cover;" alt="Projeto 4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VÍDEOS -->
+    <section id="videos-projeto" class="wrap pad-section">
+        <p style="font-weight: 800; font-size: 11px; letter-spacing: 2px; color: var(--text-gray); margin-bottom: 8px; text-transform: uppercase;">VIDEOS DO PROJETO</p>
+        <h2 class="sec-title-main">Veja como<br>entregamos</h2>
+        <p class="sec-subtitle">Dois projetos completos. A entrega final.</p>
+        
+        <div class="grid-2" style="gap: 40px; margin-top: 40px;">
+            <div>
+                <div style="aspect-ratio: 9/16; border-radius: 8px; overflow: hidden; background: #000;">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/nYa43ixQvTw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p style="color: var(--text-gray); font-style: italic; margin-top: 15px; font-size: 14px;">Projeto 01. Tour Completa</p>
+            </div>
+            <div>
+                <div style="aspect-ratio: 9/16; border-radius: 8px; overflow: hidden; background: #000;">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tN0T7miS9Dk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p style="color: var(--text-gray); font-style: italic; margin-top: 15px; font-size: 14px;">Projeto 02. Tour Completa</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07 SHOWROOM -->
+    <section id="showroom" class="wrap pad-section">
+        <h2 class="sec-title-main">07. Novo<br>Showroom</h2>
+        <p class="sec-subtitle">Antes de abrir para o público, queremos abrir para você.</p>
+        
+        <h3 class="sh-previa-title" style="margin-top: 60px;">Prévia</h3>
+        <p style="font-weight: 800; font-size: 13px; letter-spacing: 1px; margin-bottom: 20px;">AINDA NÃO ABRIMOS. MAS JÁ QUEREMOS QUE VOCÊ VEJA.</p>
+        <p style="color: var(--text-gray); max-width: 550px; margin-bottom: 40px; line-height: 1.6;">Estes são alguns dos ambientes sendo preparados para o nosso novo showroom, um espaço projetado para ser a extensão do seu atendimento.</p>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; gap: 10px;">
+                <img src="showroom1.png" alt="Showroom 1" style="width: 50%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px;">
+                <img src="showroom2.png" alt="Showroom 2" style="width: 50%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px;">
+            </div>
+            <img src="showroom3.png" alt="Showroom 3" style="width: 100%; aspect-ratio: 21/9; object-fit: cover; border-radius: 4px;">
+        </div>
+        
+        <p style="font-style: italic; font-size: 12px; color: #aaa; margin-top: 15px; text-align: left;">Imagens ilustrativas, showroom 2026 Home Fine & Ziar Decor.</p>
+
+        <div style="text-align: center; margin-top: 60px; padding: 40px; border: 1px solid var(--border-color); border-radius: 8px;">
+            <h3 style="font-family: var(--font-text); font-weight: 800; font-size: 24px; margin-bottom: 15px; font-style: italic;">Inauguração exclusiva para parceiros</h3>
+            <p style="font-size: 14px; color: var(--text-gray);">Um evento íntimo, sem protocolo, para que você conheça o espaço antes de todo mundo.</p>
+            <p style="font-weight: 700; font-size: 11px; margin-top: 20px;">DATA: A CONFIRMAR - EM BREVE VOCÊ RECEBE O CONVITE</p>
+            <a href="https://wa.me/5511964286008" class="btn-red" target="_blank">Quero ser avisado</a>
+        </div>
+    </section>
+
+    <!-- 08 COMO FUNCIONA -->
+    <section id="funciona" class="wrap pad-section">
+        <h2 class="sec-title-main">08. Como<br>Funciona</h2>
+        <p class="sec-subtitle" style="margin-bottom: 5px;">Simples para você</p>
+        <p style="font-weight: 800; font-size: 11px; letter-spacing: 2px; color: var(--text-gray);">COMPLETO PARA O SEU CLIENTE</p>
+
+        <div class="tarja-preta">
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="timeline-flex">
+                    <div class="tl-card">
+                        <div class="tl-icon-wrapper"><span class="tl-icon">↗</span></div>
+                        <h5>01-VOCÊ NOS APRESENTA</h5>
+                        <p>Passamos o Briefing juntos. Definimos escopos e os próximos passos.</p>
+                        <p style="color: white; font-style: italic; margin-top: 10px; font-size: 12px;">Sem formulário, sem burocracia.</p>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-icon-wrapper"><span class="tl-icon">⊙</span></div>
+                        <h5>02-NÓS CUIDAMOS DE TUDO</h5>
+                        <p>Projeto, orçamento, produção e instalação.</p>
+                        <p style="color: white; font-style: italic; margin-top: 10px; font-size: 12px;">De perto ou só nos marcos.</p>
+                    </div>
+                    <div class="tl-card">
+                        <div class="tl-icon-wrapper"><span class="tl-icon">✓</span></div>
+                        <h5>03-ENTREGA NO PRAZO</h5>
+                        <p>Cliente satisfeito. Sua reputação intacta, e fortalecida.</p>
+                        <p style="color: white; font-style: italic; margin-top: 10px; font-size: 12px;">Sua indicação vira referência.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p style="margin-top: 50px; font-weight: 800; font-size: 18px;">Você indica uma vez. Vira parceiro para sempre.</p>
+        
+        <div style="margin-top: 80px;">
+            <h3 class="sh-previa-title" style="margin-bottom: 15px;">Comissionamento</h3>
+            
+            <hr style="border: none; border-top: 1px solid #ccc; margin-bottom: 15px;">
+            
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <h2 style="font-family: var(--font-text); font-weight: 800; font-size: clamp(70px, 18vw, 130px); color: var(--brand-red); line-height: 0.8; margin: 0;">10%</h2>
+                <div style="flex: 1;">
+                    <p style="font-size: 13px; line-height: 1.4; color: var(--text-gray); margin-bottom: 5px;">sobre o valor total da compra realizada na loja.</p>
+                    <p style="font-weight: 800; font-size: 11px; line-height: 1.4;">PLANEJADOS • CONVENCIONAIS • DECOR</p>
+                </div>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid #ccc; margin-top: 15px; margin-bottom: 20px;">
+            
+            <p style="font-style: italic; font-size: 13px; color: #aaa; line-height: 1.4; text-align: left;">Sem asterisco.<br>O que está escrito aqui<br>é o que vale.</p>
+        </div>
+    </section>
+
+    <!-- 09 CONTATO -->
+    <section id="contatos" class="wrap pad-section">
+        <h2 class="sec-title-main" style="margin-bottom: 20px;">Que tal um<br>café com a gente?</h2>
+        <p class="sec-subtitle">Sem apresentação formal, sem PowerPoint na mesa. Só uma conversa para ver se faz sentido para os dois lados.</p>
+        
+        <div class="grid-2" style="gap: 60px; margin-top: 50px;">
+            <div>
+                <p style="font-weight: 800; font-size: 11px; letter-spacing: 2px; color: var(--text-gray); margin-bottom: 8px; text-transform: uppercase;">Camila Renata</p>
+                <p style="font-style: italic; font-size: 15px; color: var(--text-gray); margin-bottom: 24px;">Relacionamento &amp; Parcerias<br>Homefine &amp; ZIAR DECOR</p>
+                <a href="https://wa.me/5511964286008" class="contact-link" target="_blank">
+                    <span class="link-label">WhatsApp</span>
+                    <span class="link-line"></span>
+                    <span class="link-arrow">&rarr;</span>
+                </a>
+                <a href="mailto:administrativo@homefinemoveis.com" class="contact-link">
+                    <span class="link-label">E-mail</span>
+                    <span class="link-line"></span>
+                    <span class="link-arrow">&rarr;</span>
+                </a>
+            </div>
+            <div>
+                <p style="font-weight: 800; font-size: 11px; letter-spacing: 2px; color: var(--text-gray); margin-bottom: 8px; text-transform: uppercase;">Elias Orte</p>
+                <p style="font-style: italic; font-size: 15px; color: var(--text-gray); margin-bottom: 24px;">Consultor Comercial<br>Homefine &amp; ZIAR DECOR</p>
+                <a href="https://wa.me/5511985300649" class="contact-link" target="_blank">
+                    <span class="link-label">WhatsApp</span>
+                    <span class="link-line"></span>
+                    <span class="link-arrow">&rarr;</span>
+                </a>
+                <a href="mailto:administrativo@homefinemoveis.com" class="contact-link">
+                    <span class="link-label">E-mail</span>
+                    <span class="link-line"></span>
+                    <span class="link-arrow">&rarr;</span>
+                </a>
+            </div>
+        </div>
+
+        <footer style="margin-top: 80px; padding: 40px 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-bottom: 20px;">
+                <div class="assinatura-main">CAMILA<span class="renata-red">RENATA</span>.</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                    <a href="https://www.instagram.com/homefinebr/" style="text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 13px; display: flex; align-items: center;"><svg class="ig-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@homefinebr</a>
+                    <a href="https://www.instagram.com/ziardecor/" style="text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 13px; display: flex; align-items: center;"><svg class="ig-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@ziardecor</a>
+                </div>
+            </div>
+            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 20px; width: 100%;">
+            <p style="font-size: 10px; color: #aaa; line-height: 1.5; text-align: left;">Esse documento possui informações e dados que são de propriedade de Camila Renata, representante de relacionamento Home Fine e Ziar. Por favor, não divulgar sem o consentimento por escrito.</p>
+        </footer>
+    </section>
+
+    <script>
+        const nav = document.getElementById('sticky-nav');
+        const capa = document.getElementById('capa');
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (!entry.isIntersecting) {
+                    nav.classList.add('visible');
+                } else {
+                    nav.classList.remove('visible');
+                }
+            },
+            { threshold: 0.1 }
+        );
+        observer.observe(capa);
+
+        const hamburger = document.getElementById('nav-hamburger');
+        const drawer = document.getElementById('nav-drawer');
+
+        hamburger.addEventListener('click', () => {
+            drawer.classList.toggle('open');
+        });
+
+        drawer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => drawer.classList.remove('open'));
+        });
+    </script>
+
+</body>
+</html>
